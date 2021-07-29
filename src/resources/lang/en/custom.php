@@ -24,7 +24,17 @@ return [
     'list' => 'List',
     'add' => 'Add',
 
-    /* Button, other... */
+    /* Login... */
+    'email' => 'Email',
+    'password' => 'Password',
+    'remember_password' => 'Remember password',
+    'forgot_password' => 'Forgot password?',
+    'enter_email' => 'Enter email',
+    'enter_password' => 'Enter password',
+    'username' => 'Username',
+    'confirm_password' => 'Confirm password',
+    'Do you already have an account' => 'Do you already have an account?',
+    'register' => 'Register'
 
     /* Message */
 

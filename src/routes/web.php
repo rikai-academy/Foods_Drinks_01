@@ -23,11 +23,13 @@ Route::group(['middleware' => 'locale'], function() {
 
     # Home page
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    # Route Auth
+    Auth::routes();
 
     # Admin page
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
     });
 });
-
-

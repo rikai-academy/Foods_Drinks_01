@@ -4,7 +4,6 @@ return [
     /* Title */
     'home_page' => 'Home Page',
     'admin_page' => 'Admin Page',
-    'categories' => 'Categories',
     'account' => 'Account',
     'login' => 'Login',
     'cart' => 'Cart',
@@ -31,6 +30,25 @@ return [
     'latest_products' => 'latest products',
     'recommended_products' => 'recommended products',
     'add_to_cart' => 'Add to cart',
+    'search_products' => 'Search Products',
+    'filter' => 'Filter',
+    'by_category' => 'By Category',
+    'by_price' => 'By Price',
+    'by_rating' => 'By Rating',
+    'apply' => 'APPLY',
+    'clear_all' => 'CLEAR ALL',
+    'sort_price' => 'Sort Price',
+    'low_to_high' => 'Low to High',
+    'high_to_low' => 'High to Low',
+    'min' => 'Min',
+    'max' => 'Max',
+    'sort_alphabet' => 'Sort Alphabet',
+    'a_to_z' => 'A to Z',
+    'z_to_a' => 'Z to A',
+    'name_product' => 'Name',
+    'price' => 'Price',
+    'and_up' => '& Up',
+    'result_search' => 'Search results for keyword',
 
     /* Login... */
     'email' => 'Email',
@@ -50,6 +68,8 @@ return [
 
     /* Message */
     'no_data' => "No data.",
-    'Login_error' => "Login unsuccessful!"
-
+    'Login_error' => "Login unsuccessful!",
+    'js_price_empty'  => 'The 2 fields of lowest price and highest price are not empty!',
+    'js_price_format' => 'The highest low price must be greater than the lowest price must be numeric!',
+    'js_price_value'  => 'The highest low price must be greater than the lowest price!',
 ];

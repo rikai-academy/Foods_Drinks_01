@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
           CategoryTypeSeeder::class,
           CategoriesSeeder::class,
           ProductSeeder::class,
+          EvaluatesSeeder::class,
         ]);
     }
 }

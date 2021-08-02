@@ -30,6 +30,25 @@ return [
     'latest_products' => 'Sản phẩm mới nhất',
     'recommended_products' => 'Sản phẩm được đề xuất',
     'add_to_cart' => 'Thêm vào giỏ hàng',
+    'search_products' => 'Sản phẩm tìm kiếm',
+    'filter' => 'Bộ lọc',
+    'by_category' => 'Theo Danh mục',
+    'by_price' => 'Theo Giá cả',
+    'by_rating' => 'Theo Đánh giá',
+    'apply' => 'ÁP DỤNG',
+    'clear_all' => 'XÓA TẤT CẢ',
+    'sort_price' => 'Sắp xếp theo giá cả',
+    'low_to_high' => 'Từ thấp đến cao',
+    'high_to_low' => 'Từ cao đến thấp',
+    'min' => 'Thấp nhất',
+    'max' => 'Cao nhất',
+    'sort_alphabet' => 'Sắp xếp theo chữ cái',
+    'a_to_z' => 'Từ A đến Z',
+    'z_to_a' => 'Từ Z đến A',
+    'name_product' => 'Tên sản phẩm',
+    'price' => 'Giá cả',
+    'and_up' => 'trở lên',
+    'result_search' => 'Kết quả tìm kiếm cho từ khoá',
 
     /* Login... */
     'email' => 'Địa chỉ email',
@@ -47,9 +66,10 @@ return [
     'Privacy Policy' => 'Chính sách bảo mật',
     'Terms And Conditions' => 'Các điều khoản và điều kiện',
 
-    /* Button, other... */
-
     /* Message */
     'no_data' => "Không có dữ liệu.",
-    'Login_error' => "Đăng nhập không thành công!"
+    'Login_error' => "Đăng nhập không thành công!",
+    'js_price_empty' => '2 trường giá thấp nhất và giá cao nhất không để trống!',
+    'js_price_format' => 'Giá thấp cao nhất phải lớn hơn giá thấp nhất phải là kiểu số!',
+    'js_price_value' => 'Giá thấp cao nhất phải lớn hơn giá thấp nhất!',
 ];

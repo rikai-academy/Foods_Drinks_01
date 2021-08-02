@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Food and Drinks">
 <meta name="author" content="Food and Drinks">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <title>Food and Drinks</title>
 

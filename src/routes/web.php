@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,4 +42,8 @@ Route::group(['middleware' => 'locale'], function() {
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
     });
+
+    # Search Products
+    Route::get('/search', [SearchController::class, 'getSearchProducts'])->name('search_products');
+
 });

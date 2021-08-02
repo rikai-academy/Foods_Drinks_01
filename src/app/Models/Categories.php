@@ -26,4 +26,7 @@ class Categories extends Model
     {
         return $query->where('category_types_id', $category_types)->orderBy('name');
     }
+    public function scopeSlug($query, $slug) {
+        return $query->where('slug', $slug);
+    }
 }

@@ -51,7 +51,11 @@ h6 {
   background: none repeat scroll 0 0 #000;
 }
 
-.contactinfo ul li a {
+.product-info > p > a:hover {
+  margin: 1px;
+}
+
+.contactinfo > ul > li > a {
   font-size: 12px;
   color: #fff;
   font-family: 'Roboto', sans-serif;
@@ -141,14 +145,6 @@ h6 {
   box-shadow: none;
 }
 
-.dropdown-menu li a:hover,
-.dropdown-menu li a:focus {
-  background-color: #fe980f;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  text-decoration: none;
-}
-
 .shop-menu ul li {
   display: inline-block;
   padding-left: 15px;
@@ -174,11 +170,6 @@ h6 {
   margin-right: 3px;
 }
 
-.shop-menu ul li a:hover {
-  color: #fe980f;
-  background: #fff;
-}
-
 .header-bottom {
   padding-bottom: 30px;
   padding-top: 30px;
@@ -202,9 +193,17 @@ h6 {
   padding-bottom: 10px;
 }
 
-.mainmenu ul li a:hover,
-.mainmenu ul li a.active,
-.shop-menu ul li a.active {
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: #fe980f;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.mainmenu > ul > li > a:hover,
+.mainmenu > ul > li > a.active,
+.shop-menu > ul > li > a.active {
   background: none;
   color: #fdb45e;
 }
@@ -294,10 +293,6 @@ ul.sub-menu {
   color: #b4b1ab;
   font-size: 27px;
   text-transform: uppercase;
-}
-
-.companyinfo h2 span {
-  color: #fe980f;
 }
 
 .companyinfo p {
@@ -418,7 +413,16 @@ ul.sub-menu {
   padding-bottom: 20px;
 }
 
-.navbar-nav li ul.sub-menu li a {
+.shop-menu > ul > li > a:hover {
+  color: #fe980f;
+  background: #fff;
+}
+
+.contactinfo > ul > li > a:hover {
+  background: inherit;
+}
+
+.navbar-nav > li > ul.sub-menu > li > a {
   color: #fff;
 }
 
@@ -531,6 +535,7 @@ h2.title::before {
   padding-bottom: 20px;
   padding-top: 15px;
 }
+
 .brands-filter {
   border: 1px solid #f7f7f0;
   padding: 15px 25px;
@@ -633,6 +638,10 @@ h2.title::before {
   color: #fe980f;
 }
 
+.product-info {
+  position: relative;
+}
+
 .product-info p {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -644,8 +653,8 @@ h2.title::before {
   width: 100%;
 }
 
-.product-info {
-  position: relative;
+.product-info > p > a {
+  margin: 1px;
 }
 
 .product-overlay {
@@ -737,11 +746,7 @@ h2.title::before {
   margin-left: -15px;
 }
 
-.contactinfo ul li a:hover {
-  background: inherit;
-}
-
-.navbar-nav li ul.sub-menu li a:hover {
+.navbar-nav > li > ul.sub-menu > li > a:hover {
   color: #fdb45e;
 }
 
@@ -781,6 +786,16 @@ a#scrollUp i {
   color: #fe980f !important;
 }
 
+.result-search {
+  font-size: 16px;
+  padding-left: 15px;
+  margin-bottom: 25px;
+}
+
 .result-search span {
+  color: #fe980f;
+}
+
+.companyinfo h2 span {
   color: #fe980f;
 }

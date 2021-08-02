@@ -104,8 +104,8 @@
                         <li><a href="{{ route('admin') }}">{{ __('custom.admin_page') }}</a></li>
                         <li class="dropdown"><a href="#">{{ __('custom.category') }}<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="">{{ __('custom.food') }}</a></li>
-                                <li><a href="">{{ __('custom.drink') }}</a></li>
+                                <li><a href="{{ route('search_category_type', ['slug' => 'food']) }}">{{ __('custom.food') }}</a></li>
+                                <li><a href="{{ route('search_category_type', ['slug' => 'drink']) }}">{{ __('custom.drink') }}</a></li>
                             </ul>
                         </li>
                     </ul>

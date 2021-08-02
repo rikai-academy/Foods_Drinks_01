@@ -1,8 +1,17 @@
+
 <script src="{{ asset('js/web/jquery-1.7.1.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         let url = new URL(window.location.href);
         let query = url.searchParams.get("q");
+        let slug = url.pathname;
+        if (slug && slug.indexOf("category-type") != -1) {
+            slug = slug.slice(1).replace("/category-type", "");
+        }else if (slug && slug.indexOf("category") != -1) {
+            slug = slug.slice(1).replace("/category", "");
+        } else {
+            slug = "";
+        }
         let page = 1, category = 0, sort_category = 0, sort_price = 0, min_price = 0, max_price = 0, rating = 0;
         // Set param old
         @if(isset($param['category'])){!! 'category='.$param['category'].';' !!}@endif
@@ -31,6 +40,11 @@
             $("#filterRating5").removeClass("click-active");
             $('#sltPrice option[value=0]').prop('selected', true)
             $('#sltPrice option[value=0]').prop('selected', true);
+            if (slug == "") {
+                category = 0;
+                $('#chkFoods').prop('checked', false);
+                $('#chkDrinks').prop('checked', false);
+            }
             filter_data();
         });
         // Sort Alphabet
@@ -102,10 +116,10 @@
             }
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: "search",
+                url: url.origin + "/search",
                 type: 'GET',
                 contentType: "application/json; charset=utf-8",
-                data: {q:query,page:page,category:category,sortCategory:sort_category,
+                data: {q:query,slug:slug,page:page,category:category,sortCategory:sort_category,
                     sortPrice:sort_price,minPrice:min_price,maxPrice:max_price,rating:rating,
                 },
                 success: function (data) {
@@ -114,6 +128,7 @@
             });
         }
     });
+    // Check checked Category
     function getValueCheckCategory(){
         let chkFood = $("input#chkFoods");
         let chkDrink = $('input#chkDrinks');

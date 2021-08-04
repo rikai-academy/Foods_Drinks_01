@@ -24,6 +24,17 @@ return [
     'list' => 'Danh sách',
     'add' => 'Thêm',
 
+    /* Login... */
+    'email' => 'Địa chỉ email',
+    'password' => 'Mật khẩu',
+    'remember_password' => 'Nhớ mật khẩu',
+    'forgot_password' => 'Quên mật khẩu?',
+    'enter_email' => 'Nhập địa chỉ email',
+    'enter_password' => 'Nhập mật khẩu',
+    'username' => 'Tên người dùng',
+    'confirm_password' => 'Nhập lại mật khẩu',
+    'Do you already have an account' => 'Bạn đã có tài khoản?',
+    'register' => 'Đăng kí'
     /* Button, other... */
 
     /* Message */

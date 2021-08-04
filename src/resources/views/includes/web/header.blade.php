@@ -51,9 +51,14 @@
                 </div>
                 <div class="shop-menu pull-right clearfix">
                     <ul class="nav navbar-nav">
-                        <li><a href=""><i class="fa fa-user"></i> {{ __('custom.account') }}</a></li>
-                        <li><a href=""><i class="fa fa-lock"></i> {{ __('custom.login') }}</a></li>
+                        @if(Auth::user())
+                        <li><a href=""><i class="fa fa-user"></i> {{Auth::user()->name}}</a></li>
                         <li><a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a></li>
+                        @else
+                        <li><a href=""><i class="fa fa-lock"></i> {{ __('custom.login') }}</a></li>
+                        <li><a href="{{route('register')}}"><i class="fa fa-lock"></i> {{ __('custom.register') }}</a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>

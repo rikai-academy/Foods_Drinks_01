@@ -4,8 +4,8 @@ if ($.fn.slider) {
     $("#sl2").slider();
 }
 
-$(document).ready(function () {
-    $(function () {
+$(document).ready(function() {
+    $(function() {
         $.scrollUp({
             scrollName: 'scrollUp', // Element ID
             scrollDistance: "300", // Distance from top/bottom before showing element (px)

@@ -1,4 +1,7 @@
-.form-control {
+#email,
+#password,
+#name,
+#password-confirm {
     height: 43px;
 }
 
@@ -28,7 +31,7 @@ strong {
     height: 43px;
 }
 
-p {
+.text_footer {
     text-align: center;
 }
 
@@ -42,10 +45,8 @@ p {
 
 .profile {
     margin-left: 20px;
-    ;
 }
 
 .logout {
     margin-left: 20px;
-    ;
 }

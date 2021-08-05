@@ -16,4 +16,5 @@
 <link href="{{asset('css/web/animate.css')}}" rel="stylesheet">
 <link href="{{asset('css/web/main.css')}}" rel="stylesheet">
 <link href="{{asset('css/web/responsive.css')}}" rel="stylesheet">
+<link href="{{asset('css/web/auth.css')}}" rel="stylesheet">
 

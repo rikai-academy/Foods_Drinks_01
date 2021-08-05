@@ -43,6 +43,9 @@ return [
     'confirm_password' => 'Confirm password',
     'Do you already have an account' => 'Do you already have an account?',
     'register' => 'Register',
+    'Copyright' => 'Copyright',
+    'Privacy Policy' => 'Privacy Policy',
+    'Terms And Conditions' => 'Terms And Conditions',
 
     /* Message */
     'no_data' => "No data.",

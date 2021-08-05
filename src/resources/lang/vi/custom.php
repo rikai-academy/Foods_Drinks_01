@@ -42,6 +42,10 @@ return [
     'confirm_password' => 'Nhập lại mật khẩu',
     'Do you already have an account' => 'Bạn đã có tài khoản?',
     'register' => 'Đăng kí',
+    'Copyright' => 'Bản quyền',
+    'Privacy Policy' => 'Chính sách bảo mật',
+    'Terms And Conditions' => 'Các điều khoản và điều kiện',
+
     /* Button, other... */
 
     /* Message */

@@ -29,18 +29,14 @@
         <div class="row">
             <div class="col-md-2 clearfix">
                 <div class="logo pull-left">
-                    <a href=""><img src="{{asset('images/logo_food_and_drinks.png')}}" alt="" /></a>
+                    <a href="{{ route('home') }}"><img src="{{asset('images/logo_food_and_drinks.png')}}" alt="" /></a>
                 </div>
             </div>
             <div class="col-md-10 clearfix">
                 <div class="btn-group pull-right clearfix btn-group__language">
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                            @if (session('website_language') == 'en')
-                                EN
-                            @else
-                                VI
-                            @endif
+                            {{ checkLanguage('EN', 'VI') }}
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -50,15 +46,33 @@
                     </div>
                 </div>
                 <div class="shop-menu pull-right clearfix">
-                    <ul class="nav navbar-nav">
-                        @if(Auth::user())
-                        <li><a href=""><i class="fa fa-user"></i> {{Auth::user()->name}}</a></li>
+                @if(Auth::user())
+                        <li>
+                            <a class="nav-link dropdown-toggle" id="userDropdown" href="" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-user"></i> {{Auth::user()->name}}</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                <div class="profile">
+                                    <a class="dropdown-item" href="#">{{ __('custom.profile') }}</a>
+                                </div>
+                                <div class="logout">
+                                    <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">{{ __('custom.logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
                         <li><a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a></li>
                         @else
-                        <li><a href=""><i class="fa fa-lock"></i> {{ __('custom.login') }}</a></li>
+                        <li><a href="{{route('login')}}"><i class="fa fa-lock"></i> {{ __('custom.login') }}</a></li>
                         <li><a href="{{route('register')}}"><i class="fa fa-lock"></i> {{ __('custom.register') }}</a>
                         </li>
                         @endif
+                        <li><a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -80,12 +94,12 @@
                 </div>
                 <div class="mainmenu pull-left">
                     <ul class="nav navbar-nav collapse navbar-collapse">
-                        <li><a href="">{{ __('custom.home_page') }}</a></li>
+                        <li><a href="{{ route('home') }}">{{ __('custom.home_page') }}</a></li>
                         <li><a href="{{ route('admin') }}">{{ __('custom.admin_page') }}</a></li>
                         <li class="dropdown"><a href="#">{{ __('custom.category') }}<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="">Foods</a></li> {{-- DATA DEMO --}}
-                                <li><a href="">Drinks</a></li> {{-- DATA DEMO --}}
+                                <li><a href="">{{ __('custom.food') }}</a></li>
+                                <li><a href="">{{ __('custom.drink') }}</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -93,7 +107,10 @@
             </div>
             <div class="col-sm-3">
                 <div class="search_box pull-right">
-                    <input type="text" placeholder="{{ __('custom.search') }}"/>
+                    <form action="/search" method="get">
+                        <input type="text" name="q" placeholder="{{ __('custom.search') }}"/>
+                        <button type="submit" class="search_box_button"><img src="/images/layouts/searchicon.png"/></button>
+                    </form>
                 </div>
             </div>
         </div>

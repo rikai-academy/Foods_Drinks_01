@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,9 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+
+Route::get('/logout',[LogoutController::class, 'logout']);
+Route::get('/admin/login',[LoginController::class, 'login'])->middleware('locale')->name('login_admin');
 Route::group(['middleware' => 'locale'], function() {
     # Change language
     Route::get('change-language/{language}', [LocaleController::class, 'changeLanguage'])

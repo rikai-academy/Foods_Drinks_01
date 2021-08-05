@@ -21,4 +21,9 @@ class Categories extends Model
     {
         return $this->belongsTo(CategoryType::class,'category_types_id');
     }
+
+    public function scopeCategoryType($query, $category_types)
+    {
+        return $query->where('category_types_id', $category_types)->orderBy('name');
+    }
 }

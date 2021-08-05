@@ -6,11 +6,6 @@ use Illuminate\Database\Seeder;
 use DB;
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         $admin = [
@@ -22,5 +17,11 @@ class DatabaseSeeder extends Seeder
     ];
 
     DB::table('users')->insert($admin);
+
+        $this->call([
+          CategoryTypeSeeder::class,
+          CategoriesSeeder::class,
+          ProductSeeder::class,
+        ]);
     }
 }

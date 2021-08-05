@@ -135,6 +135,10 @@
   .companyinfo h2 {
     font-size: 20px;
   }
+
+  .search_box input {
+    width: 120px;
+  }
 }
 
 /* xs */
@@ -142,6 +146,10 @@
 @media (max-width: 767px) {
   #cart_items .cart_info table {
     min-width: 600px;
+  }
+
+  .sub-menu li {
+    background: transparent;
   }
 
   .mainmenu ul li {
@@ -160,10 +168,6 @@
 
   #cart_items .cart_info .cart_description p {
     font-size: 12px;
-  }
-
-  .sub-menu li {
-    background: transparent;
   }
 
   .mainmenu ul li:first-child {

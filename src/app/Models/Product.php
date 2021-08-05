@@ -31,4 +31,9 @@ class Product extends Model
     {
         return $this->hasMany(Image::class,'product_id');
     }
+
+    public function scopeStatus($query, $status)
+    {
+      return $query->where('status', $status);
+    }
 }

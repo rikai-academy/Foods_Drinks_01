@@ -15,14 +15,22 @@ return [
     'logged_in_as' => 'Logged in as',
     'manager' => 'Manager',
     'user' => 'User',
-    'users' => 'Users',
-    'category' => 'Category',
     'product' => 'Product',
-    'products' => 'Products',
+    'category' => 'Category',
     'order' => 'Order',
-    'orders' => 'Orders',
-    'list' => 'List',
-    'add' => 'Add',
+    'add_user' => 'Add User',
+    'add_product' => 'Add Product',
+    'add_category' => 'Add Category',
+    'add_order' => 'Add Product',
+    'list_users' => 'List User',
+    'list_products' => 'List Product',
+    'list_categories' => 'List Category',
+    'list_orders' => 'List Product',
+    'food' => 'Foods',
+    'drink' => 'Drinks',
+    'latest_products' => 'latest products',
+    'recommended_products' => 'recommended products',
+    'add_to_cart' => 'Add to cart',
 
     /* Login... */
     'email' => 'Email',
@@ -34,9 +42,9 @@ return [
     'username' => 'Username',
     'confirm_password' => 'Confirm password',
     'Do you already have an account' => 'Do you already have an account?',
-    'register' => 'Register'
+    'register' => 'Register',
 
     /* Message */
-
+    'no_data' => "No data.",
 
 ];

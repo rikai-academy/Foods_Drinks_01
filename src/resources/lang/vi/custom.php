@@ -46,6 +46,9 @@ return [
     'Copyright' => 'Bản quyền',
     'Privacy Policy' => 'Chính sách bảo mật',
     'Terms And Conditions' => 'Các điều khoản và điều kiện',
+    'Reset Password' => 'Đặt lại mật khẩu',
+    'Send Password Reset Link' => 'Gửi liên kết đặt lại mật khẩu',
+    'back to previous page' => 'Quay lại trang trước',
 
     /* Button, other... */
 

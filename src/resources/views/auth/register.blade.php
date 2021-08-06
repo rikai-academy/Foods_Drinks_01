@@ -16,7 +16,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="inputAddress">{{__('custom.username')}}</label>
+                            <label for="username">{{__('custom.username')}}</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                 name="name" value="{{ old('name') }}" placeholder="{{__('custom.username')}}" required
                                 autocomplete="name" autofocus>
@@ -27,7 +27,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputDienThoai">{{__('custom.email')}}</label>
+                            <label for="email">{{__('custom.email')}}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" placeholder="{{__('custom.email')}}" required
                                 autocomplete="email">
@@ -38,7 +38,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputAddress">{{__('custom.password')}}</label>
+                            <label for="password">{{__('custom.password')}}</label>
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password"
                                 placeholder="{{__('custom.password')}}" required autocomplete="new-password">
@@ -49,7 +49,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputDienThoai">{{__('custom.confirm_password')}}</label>
+                            <label for="password-confirm">{{__('custom.confirm_password')}}</label>
                             <input id="password-confirm" type="password" class="form-control"
                                 name="password_confirmation" placeholder="{{__('custom.confirm_password')}}" required
                                 autocomplete="new-password">
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <button type="submit" id="register" class="btn btn-danger">{{__('custom.register')}}</button>
                         </div>
-                        <a href="#">{{__('custom.forgot_password')}}</a>
+                        <a href="{{ route('password.request') }}">{{__('custom.forgot_password')}}</a>
                     </form>
                     <div class="form-group">
                         <div class="row">

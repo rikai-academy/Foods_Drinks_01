@@ -50,3 +50,9 @@ strong {
 .logout {
     margin-left: 20px;
 }
+
+#reset_link {
+    width: 100%;
+    margin-top: 20px;
+    height: 43px;
+}

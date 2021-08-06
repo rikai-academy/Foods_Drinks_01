@@ -50,7 +50,7 @@
                                 </label>
                             </div>
                             <div class="col-md-4">
-                                <a href="#">{{__('custom.forgot_password')}}</a>
+                                <a href="{{ route('password.request') }}">{{__('custom.forgot_password')}}</a>
                             </div>
                         </div>
                     </form>

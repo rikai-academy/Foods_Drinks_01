@@ -47,6 +47,9 @@ return [
     'Copyright' => 'Copyright',
     'Privacy Policy' => 'Privacy Policy',
     'Terms And Conditions' => 'Terms And Conditions',
+    'Reset Password' => 'Reset Password',
+    'Send Password Reset Link' => 'Send Password Reset Link',
+    'back to previous page' => 'back to previous page',
 
     /* Message */
     'no_data' => "No data.",

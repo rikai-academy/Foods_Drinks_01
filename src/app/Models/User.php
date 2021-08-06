@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'provider',
+        'provider_id'
     ];
 
     /**
@@ -49,10 +51,5 @@ class User extends Authenticatable
     public function evaluates()
     {
         return $this->hasMany(Evaluates::class, 'user_id');
-    }
-
-    public function social_provider()
-    {
-        return $this->hasMany(SocialProvider::class, 'user_id');
     }
 }

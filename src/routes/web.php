@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\SocialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,9 @@ use App\Http\Controllers\LogoutController;
 
 Route::get('/logout',[LogoutController::class, 'logout']);
 Route::get('/admin/login',[LoginController::class, 'login'])->middleware('locale')->name('login_admin');
+Route::get('/redirect/{provider}', [SocialController::class,'redirect']);
+Route::get('/callback/{provider}', [SocialController::class,'callback']);
+
 Route::group(['middleware' => 'locale'], function() {
     # Change language
     Route::get('change-language/{language}', [LocaleController::class, 'changeLanguage'])

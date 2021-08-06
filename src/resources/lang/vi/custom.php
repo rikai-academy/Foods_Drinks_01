@@ -41,6 +41,7 @@ return [
     'username' => 'Tên người dùng',
     'confirm_password' => 'Nhập lại mật khẩu',
     'Do you already have an account' => 'Bạn đã có tài khoản?',
+    'Do not have an account' => 'Không có tài khoản?',
     'register' => 'Đăng kí',
     'Copyright' => 'Bản quyền',
     'Privacy Policy' => 'Chính sách bảo mật',
@@ -50,4 +51,5 @@ return [
 
     /* Message */
     'no_data' => "Không có dữ liệu.",
+    'Login_error' => "Đăng nhập không thành công!"
 ];

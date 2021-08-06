@@ -46,33 +46,39 @@
                     </div>
                 </div>
                 <div class="shop-menu pull-right clearfix">
-                @if(Auth::user())
-                        <li>
-                            <a class="nav-link dropdown-toggle" id="userDropdown" href="" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="fa fa-user"></i> {{Auth::user()->name}}</a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                <div class="profile">
-                                    <a class="dropdown-item" href="#">{{ __('custom.profile') }}</a>
+                    <ul class="nav navbar-nav">
+                        @if(Auth::user())
+                            <li>
+                                <a class="nav-link dropdown-toggle" id="userDropdown" href="" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user"></i> {{Auth::user()->name}}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <div class="profile">
+                                        <a class="dropdown-item" href="#">{{ __('custom.profile') }}</a>
+                                    </div>
+                                    <div class="logout">
+                                        <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{ __('custom.logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="logout">
-                                    <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('custom.logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a></li>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a>
+                            </li>
                         @else
-                        <li><a href="{{route('login')}}"><i class="fa fa-lock"></i> {{ __('custom.login') }}</a></li>
-                        <li><a href="{{route('register')}}"><i class="fa fa-lock"></i> {{ __('custom.register') }}</a>
+                        <li>
+                            <a href="{{route('login')}}"><i class="fa fa-lock"></i> {{ __('custom.login') }}</a>
+                        </li>
+                        <li>
+                            <a href="{{route('register')}}"><i class="fa fa-lock"></i> {{ __('custom.register') }}</a>
                         </li>
                         @endif
-                        <li><a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a></li>
                     </ul>
                 </div>
             </div>

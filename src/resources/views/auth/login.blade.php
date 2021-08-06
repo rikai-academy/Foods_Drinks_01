@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-5">
+            @if (session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>{{__('custom.login')}}</h4>
@@ -54,17 +57,17 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <a href="" id ="btn" class="btn btn-primary"><i class="fa fa-facebook"aria-hidden="true"></i> Facebook</a>
+                                <a href="{{ url('/redirect/facebook') }}" id ="btn" class="btn btn-primary"><i class="fa fa-facebook"aria-hidden="true"></i> Facebook</a>
                             </div>
                             <div class="col-md-4">
-                                <a href="" id="btn" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
+                                <a href="{{ url('/redirect/google') }}" id="btn" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
                             </div>
                             <div class="col-md-4">
-                                <a href="" id="btn" class="btn btn-primary"><i class="fa fa-twitter"aria-hidden="true"></i> Twitter</a>
+                                <a href="{{ url('/redirect/twitter') }}" id="btn" class="btn btn-primary"><i class="fa fa-twitter"aria-hidden="true"></i> Twitter</a>
                             </div>
                         </div>
                     </div>
-                    <p>{{__('custom.Do not have an account')}} 
+                    <p class="text_footer">{{__('custom.Do not have an account')}} 
                         <a href="{{route('register')}}">{{__('custom.register')}}</a>
                     </p>
                 </div>

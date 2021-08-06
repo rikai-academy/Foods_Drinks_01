@@ -42,6 +42,7 @@ return [
     'username' => 'Username',
     'confirm_password' => 'Confirm password',
     'Do you already have an account' => 'Do you already have an account?',
+    'Do not have an account' => 'Do not have an account?',
     'register' => 'Register',
     'Copyright' => 'Copyright',
     'Privacy Policy' => 'Privacy Policy',
@@ -49,5 +50,6 @@ return [
 
     /* Message */
     'no_data' => "No data.",
+    'Login_error' => "Login unsuccessful!"
 
 ];

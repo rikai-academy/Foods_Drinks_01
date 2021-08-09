@@ -46,4 +46,10 @@ Route::group(['middleware' => 'locale'], function() {
     # Search Products
     Route::get('/search', [SearchController::class, 'getSearchProducts'])->name('search_products');
 
+    # Search Category Type
+    Route::get('/{slug}/category-type', [SearchController::class, 'getCategoryType'])->name('search_category_type')
+        ->where('slug', '[A-Za-z]+');
+    # Search Category
+    Route::get('/{slug}/category', [SearchController::class, 'getCategory'])->name('search_categories')
+        ->where('slug', '[0-9A-Za-z]+');
 });

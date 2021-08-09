@@ -23,4 +23,7 @@ class CategoryType extends Model
         Product::class,Categories::class,'category_types_id','category_id'
         );
     }
+    public function scopeSlug($query, $slug) {
+        return $query->where('slug', $slug);
+    }
 }

@@ -5,7 +5,7 @@
     <ul class="nav nav-pills nav-stacked">
       @forelse($category_foods as $row)
         <li>
-          <a href="#">
+          <a href="{{ route('search_categories', ['slug' => $row->slug]) }}">
             <span class="pull-right">{{ $row->products->count() }}</span>
             {{ checkLanguage($row->name, $row->name_vi) }}
           </a>
@@ -23,7 +23,7 @@
     <ul class="nav nav-pills nav-stacked">
       @forelse($category_drinks as $row)
         <li>
-          <a href="#">
+          <a href="{{ route('search_categories', ['slug' => $row->slug]) }}">
             <span class="pull-right">{{ $row->products->count() }}</span>
             {{ checkLanguage($row->name, $row->name_vi) }}
           </a>

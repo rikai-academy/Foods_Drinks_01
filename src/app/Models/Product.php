@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\Status;
 
 class Product extends Model
 {
@@ -34,10 +35,20 @@ class Product extends Model
 
     public function scopeStatus($query, $status)
     {
-      return $query->where('status', $status);
+        return $query->where('status', $status);
     }
 
-    public function scopeSearchName($query, $keyword) {
+    public function scopeSearchName($query, $keyword)
+    {
         return $query->where('name', 'like', '%' . $keyword . '%');
+    }
+
+    public function scopeProductDetail($query, $slug)
+    {
+        return $query->where([
+            'status' => Status::ACTIVE,
+            'slug'   => $slug,
+        ])->orderBy('updated_at', 'DESC');
+
     }
 }

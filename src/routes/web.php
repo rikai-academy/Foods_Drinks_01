@@ -9,6 +9,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RatingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +35,7 @@ Route::group(['middleware' => 'locale'], function() {
         ->name('change-language');
 
     # Home page
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     # Route Auth
@@ -52,4 +55,10 @@ Route::group(['middleware' => 'locale'], function() {
     # Search Category
     Route::get('/{slug}/category', [SearchController::class, 'getCategory'])->name('search_categories')
         ->where('slug', '[0-9A-Za-z]+');
+
+    # Product Detail
+    Route::get('/{slug}', [ProductController::class, 'getProductDetail'])->name('product_detail');
+
+    # Rating
+    Route::post('/rating', [RatingController::class, 'ratingProduct'])->name('rating');
 });

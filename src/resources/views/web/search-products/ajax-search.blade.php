@@ -1,5 +1,3 @@
-
-<script src="{{ asset('js/web/jquery-1.7.1.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         let url = new URL(window.location.href);

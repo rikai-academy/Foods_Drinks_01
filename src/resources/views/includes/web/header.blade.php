@@ -113,8 +113,8 @@
             </div>
             <div class="col-sm-3">
                 <div class="search_box pull-right">
-                    <form action="/search" method="get">
-                        <input type="text" name="q" placeholder="{{ __('custom.search') }}"/>
+                    <form action="{{ route('search_products') }}" method="get">
+                        <input type="text" name="q" placeholder="{{ __('custom.search') }}" value="{{ app('request')->input('q') }}"/>
                         <button type="submit" class="search_box_button"><img src="/images/layouts/searchicon.png"/></button>
                     </form>
                 </div>

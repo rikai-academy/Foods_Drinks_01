@@ -36,4 +36,8 @@ class Product extends Model
     {
       return $query->where('status', $status);
     }
+
+    public function scopeSearchName($query, $keyword) {
+        return $query->where('name', 'like', '%' . $keyword . '%');
+    }
 }

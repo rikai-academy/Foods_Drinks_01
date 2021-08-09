@@ -531,6 +531,37 @@ h2.title::before {
   padding-bottom: 20px;
   padding-top: 15px;
 }
+.brands-filter {
+  border: 1px solid #f7f7f0;
+  padding: 15px 25px;
+  margin-bottom: 15px;
+}
+
+.brands-filter h5 {
+  margin-bottom: 15px;
+}
+
+.brands-filter a {
+  color: #696763;
+}
+
+.brands-filter a:hover {
+  color: #fe980f;
+}
+
+.brands-filter-input {
+  margin: 5px 0;
+}
+
+.brands-filter-rating {
+  margin-bottom: 15px;
+}
+
+.brands-filter-rating a {
+  display: block;
+  cursor: pointer;
+  font-size: 16px;
+}
 
 .brands-name .nav-stacked li a {
   background-color: #fff;
@@ -589,6 +620,17 @@ h2.title::before {
   font-size: 14px;
   font-weight: 400;
   color: #fff;
+}
+
+.product-overlay p a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.product-overlay p a:hover {
+  color: #fe980f;
 }
 
 .product-info p {
@@ -729,4 +771,16 @@ a#scrollUp i {
 
 .category-products .panel-default .panel-heading .panel-title a {
   margin: 0;
+}
+
+.margin-bottom-3 {
+  margin-bottom: 25px;
+}
+
+.click-active {
+  color: #fe980f !important;
+}
+
+.result-search span {
+  color: #fe980f;
 }

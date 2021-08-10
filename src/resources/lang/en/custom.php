@@ -49,6 +49,12 @@ return [
     'price' => 'Price',
     'and_up' => '& Up',
     'result_search' => 'Search results for keyword',
+    'rating' => 'Rating',
+    'quantity' => 'Quantity',
+    'type' => 'Type',
+    'details' => 'Details',
+    'reviews' => 'Reviews',
+    'write_review' => 'Write Review',
 
     /* Login... */
     'email' => 'Email',
@@ -66,10 +72,19 @@ return [
     'Privacy Policy' => 'Privacy Policy',
     'Terms And Conditions' => 'Terms And Conditions',
 
+    /* Button, other... */
+    'btn_post' => 'Post',
+
     /* Message */
     'no_data' => "No data.",
     'Login_error' => "Login unsuccessful!",
     'js_price_empty'  => 'The 2 fields of lowest price and highest price are not empty!',
     'js_price_format' => 'The highest low price must be greater than the lowest price must be numeric!',
     'js_price_value'  => 'The highest low price must be greater than the lowest price!',
+    'js_rating_empty' => 'Please do not leave the review field blank!',
+    'js_rating_star'  => 'Please choose star rating!',
+    'js_cart_quantity_qty'  => 'The quantity of the product is not enough!',
+    'js_cart_quantity_zero'  => 'The number must be greater than 0!',
+    'rating_success'  => 'Review your article has been published!',
+    'product_detail_review' => 'Please login to rate the product.',
 ];

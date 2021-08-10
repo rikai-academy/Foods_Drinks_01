@@ -23,16 +23,16 @@
                   <div class="product-image-wrapper">
                     <div class="single-products">
                       <div class="product-info text-center">
-                        <img src="/storage/products/product.jpg" alt="" />
-                        <h2>{{ number_format($row->price, 0, ',', '.') . 'đ' }}</h2>
+                        <img src="/storage/products/{{$row->images->first()->image}}" alt="" />
+                        <h2>{{ formatPrice($row->price) }}</h2>
                         <p>{{ $row->name }}</p>
                         <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star click-active" aria-hidden="true"></i></p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}</a>
                       </div>
                       <div class="product-overlay">
                         <div class="overlay-content">
-                          <h2>{{ number_format($row->price, 0, ',', '.') . 'đ'}}</h2>
-                          <p><a href="#">{{ $row->name }}</a></p>
+                          <h2>{{ formatPrice($row->price) }}</h2>
+                          <p><a href="{{ route('product_detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a></p>
                           <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star text-white" aria-hidden="true"></i></p>
                           <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}</a>
                         </div>

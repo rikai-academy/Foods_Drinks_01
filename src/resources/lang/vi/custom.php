@@ -29,7 +29,7 @@ return [
     'drink' => 'Đồ uống',
     'latest_products' => 'Sản phẩm mới nhất',
     'recommended_products' => 'Sản phẩm được đề xuất',
-    'add_to_cart' => 'Thêm vào giỏ hàng',
+    'add_to_cart' => 'Thêm giỏ hàng',
     'search_products' => 'Sản phẩm tìm kiếm',
     'filter' => 'Bộ lọc',
     'by_category' => 'Theo Danh mục',
@@ -49,6 +49,12 @@ return [
     'price' => 'Giá cả',
     'and_up' => 'trở lên',
     'result_search' => 'Kết quả tìm kiếm cho từ khoá',
+    'rating' => 'Xếp hạng',
+    'quantity' => 'Số lượng',
+    'type' => 'Loại',
+    'details' => 'Chi tiết',
+    'reviews' => 'Đánh giá',
+    'write_review' => 'Viết đánh giá',
 
     /* Login... */
     'email' => 'Địa chỉ email',
@@ -66,10 +72,19 @@ return [
     'Privacy Policy' => 'Chính sách bảo mật',
     'Terms And Conditions' => 'Các điều khoản và điều kiện',
 
+    /* Button, other... */
+    'btn_post' => 'Đăng',
+
     /* Message */
     'no_data' => "Không có dữ liệu.",
     'Login_error' => "Đăng nhập không thành công!",
     'js_price_empty' => '2 trường giá thấp nhất và giá cao nhất không để trống!',
     'js_price_format' => 'Giá thấp cao nhất phải lớn hơn giá thấp nhất phải là kiểu số!',
     'js_price_value' => 'Giá thấp cao nhất phải lớn hơn giá thấp nhất!',
+    'js_rating_empty' => 'Vui lòng không để trống trường đánh giá!',
+    'js_rating_star'  => 'Vui lòng chọn sao đánh giá!',
+    'rating_success'  => 'Đánh giá bài viết của bạn đã được đăng!',
+    'js_cart_quantity_qty'  => 'Số lượng của sản phẩm không đủ!',
+    'js_cart_quantity_zero'  => 'Số lượng phải lớn hơn 0!',
+    'product_detail_review' => 'Vui lòng đăng nhập để được đánh giá sản phẩm.',
 ];

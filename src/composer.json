@@ -31,7 +31,9 @@
         },
         "files": [
             "app/Helpers/LanguageHelper.php",
-            "app/Helpers/RatingHelper.php"
+            "app/Helpers/RatingHelper.php",
+            "app/Helpers/FormatPriceHelper.php",
+            "app/Helpers/DisplayStarHelper.php"
         ]
     },
     "autoload-dev": {

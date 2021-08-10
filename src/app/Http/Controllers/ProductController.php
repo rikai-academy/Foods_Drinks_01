@@ -20,14 +20,15 @@ class ProductController extends Controller
         {
             $product_recommends = Product::status(Status::ACTIVE)->inRandomOrder()->take(18)->get();
             $reviews = $product->evaluates()->orderBy('created_at', 'DESC')->paginate(5);
-            $images = $product->images()->orderBy('created_at', 'DESC')->take(3)->get();
+            $images = $product->images()->orderBy('created_at', 'DESC')->get();
 
             return view('web.products.product-detail')->with([
                 'product' => $product,
                 'reviews' => $reviews,
-                'images'  => $images,
+                'arr_images'  => $images->chunk(3),
                 'recommend_products' => $product_recommends->chunk(3),
             ]);
+            dd();
         }
         return abort(404);
     }

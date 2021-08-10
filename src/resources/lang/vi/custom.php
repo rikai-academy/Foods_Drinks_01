@@ -55,8 +55,23 @@ return [
     'details' => 'Chi tiết',
     'reviews' => 'Đánh giá',
     'write_review' => 'Viết đánh giá',
+    'shopping_cart' => 'Giỏ hàng',
+    'item' => 'Mặt hàng',
+    'total_price' => 'Tổng cộng',
+    'order_product' => 'Đặt sản phẩm',
+    'information' => 'Thông tin cá nhân',
+    'name' => 'Tên',
+    'number_phone' => 'Số điện thoại',
+    'address' => 'Địa chỉ',
+    'cart_total' => 'Tổng cộng giỏ hàng',
+    'eco_tax' => 'Thuế',
+    'shipping_cost' => 'Phí vận chuyển',
+    'discount_code' => 'Mã giảm giá',
+    'free' => 'Miễn phí',
+    'delete' => 'Xóa',
+    'delete_all' => 'Xóa tất cả',
 
-    /* Login... */
+  /* Login... */
     'email' => 'Địa chỉ email',
     'password' => 'Mật khẩu',
     'remember_password' => 'Nhớ mật khẩu',
@@ -90,4 +105,7 @@ return [
     'js_cart_quantity_qty'  => 'Số lượng của sản phẩm không đủ!',
     'js_cart_quantity_zero'  => 'Số lượng phải lớn hơn 0!',
     'product_detail_review' => 'Vui lòng đăng nhập để được đánh giá sản phẩm.',
+    'add_to_cart_success' => 'Thêm sản phẩm vào giỏ hàng thành công',
+    'order_error_login' => 'Vui lòng đăng nhập để đặt sản phẩm.',
+    'order_error_not_item' => 'Bạn không có mặt hàng nào trong giỏ hàng.',
 ];

@@ -68,9 +68,6 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <a href=""><i class="fa fa-shopping-cart"></i>(0) {{ __('custom.cart') }}</a>
-                            </li>
                         @else
                         <li>
                             <a href="{{route('login')}}"><i class="fa fa-lock"></i> {{ __('custom.login') }}</a>
@@ -79,6 +76,12 @@
                             <a href="{{route('register')}}"><i class="fa fa-lock"></i> {{ __('custom.register') }}</a>
                         </li>
                         @endif
+                        <li>
+                            <a href="{{route('cart')}}">
+                                <i class="fa fa-shopping-cart"></i>
+                                (<span id="cart-count">{{Cart::count()}}</span>) {{ __('custom.cart') }}
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

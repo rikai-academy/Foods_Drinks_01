@@ -11,17 +11,4 @@
             return false;
         }
     });
-    $("#product-detail-quantity-get").on('change', function () {
-        let value_quantity = parseInt($("#product-detail-quantity-value").text());
-        if ($(this).val() > value_quantity) {
-            alert("{{__('custom.js_cart_quantity_qty')}}");
-            $(this).val(1);
-            return;
-        }
-        if ($(this).val() < 1) {
-            alert("{{__('custom.js_cart_quantity_zero')}}");
-            $(this).val(1);
-            return;
-        }
-    });
 </script>

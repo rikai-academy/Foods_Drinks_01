@@ -23,14 +23,18 @@
                       <h2>{{ formatPrice($row->price) }}</h2>
                       <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star click-active" aria-hidden="true"></i></p>
                       <p>{{ $row->name }}</p>
-                      <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}</a>
+                      <a href="javascript:void(0)" class="btn btn-default add-to-cart" onclick="addToCart({!!$row->id!!},'add')">
+                        <i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}
+                      </a>
                     </div>
                     <div class="product-overlay">
                       <div class="overlay-content">
                         <h2>{{ formatPrice($row->price) }}</h2>
                         <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star click-active" aria-hidden="true"></i></p>
                         <p><a href="{{ route('product_detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a></p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}</a>
+                        <a href="javascript:void(0)" class="btn btn-default add-to-cart" onclick="addToCart({!!$row->id!!},1,'add')">
+                          <i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}
+                        </a>
                       </div>
                     </div>
                     <img src="storage/home/new.png" class="new" alt="new" />

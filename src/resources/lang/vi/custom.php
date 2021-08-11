@@ -70,6 +70,8 @@ return [
     'free' => 'Miễn phí',
     'delete' => 'Xóa',
     'delete_all' => 'Xóa tất cả',
+    'order' => 'Đặt hàng',
+    'price_total' => 'Tổng tiền',
 
   /* Login... */
     'email' => 'Địa chỉ email',
@@ -132,4 +134,10 @@ return [
     'add_to_cart_success' => 'Thêm sản phẩm vào giỏ hàng thành công',
     'order_error_login' => 'Vui lòng đăng nhập để đặt sản phẩm.',
     'order_error_not_item' => 'Bạn không có mặt hàng nào trong giỏ hàng.',
+    'message_confirm' => 'Bạn có thực sự có muốn tiếp tục?',
+    'message_order_success' => 'Đặt hàng sản phẩm thành công',
+    'message_profile_update_information' => 'Vui lòng cập nhật đầy đủ thông tin!',
+    'message_order_success' => 'Đơn hàng đã được đặt thành công!',
+    'message_order_no_data' => 'Hiện tại bạn chưa có đơn hàng nào.',
+
 ];

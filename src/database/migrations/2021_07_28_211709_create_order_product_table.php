@@ -17,7 +17,7 @@ class CreateOrderProductTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('amount_of');
-            $table->float('total_money');
+            $table->float('total_money', 12, 2);
             $table->integer('order_id')->unsigned();
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');

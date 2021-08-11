@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            @if(session('message'))
+              <div id="message_time" class="alert {{ session('alert') }} text-center">
+                <h4>{{ session('message') }}</h4>
+              </div>
+            @endif
             <div class="panel with-nav-tabs panel-primary" id="panel-primary">
                 <div class="panel-heading" id="panel-heading">
                     @include('includes.web.profile.panel-heading')

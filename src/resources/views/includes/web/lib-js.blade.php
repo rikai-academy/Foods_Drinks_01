@@ -27,6 +27,12 @@
         $(this).on("click","#pd-image-small", function (event) {
             $("#pd-image-large").attr("src", $(this).attr("src"));
         });
+        // Submit Order
+        $(this).on("click"  ,"#cart_btn-order", function (event) {
+            if (confirm("{{__('custom.message_confirm')}}")) {
+                window.location.href = '/order-products';
+            }
+        });
     });
     // Action Cart
     function addToCart (product_id, quantity, action) {

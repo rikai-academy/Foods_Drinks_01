@@ -11,7 +11,7 @@
 <div class="tab-content">
   <div class="tab-pane fade active in" id="details">
     <div class="col-sm-12">
-      <span>{{ $product->content }}</span>
+      <span>{!! $product->content !!}</span>
     </div>
   </div>
   <div class="tab-pane fade" id="reviews">

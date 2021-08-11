@@ -55,7 +55,10 @@
                     {{ __('custom.add_to_cart') }}
                   </button>
                 </span>
-                <p><b>Quantity:</b> <span id="product-detail-quantity-value">{{ $product->amount_of }}</span></p>
+                <p>
+                    <b>{{ __('custom.quantity') }}:</b>
+                    <span id="product-detail-quantity-value">{{ $product->amount_of }}</span>
+                </p>
                 <p>
                   <b>{{ __('custom.rating') }}:</b>
                   {{ getRatingProduct($product->id) }}

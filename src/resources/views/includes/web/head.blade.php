@@ -19,5 +19,6 @@
 <link href="{{asset('css/web/responsive.css')}}" rel="stylesheet">
 <link href="{{asset('css/web/auth.css')}}" rel="stylesheet">
 <link href="{{asset('css/web/product-detail.css')}}" rel="stylesheet">
+<link href="{{asset('css/web/cart.css')}}" rel="stylesheet">
 
 <script src="{{ asset('js/web/jquery-1.7.1.min.js') }}" type="text/javascript"></script>

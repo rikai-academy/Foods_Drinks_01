@@ -11,6 +11,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,11 @@ Route::group(['middleware' => 'locale'], function() {
     # Search Category
     Route::get('/{slug}/category', [SearchController::class, 'getCategory'])->name('search_categories')
         ->where('slug', '[0-9A-Za-z]+');
+
+    # Shopping Cart
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/add-to-cart', [CartController::class, 'addOrUpdate'])->name('cart.add');
+    Route::get('/destroy-cart', [CartController::class, 'destroy'])->name('cart.destroy');
 
     # Product Detail
     Route::get('/{slug}', [ProductController::class, 'getProductDetail'])->name('product_detail');

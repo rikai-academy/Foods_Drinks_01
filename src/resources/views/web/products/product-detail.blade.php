@@ -24,14 +24,22 @@
               </div>
               <div id="similar-product" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                  <div class="item active">
-                    @foreach($images as $row)
-                    <a href="javascript:void(0)">
-                      <img id="pd-image-small" src="/storage/products/{{ $row->image }}" alt="{{ $row->image }}">
-                    </a>
-                    @endforeach
-                  </div>
+                  @forelse($arr_images as $images)
+                    <div class="item @if($loop->index === 0) active @endif">
+                      @foreach($images as $row)
+                        <a href="javascript:void(0)">
+                          <img id="pd-image-small" src="/storage/products/{{ $row->image }}" alt="{{ $row->image }}">
+                        </a>
+                      @endforeach
+                    </div>
+                  @endforeach
                 </div>
+                <!-- Controls -->
+                <a class="left item-control" href="#similar-product" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right item-control" href="#similar-product" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
                 </a>
               </div>
             </div>
@@ -43,7 +51,7 @@
                   <span>{{ formatPrice($product->price) }}</span>
                   <label>{{ __('custom.quantity') }}:</label>
                   <input type="text" value="1" id="product-detail-quantity-get" />
-                  <button type="button" class="btn btn-fefault cart">
+                  <button type="button" class="btn btn-fefault cart" onclick="addToCart({!!$product->id!!},2,'add')">
                     {{ __('custom.add_to_cart') }}
                   </button>
                 </span>

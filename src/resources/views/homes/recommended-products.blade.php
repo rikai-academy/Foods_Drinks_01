@@ -14,7 +14,8 @@
                 </a>
                 <h2>{{ formatPrice($row->price) }}</h2>
                 <p><a href="{{ route('product_detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a></p>
-                <a href="#" class="btn btn-default add-to-cart add_to_cart-hover">
+                <a href="javascript:void(0);" class="btn btn-default add-to-cart add_to_cart-hover"
+                   onclick="addToCart({!!$row->id!!},1,'add')">
                   <i class="fa fa-shopping-cart"></i> {{ __('custom.add_to_cart') }}
                 </a>
               </div>

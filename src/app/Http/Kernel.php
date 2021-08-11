@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'locale' => \App\Http\Middleware\Locale::class,
         'check_role_customer' => \App\Http\Middleware\CheckRoleCustomer::class,
         'check_user' => \App\Http\Middleware\CheckUser::class,
+        'check_login' => \App\Http\Middleware\CheckLoginUser::class,
     ];
 }

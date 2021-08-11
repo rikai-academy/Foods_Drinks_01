@@ -139,5 +139,5 @@ return [
     'message_profile_update_information' => 'Vui lòng cập nhật đầy đủ thông tin!',
     'message_order_success' => 'Đơn hàng đã được đặt thành công!',
     'message_order_no_data' => 'Hiện tại bạn chưa có đơn hàng nào.',
-
+    'message_order_error_db' => 'Đã xảy ra lỗi vui lòng thử lại sau.',
 ];

@@ -6148,6 +6148,43 @@
             "time": "2020-11-12T00:07:28+00:00"
         },
         {
+            "name": "wataridori/chatwork-sdk",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wataridori/chatwork-sdk.git",
+                "reference": "f1a1b556deab25c72b0e78abaccf4d24fcd07334"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wataridori/chatwork-sdk/zipball/f1a1b556deab25c72b0e78abaccf4d24fcd07334",
+                "reference": "f1a1b556deab25c72b0e78abaccf4d24fcd07334",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wataridori\\ChatworkSDK\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Duc Thang",
+                    "email": "thangtd90@gmail.com"
+                }
+            ],
+            "description": "Just a non-official SDK for Chatwork",
+            "support": {
+                "issues": "https://github.com/wataridori/chatwork-sdk/issues",
+                "source": "https://github.com/wataridori/chatwork-sdk/tree/0.4.0"
+            },
+            "time": "2021-06-25T08:30:31+00:00"
+        },
+        {
             "name": "webmozart/assert",
             "version": "1.10.0",
             "source": {

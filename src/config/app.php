@@ -232,9 +232,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'ChatworkSDK' => wataridori\ChatworkSDK\ChatworkSDK::class,
     ],
 
+    'apiKeyChatwork' => 'ca2c90d4186da287d44566ac293425b7',
+    'roomIdChatwork' => 239576421,
 ];

@@ -51,4 +51,9 @@ class Product extends Model
         ])->orderBy('updated_at', 'DESC');
 
     }
+
+    public function scopeDecrementProduct($query, $productId, $quantity)
+    {
+        return $query->find($productId)->decrement('amount_of', $quantity);
+    }
 }

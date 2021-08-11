@@ -93,6 +93,30 @@ return [
     /* Button, other... */
     'btn_post' => 'Post',
 
+    /* Profile*/
+    'profile' => 'Profile',
+    'purchase_order' => 'Purchase Order',
+    'change_password' => 'Change Password',
+    'Manage profile information for account security' => 'Manage profile information for account security',
+    'Phone Number' => 'Phone Number',
+    'Gender' => 'Gender',
+    'Male' => 'Male',
+    'Female' => 'Female',
+    'Date Of Birth' => 'Date Of Birth',
+    'Address' => 'Address',
+    'Save' => 'Save',
+    'Choose' => 'Choose',
+    'Maximum file size' => 'Maximum file size 1MB',
+    'Format' => 'Format: .JPEG, .PNG',
+    'save_profile_success' => 'Successfully Updated Profile!',
+    'save_profile_error' => 'Profile Updated Failed!',
+    'Change Password' => 'Change Password',
+    'Current Password' => 'Current Password',
+    'New Password' => 'New Password',
+    'Enter New Password' => 'Enter New Password',
+    'change_password_success' => 'Change password successfully!',
+    'change_password_error' => 'Password change failed!',
+
     /* Message */
     'no_data' => "No data.",
     'Login_error' => "Login unsuccessful!",

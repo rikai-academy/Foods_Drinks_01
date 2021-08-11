@@ -24,6 +24,8 @@ return [
     'min' => [
         'string' => 'Trường :attribute phải có ít nhất :min kí tự tối thiểu.',
     ],
+    'same' => 'Trường :attribute và :other phải khớp.',
+    'current_password' => 'Mật khẩu hiện tại không đúng',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

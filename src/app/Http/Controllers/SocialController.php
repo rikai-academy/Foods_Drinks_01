@@ -23,8 +23,10 @@
                 $user = User::create([
                     'name'     => $getInfo->name,
                     'email'    => $getInfo->email,
+                    'password' => bcrypt(env('PASSWORD_USER_CREATE_SOCIAL')),
                     'provider' => $provider,
-                    'provider_id' => $getInfo->id
+                    'provider_id' => $getInfo->id,
+                    'status' => 1
                 ]);
             }
             catch(Exception $e){

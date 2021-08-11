@@ -90,6 +90,30 @@ return [
     'Send Password Reset Link' => 'Gửi liên kết đặt lại mật khẩu',
     'back to previous page' => 'Quay lại trang trước',
 
+    /* Profile*/
+    'profile' => 'Thông Tin Cá Nhân',
+    'purchase_order' => 'Đơn Mua Của Bạn',
+    'change_password' => 'Đổi Mật Khẩu',
+    'Manage profile information for account security' => 'Quản lý thông tin hồ sơ để bảo mật tài khoản',
+    'Phone Number' => 'Số điện Thoại',
+    'Gender' => 'Giới Tính',
+    'Male' => 'Nam',
+    'Female' => 'Nữ',
+    'Date Of Birth' => 'Ngày Sinh',
+    'Address' => 'Địa Chỉ',
+    'Save' => 'Lưu',
+    'Choose' => 'Chọn Ảnh',
+    'Maximum file size' => 'Dung lượng file tối đa 1MB',
+    'Format' => 'Định dạng: .JPEG, .PNG',
+    'save_profile_success' => 'Đã Cập Nhật Hồ Sơ Thành Công!',
+    'save_profile_error' => 'Cập Nhật Hồ Sơ Không Thành Công!',
+    'Change Password' => 'Đổi Mật Khẩu',
+    'Current Password' => 'Mật Khẩu Hiện Tại',
+    'New Password' => 'Mật Khẩu Mới',
+    'Enter New Password' => 'Nhập Lại Mật Khẩu Mới',
+    'change_password_success' => 'Đổi mật khẩu thành công!',
+    'change_password_error' => 'Đổi mật khẩu không thành công!',
+
     /* Button, other... */
     'btn_post' => 'Đăng',
 

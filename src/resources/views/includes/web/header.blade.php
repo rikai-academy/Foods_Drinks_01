@@ -55,7 +55,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <div class="profile">
-                                        <a class="dropdown-item" href="#">{{ __('custom.profile') }}</a>
+                                        <a class="dropdown-item" href="{{ route('profile') }}">{{ __('custom.profile') }}</a>
                                     </div>
                                     <div class="logout">
                                         <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();

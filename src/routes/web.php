@@ -13,6 +13,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CartController;
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChangePasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +40,11 @@ Route::group(['middleware' => 'locale'], function() {
     # Home page
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    #Profile page
+    Route::get('/profile', [ProfileController::class, 'index'])->middleware('check_login')->name('profile');
+    Route::post('/profile/save-infor', [ProfileController::class, 'save_infor'])->middleware('check_login')->name('save_infor');
+    Route::post('change-password', [ChangePasswordController::class,'changePassword'])->name('profile.change.password');
 
     # Route Auth
     Auth::routes();
@@ -67,4 +74,8 @@ Route::group(['middleware' => 'locale'], function() {
 
     # Rating
     Route::post('/rating', [RatingController::class, 'ratingProduct'])->name('rating');
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

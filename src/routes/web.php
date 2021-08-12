@@ -8,13 +8,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ChangePasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +69,10 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/add-to-cart', [CartController::class, 'addOrUpdate'])->name('cart.add');
     Route::get('/destroy-cart', [CartController::class, 'destroy'])->name('cart.destroy');
+
+    # Order Products
+    Route::get('/order-products', [OrderController::class, 'orderProduct'])->middleware('check_login')
+      ->name('order-products');
 
     # Product Detail
     Route::get('/{slug}', [ProductController::class, 'getProductDetail'])->name('product_detail');

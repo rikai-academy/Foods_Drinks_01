@@ -21,4 +21,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderProduct::class,'order_id');
     }
+
+    public function scopeByUserId($query, $userId)
+    {
+        return $query->where('user_id', $userId)->orderBy('created_at', 'DESC');
+    }
 }

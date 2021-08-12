@@ -70,6 +70,7 @@ return [
     'free' => 'Free',
     'delete' => 'Delete',
     'delete_all' => 'Delete all',
+    'price_total' => 'Total Price',
 
     /* Login... */
     'email' => 'Email',
@@ -133,4 +134,10 @@ return [
     'add_to_cart_success' => 'Product added to cart successfully',
     'order_error_login' => 'Please login to order products.',
     'order_error_not_item' => 'You have no items in the shopping cart.',
+    'message_confirm' => 'Do you really want to continue?',
+    'message_order_success' => 'Product order was successful',
+    'message_profile_update_information' => 'Please update full information!',
+    'message_order_success' => 'Order has been placed successfully!',
+    'message_order_no_data' => 'You currently have no orders.',
+
 ];

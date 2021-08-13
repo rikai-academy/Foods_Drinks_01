@@ -1,6 +1,6 @@
 @extends('layouts.web')
 @section('content')
-    @if (Cart::count() > 0))
+    @if (Cart::count() > 0)
         <section id="cart_items">
             @include('web.carts.items')
         </section>

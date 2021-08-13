@@ -1,4 +1,9 @@
 <div class="container">
+    @if(session('message'))
+        <div id="message_time" class="alert {{ session('alert') }} text-center">
+            <h4>{{ session('message') }}</h4>
+        </div>
+    @endif
     <div class="form-group">
         <h3>{{ __('custom.shopping_cart') }}</h3>
     </div>

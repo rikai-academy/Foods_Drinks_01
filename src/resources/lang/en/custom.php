@@ -139,5 +139,6 @@ return [
     'message_profile_update_information' => 'Please update full information!',
     'message_order_success' => 'Order has been placed successfully!',
     'message_order_no_data' => 'You currently have no orders.',
+    'message_order_error_db' => 'An error occurred, please try again later.',
 
 ];

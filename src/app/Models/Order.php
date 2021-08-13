@@ -26,4 +26,9 @@ class Order extends Model
     {
         return $query->where('user_id', $userId)->orderBy('created_at', 'DESC');
     }
+
+    public function scopeFindById($query, $id)
+    {
+        return $query->find($id);
+    }
 }

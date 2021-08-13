@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SendReminderEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\MailCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,18 +15,21 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        MailCommand::class
     ];
 
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        # Send statistic to all Admin
+        $schedule->command('mail:send')
+            ->lastDayOfMonth('8:00')
+            ->timezone('Asia/Ho_Chi_Minh');
     }
 
     /**

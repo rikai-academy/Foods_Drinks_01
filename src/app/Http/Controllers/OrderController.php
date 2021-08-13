@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use wataridori\ChatworkSDK\ChatworkRoom;
 use wataridori\ChatworkSDK\ChatworkSDK;
 use App\Services\OrderService;
+use App\Enums\UserRole;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -51,16 +54,26 @@ class OrderController extends Controller
                 ]);
             }
             # Get Orders last insert
-            $order = Order::findById($orderId)->first();
-            $create_at = date_format($order->created_at, 'M d, Y h:i A');
+            $order = Order::findById($orderId);
             $total = formatPrice($totalAllCarts);
+            $order_products = $order->order_product;
+            # Get Message Send mail and send Chatwork
+            $message = $this->getMessage($user->name, $orderId, $total, $order->created_at);
+            # Send mail to Admin
+            $this->sendMail($message, $order_products);
+            if(count(Mail::failures()) > 0) {
+                return redirect()->route('cart')->with([
+                  'message' => __('custom.message_order_error_db'),
+                  'alert' => 'alert-danger',
+                ]);
+            }
             # Sent message to Chatwork
-            $this->sendMessageToChatwork($user->name, $orderId, $total, $create_at);
+            $this->sendMessageToChatwork($message);
             # Destroy Carts
             Cart::destroy();
 
             return redirect('/profile#tab2primary')->with([
-                'message' => __('custom.message_order_success'),
+                'message' => __('custom.message_orders_success'),
                 'alert' => 'alert-success',
             ]);
 
@@ -71,16 +84,36 @@ class OrderController extends Controller
     # Format Price
     private function replacePrice($price)
     {
-      $strPrice = str_replace(',', '', $price);
-      return (float)$strPrice;
+        $strPrice = str_replace(',', '', $price);
+        return (float)$strPrice;
     }
 
     # Send message to Chatwork when user order.
-    private function sendMessageToChatwork ($name, $idOrders, $totalAmount, $created)
+    private function sendMessageToChatwork ($message)
     {
         ChatworkSDK::setApiKey(config('app.apiKeyChatwork'));
         $room = new ChatworkRoom(config('app.roomIdChatwork'));
-        $message = "$name has ordered product: Order Id is $idOrders. Total amount is $totalAmount. At $created.";
         $room->sendMessageToAll($message, true);
+    }
+
+    /**
+     * Send mail to all Admin.
+     *
+     * @param $message
+     */
+    private function sendMail($message, $order_products) {
+        $users = User::byRole(UserRole::getKey(0))->get();
+        foreach ($users as $user) {
+            $details = ['title' => __('custom.mail_order'), 'body' => $message, 'orders' => $order_products];
+            Mail::to($user->email)->send(new \App\Mail\AdminMail($details));
+        }
+    }
+
+    # Get message.
+    private function getMessage($name, $idOrders, $totalAmount, $created_at) {
+        $date = checkLanguageWithDay($created_at);
+        $message_en = "$name has ordered product: Order Id is $idOrders. Total amount is $totalAmount. At $date.";
+        $message_vi = "$name đã đặt sản phẩm: Mã đơn hàng là $idOrders. Tổng số tiền là $totalAmount. Lúc $date.";
+        return checkLanguage($message_en, $message_vi);
     }
 }

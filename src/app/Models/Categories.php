@@ -8,8 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Categories extends Model
 {
     use HasFactory;
+
     protected $table = "categories";
     protected $primaryKey = "id";
+
+    protected $fillable = [
+        'name',
+        'category_types_id',
+        'slug',
+        'status'
+    ];
     protected $guarded = [];
 
     public function products()
@@ -28,5 +36,17 @@ class Categories extends Model
     }
     public function scopeSlug($query, $slug) {
         return $query->where('slug', $slug);
+    }
+
+    public function scopeWhereNameCategory($query, $name) {
+        return $query->where('name',$name);
+    }
+
+    public function scopeWhereCategoryType($query, $id_category_type) {
+        return $query->where('category_types_id',$id_category_type);
+    }
+
+    public function scopeWhereUpdateCategory($query, $id_category,$name) {
+        return $query->where([['id','!=',$id_category],['name','=',$name]]);
     }
 }

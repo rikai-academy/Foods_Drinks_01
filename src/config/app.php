@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -235,6 +236,8 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'ChatworkSDK' => wataridori\ChatworkSDK\ChatworkSDK::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
     ],
 
     'apiKeyChatwork' => 'ca2c90d4186da287d44566ac293425b7',

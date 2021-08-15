@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Evaluates::class, 'user_id');
     }
+
+    public function scopeByRole($query, $role)
+    {
+        return $query->where('role', $role);
+    }
 }

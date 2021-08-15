@@ -56,4 +56,9 @@ class Product extends Model
     {
         return $query->find($productId)->decrement('amount_of', $quantity);
     }
+
+    public function scopeFindName($query, $name)
+    {
+        return $query->where('name', $name);
+    }
 }

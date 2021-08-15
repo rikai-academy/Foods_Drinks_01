@@ -49,6 +49,11 @@
                     <ul class="nav navbar-nav">
                         @if(Auth::user())
                             <li>
+                                <a href="{{route('suggest.create')}}">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> {{ __('custom.suggest') }}
+                                </a>
+                            </li>
+                            <li>
                                 <a class="nav-link dropdown-toggle" id="userDropdown" href="" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user"></i> {{Auth::user()->name}}

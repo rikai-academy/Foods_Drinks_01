@@ -15,6 +15,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SuggestProductController;
 
 use App\Http\Controllers\admin\ManagerCategoryController;
 
@@ -86,6 +87,11 @@ Route::group(['middleware' => 'locale'], function() {
 
     # Rating
     Route::post('/rating', [RatingController::class, 'ratingProduct'])->name('rating');
+
+    # Suggest Product
+    Route::resource('suggest', SuggestProductController::class)
+        ->middleware('check_login')
+        ->only( 'create', 'store');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

@@ -43,7 +43,8 @@
             "app/Helpers/CheckImageUser.php",
             "app/Helpers/CheckGenderUser.php",
             "app/Helpers/CheckStatusCategory.php",
-            "app/Helpers/CheckCategoryTy.php"
+            "app/Helpers/CheckCategoryTy.php",
+            "app/Helpers/CategoryHelper.php"
         ]
     },
     "autoload-dev": {

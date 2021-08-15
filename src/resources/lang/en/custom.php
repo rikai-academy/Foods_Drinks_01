@@ -85,6 +85,14 @@ return [
     'mail_has_ordered' => 'has ordered',
     'mail_times' => 'times',
     'mail_list_orders' => 'List of detailed orders',
+    'mail_statistic' => 'Statistic of orders at ',
+    'suggest' => 'Suggest Product',
+    'suggest_title' => 'Suggest more food or drink to Admin',
+    'images' => 'Images',
+    'content' => 'Content',
+    'message' => 'Message',
+    'mail_title_suggest' => 'Have users recommended more products',
+    'choose_photo' => 'Choose photos',
 
     /* Login... */
     'email' => 'Email',
@@ -107,6 +115,7 @@ return [
 
     /* Button, other... */
     'btn_post' => 'Post',
+    'btn_send_request' => 'Send Request',
 
     /* Profile*/
     'profile' => 'Profile',
@@ -189,5 +198,12 @@ return [
     'message_orders_success' => 'Order has been placed successfully!',
     'message_order_no_data' => 'You currently have no orders.',
     'message_order_error_db' => 'An error occurred, please try again later.',
-
+    'message_file_length' => 'You can only select up to 6 photos!',
+    'message_file_image' => 'You can only choose the image format!',
+    'message_file_size' => 'You can only select files that are no larger than 2MB!',
+    'message_suggest_success' => 'Your suggestions have been sent successfully.',
+    'message_order_dup' => 'Product name already exists, please try again!',
+    'message_category_empty' => 'Please select the category you want to suggest.',
+    'message_suggest_validate_form' => 'Please fill in all fields without leaving any fields blank.',
+    'message_suggest_validate_images' => 'Please select the product image you want to recommend.',
 ];

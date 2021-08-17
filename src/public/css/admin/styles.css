@@ -11239,3 +11239,11 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+#btn_add_category {
+  float: right;
+}
+
+#import_category_excel {
+  display: inline-block;
+}

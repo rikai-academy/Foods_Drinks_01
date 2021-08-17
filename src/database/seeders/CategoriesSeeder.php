@@ -17,7 +17,6 @@ class CategoriesSeeder extends Seeder
         $slug = Str::slug($name);
         Categories::create([
           'name'              => $name,
-          'name_vi'           => Str::random(10),
           'slug'              => $slug,
           'status'            => 1,
           'category_types_id' => CategoryType::all()->random()->id,

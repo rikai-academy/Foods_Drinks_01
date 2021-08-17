@@ -16,6 +16,8 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 
+use App\Http\Controllers\admin\ManagerCategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,10 +53,15 @@ Route::group(['middleware' => 'locale'], function() {
     Auth::routes();
 
     # Admin page
-    Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->middleware('auth','check_role_admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
+        # category
+        Route::get('/category/export', [ManagerCategoryController::class,'export'])->name('export');
+        Route::resource('/category', ManagerCategoryController::class);
+        Route::get('/category/category_type/{id}', [ManagerCategoryController::class, 'showCategoryTy'])->where('id','[0-9]+')
+        ->name('showCategoryTy');
+        Route::post('/category/import', [ManagerCategoryController::class,'import'])->name('import');
     });
-
     # Search Products
     Route::get('/search', [SearchController::class, 'getSearchProducts'])->name('search_products');
 

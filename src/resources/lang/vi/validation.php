@@ -19,13 +19,14 @@ return [
         'string' => 'Trường :attribute không được lớn hơn :max ký tự.',
     ],
     'required' => 'Trường :attribute bắt buộc phải nhập.',
-    'unique' => 'Tài khoản đã tồn tại.',
+    'unique' => 'Trường :attribute đã tồn tại.',
     'regex' => 'Trường :attribute không đúng định dạng.',
     'min' => [
         'string' => 'Trường :attribute phải có ít nhất :min kí tự tối thiểu.',
     ],
     'same' => 'Trường :attribute và :other phải khớp.',
     'current_password' => 'Mật khẩu hiện tại không đúng',
+    'numeric' => 'Trường :attribute phải là số.',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

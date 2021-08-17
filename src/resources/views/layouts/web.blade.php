@@ -23,5 +23,10 @@
       </a>
     </div>
 
+    {{-- Loader --}}
+    <div id="loading">
+      <div id="loader"></div>
+    </div>
+
     @include('includes.web.lib-js')
 </body>

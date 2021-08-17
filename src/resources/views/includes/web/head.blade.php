@@ -20,5 +20,9 @@
 <link href="{{asset('css/web/auth.css')}}" rel="stylesheet">
 <link href="{{asset('css/web/product-detail.css')}}" rel="stylesheet">
 <link href="{{asset('css/web/cart.css')}}" rel="stylesheet">
+<link href="{{asset('css/web/effect.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('css/web/jquery-confirm.min.css')}}">
 
 <script src="{{ asset('js/web/jquery-1.7.1.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/web/jquery-confirm.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/web/tinymce.min.js') }}" type="text/javascript"></script>

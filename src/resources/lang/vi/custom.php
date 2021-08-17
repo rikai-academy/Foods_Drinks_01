@@ -86,6 +86,13 @@ return [
     'mail_has_ordered' => 'đã đặt hàng',
     'mail_times' => 'lần',
     'mail_list_orders' => 'Danh sách các đơn đặt hàng chi tiết',
+    'suggest' => 'Đề nghị sản phẩm',
+    'suggest_title' => 'Đề xuất thêm đồ ăn hoặc thức uống cho quản trị viên',
+    'images' => 'Hình ảnh',
+    'content' => 'Nội dung',
+    'message' => 'Thông báo',
+    'mail_title_suggest' => 'Có người dùng đề xuất thêm sản phẩm',
+    'choose_photo' => 'Chọn ảnh',
 
   /* Login... */
     'email' => 'Địa chỉ email',
@@ -166,6 +173,7 @@ return [
 
     /* Button, other... */
     'btn_post' => 'Đăng',
+    'btn_send_request' => 'Gửi yêu cầu',
 
     /* Message */
     'no_data' => "Không có dữ liệu.",
@@ -183,9 +191,16 @@ return [
     'order_error_login' => 'Vui lòng đăng nhập để đặt sản phẩm.',
     'order_error_not_item' => 'Bạn không có mặt hàng nào trong giỏ hàng.',
     'message_confirm' => 'Bạn có thực sự có muốn tiếp tục?',
-    'message_order_success' => 'Đặt hàng sản phẩm thành công',
     'message_profile_update_information' => 'Vui lòng cập nhật đầy đủ thông tin!',
     'message_orders_success' => 'Đơn hàng đã được đặt thành công!',
     'message_order_no_data' => 'Hiện tại bạn chưa có đơn hàng nào.',
     'message_order_error_db' => 'Đã xảy ra lỗi vui lòng thử lại sau.',
+    'message_file_length' => 'Bạn chỉ có thể chọn tối đa 6 ảnh!',
+    'message_file_image' => 'Bạn chỉ có thể chọn định dạng ảnh!',
+    'message_file_size' => 'Bạn chỉ có thể chọn các file không quá 2MB!',
+    'message_suggest_success' => 'Đề xuất của bạn đã được gửi thành công.',
+    'message_order_dup' => 'Tên sản phẩm đã tồn tại vui lòng thử lại!',
+    'message_category_empty' => 'Vui lòng chọn danh mục muốn đề xuất.',
+    'message_suggest_validate_form' => 'Vui lòng nhập đầy đủ không bỏ trống các trường.',
+    'message_suggest_validate_images' => 'Vui lòng chọn ảnh sản phẩm muốn đề xuất.',
 ];

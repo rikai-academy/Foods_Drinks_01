@@ -49,4 +49,10 @@ class Categories extends Model
     public function scopeWhereUpdateCategory($query, $id_category,$name) {
         return $query->where([['id','!=',$id_category],['name','=',$name]]);
     }
+
+    public function scopeCategory($query, $idCategory)
+    {
+        return $query->find($idCategory);
+    }
+
 }

@@ -1,7 +1,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         let url = new URL(window.location.href);
-        let query = url.searchParams.get("q");
+        let keyword = url.searchParams.get("keyword");
         let slug = url.pathname;
         if (slug && slug.indexOf("category-type") != -1) {
             slug = slug.slice(1).replace("/category-type", "");
@@ -109,15 +109,15 @@
         });
         // Filter data
         function filter_data() {
-            if(query == null) {
-                query = "";
+            if(keyword == null) {
+                keyword = "";
             }
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 url: url.origin + "/search",
                 type: 'GET',
                 contentType: "application/json; charset=utf-8",
-                data: {q:query,slug:slug,page:page,category:category,sortCategory:sort_category,
+                data: {keyword:keyword,slug:slug,page:page,category:category,sortCategory:sort_category,
                     sortPrice:sort_price,minPrice:min_price,maxPrice:max_price,rating:rating,
                 },
                 success: function (data) {

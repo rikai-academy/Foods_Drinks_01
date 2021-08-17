@@ -40,7 +40,7 @@ class Product extends Model
 
     public function scopeSearchName($query, $keyword)
     {
-        return $query->where('name', 'like', '%' . $keyword . '%');
+        return $query->where('products.name', 'like', '%' . $keyword . '%')->conditionProduct();
     }
 
     public function scopeProductDetail($query, $slug)
@@ -60,5 +60,9 @@ class Product extends Model
     public function scopeFindName($query, $name)
     {
         return $query->where('name', $name);
+    }
+
+    public function scopeConditionProduct($query) {
+        return $query->where('products.amount_of', '>', '0')->where('products.status', '=', Status::ACTIVE);
     }
 }

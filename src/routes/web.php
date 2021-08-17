@@ -16,7 +16,6 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SuggestProductController;
-
 use App\Http\Controllers\admin\ManagerCategoryController;
 
 /*
@@ -70,8 +69,7 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/{slug}/category-type', [SearchController::class, 'getCategoryType'])->name('search_category_type')
         ->where('slug', '[A-Za-z]+');
     # Search Category
-    Route::get('/{slug}/category', [SearchController::class, 'getCategory'])->name('search_categories')
-        ->where('slug', '[0-9A-Za-z]+');
+    Route::get('/{slug}/category', [SearchController::class, 'getCategory'])->name('search_categories');
 
     # Shopping Cart
     Route::get('/cart', [CartController::class, 'index'])->name('cart');

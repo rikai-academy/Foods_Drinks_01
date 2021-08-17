@@ -37,7 +37,7 @@
                         </a>
                       </div>
                     </div>
-                    <img src="storage/home/new.png" class="new" alt="new" />
+                    {!! getNewProduct($row->created_at) !!}
                   </div>
                 </div>
               </div>

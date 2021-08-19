@@ -34,13 +34,18 @@ class CartController extends Controller
             $item = Cart::get($cartId);
         }
         $quantity = $request->get('quantity');
+        # Check quantity
+        $checkQuantity = $this->checkQuantity($product_id, $quantity, $action);
+        if ($checkQuantity) {
+            return array('count' => Cart::count(), 'subtotal' => Cart::subtotal(), 'error' => $checkQuantity);
+        }
         // Add to Cart
-        if ($action == 'add' && $this->checkQuantity($product_id, $quantity))
+        if ($action == 'add')
         {
             $this->addProductToCart($cartId, $item, $quantity, $product_id);
         }
         // Update quantity Cart
-        else if ($action == 'increment' && $this->checkQuantity($product_id, 1))
+        else if ($action == 'increment')
         {
             return $this->incrementProductToCart($cartId, $item);
         }
@@ -54,14 +59,13 @@ class CartController extends Controller
             $this->destroyProductToCart($cartId);
         }
 
-        return array('count' => Cart::count(), 'subtotal' => Cart::subtotal());
+        return array('count' => Cart::count(), 'subtotal' => Cart::subtotal(), 'error' => '');
     }
 
     /** Add Products to Cart */
     private function addProductToCart($cartId, $item, $quantity, $productId) {
         if ($cartId && $quantity > 1) { // Update in Product detail
             Cart::update($cartId, $item->qty + $quantity);
-            $this->checkQuantity($productId, $item->qty);
         } else if ($cartId) { // Update when cart exists
             Cart::update($cartId, $item->qty + 1);
         } else {
@@ -124,10 +128,15 @@ class CartController extends Controller
         return $rowId;
     }
 
-    /**
-     * Check quantity of Cart and Product when add or update.
-     */
-    private function checkQuantity($productId, $qty)
+  /**
+   * Check quantity of Cart and Product when add or update.
+   *
+   * @param $productId
+   * @param $qtyInput
+   * @param $action
+   * @return string
+   */
+    private function checkQuantity($productId, $qtyInput, $action)
     {
         $qtyProduct = Product::find($productId)->amount_of;
         $cart = $this->getCartId($productId);
@@ -135,10 +144,18 @@ class CartController extends Controller
         if ($cart) {
             $qtyCart = Cart::get($cart)->qty;
         }
-        $sum = $qty + $qtyCart;
-        if ($sum > $qtyProduct) {
-            return false;
+        $sumQuantity = $qtyInput + $qtyCart;
+        if ($action == 'add' || $action == 'increment') {
+            if ($sumQuantity > $qtyProduct) {
+                return 'error';
+            }
         }
-        return true;
+        if ($action == 'decrease') {
+            $decreaseQuantity = $sumQuantity - $qtyProduct;
+            if ($decreaseQuantity < 0) {
+                return 'error';
+            }
+        }
+        return false;
     }
 }

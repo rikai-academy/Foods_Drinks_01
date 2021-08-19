@@ -49,11 +49,13 @@
                 <p>ID {{ __('custom.product') }}: {{ $product->id }}</p>
                 <span>
                   <span>{{ formatPrice($product->price) }}</span>
-                  <label>{{ __('custom.quantity') }}:</label>
-                  <input type="text" value="1" id="product-detail-quantity-get" />
-                  <button type="button" class="btn btn-fefault cart" onclick="addToCart({!!$product->id!!},2,'add')">
-                    {{ __('custom.add_to_cart') }}
-                  </button>
+                  @if($product->amount_of > 0)
+                    <label>{{ __('custom.quantity') }}:</label>
+                    <input type="text" value="1" id="product-detail-quantity-get" />
+                    <button type="button" class="btn btn-fefault cart" onclick="addToCart({!!$product->id!!},2,'add')">
+                      {{ __('custom.add_to_cart') }}
+                    </button>
+                  @endif
                 </span>
                 <p>
                     <b>{{ __('custom.quantity') }}:</b>

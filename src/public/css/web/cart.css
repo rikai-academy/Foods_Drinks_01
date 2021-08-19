@@ -198,9 +198,18 @@
   margin-left: 40px;
 }
 
-.update,
 .check_out {
   background: #fe980f;
+  border-radius: 0;
+  color: #fff;
+  margin-top: 27px;
+  border: none;
+  padding: 7px 20px;
+  display: block;
+}
+
+.update {
+  background: #1e3d59;
   border-radius: 0;
   color: #fff;
   margin-top: 18px;
@@ -209,8 +218,8 @@
   display: block;
 }
 
-.update {
-  margin-left: 40px;
+.check_out:hover {
+  background: #ffc13b;
 }
 
 .check_out {

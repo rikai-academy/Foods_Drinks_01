@@ -96,6 +96,7 @@ return [
     '404-title' => 'OPPS! We Couldn’t Find this Page',
     '404-back-home' => 'Bring me back Home',
     'Number In Order' => 'Number In Order',
+    'edit_information' => 'Edit information',
 
     /* Login... */
     'email' => 'Email',
@@ -208,7 +209,7 @@ return [
     'Are you sure you want to remove the product' => 'Are you sure you want to remove the product?',
     'Agree' => 'Agree',
     'Exit' => 'Exit',
-    
+
 
     /* Message */
     'no_data' => "No data.",
@@ -240,4 +241,7 @@ return [
     'message_category_empty' => 'Please select the category you want to suggest.',
     'message_suggest_validate_form' => 'Please fill in all fields without leaving any fields blank.',
     'message_suggest_validate_images' => 'Please select the product image you want to recommend.',
+    'add_to_cart_fail' => 'The quantity of the product is not enough',
+    'message_order_processing' => 'Processing',
+    'message_order_success' => 'Order Success',
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\Status;
 use DB;
 use Cart;
 use App\Models\Product;
@@ -26,8 +27,8 @@ class OrderService {
             $idOrders = DB::table('orders')->insertGetId([
                 'user_id'     => $userId,
                 'total_money' => $totalAllCarts,
-                'status'      => 1,
-                "created_at"  =>  $timestamps,
+                'status'      => Status::BLOCK,
+                "created_at"  => $timestamps,
                 "updated_at"  => $timestamps,
             ]);
             # Get Products in Cart
@@ -41,7 +42,7 @@ class OrderService {
                     'amount_of'   => $product->qty,
                     'total_money' => $totalProduct,
                     'order_id'    => $idOrders,
-                    "created_at"  =>  $timestamps,
+                    "created_at"  => $timestamps,
                     "updated_at"  => $timestamps,
                 ]);
                 # Update quantity of Product

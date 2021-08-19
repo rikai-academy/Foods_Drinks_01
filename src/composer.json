@@ -44,7 +44,8 @@
             "app/Helpers/CheckGenderUser.php",
             "app/Helpers/CheckStatusCategory.php",
             "app/Helpers/CheckCategoryTy.php",
-            "app/Helpers/CategoryHelper.php"
+            "app/Helpers/CategoryHelper.php",
+            "app/Helpers/ProductHelper.php"
         ]
     },
     "autoload-dev": {

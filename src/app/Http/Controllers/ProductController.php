@@ -18,7 +18,7 @@ class ProductController extends Controller
         $product = Product::productDetail($slug)->first();
         if ($product)
         {
-            $product_recommends = Product::status(Status::ACTIVE)->inRandomOrder()->take(18)->get();
+            $product_recommends = Product::conditionProduct()->inRandomOrder()->take(18)->get();
             $reviews = $product->evaluates()->orderBy('created_at', 'DESC')->paginate(5);
             $images = $product->images()->orderBy('created_at', 'DESC')->get();
 
@@ -28,7 +28,6 @@ class ProductController extends Controller
                 'arr_images'  => $images->chunk(3),
                 'recommend_products' => $product_recommends->chunk(3),
             ]);
-            dd();
         }
         return abort(404);
     }

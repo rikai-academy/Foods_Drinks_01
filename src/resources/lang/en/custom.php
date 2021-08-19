@@ -93,6 +93,8 @@ return [
     'message' => 'Message',
     'mail_title_suggest' => 'Have users recommended more products',
     'choose_photo' => 'Choose photos',
+    '404-title' => 'OPPS! We Couldn’t Find this Page',
+    '404-back-home' => 'Bring me back Home',
 
     /* Login... */
     'email' => 'Email',

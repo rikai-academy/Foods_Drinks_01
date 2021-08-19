@@ -93,6 +93,8 @@ return [
     'message' => 'Thông báo',
     'mail_title_suggest' => 'Có người dùng đề xuất thêm sản phẩm',
     'choose_photo' => 'Chọn ảnh',
+    '404-title' => 'Chúng tôi không thể tìm thấy trang này',
+    '404-back-home' => 'Trở lại trang chủ',
 
   /* Login... */
     'email' => 'Địa chỉ email',

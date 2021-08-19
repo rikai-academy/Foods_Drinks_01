@@ -6,8 +6,8 @@
       @forelse($category_foods as $row)
         <li>
           <a href="{{ route('search_categories', ['slug' => $row->slug]) }}">
-            <span class="pull-right">{{ $row->products->count() }}</span>
-            {{ checkLanguage($row->name, $row->name_vi) }}
+            <span class="pull-right">{{ $row->products()->conditionProduct()->count() }}</span>
+            {{ $row->name }}
           </a>
         </li>
       @empty
@@ -24,8 +24,8 @@
       @forelse($category_drinks as $row)
         <li>
           <a href="{{ route('search_categories', ['slug' => $row->slug]) }}">
-            <span class="pull-right">{{ $row->products->count() }}</span>
-            {{ checkLanguage($row->name, $row->name_vi) }}
+            <span class="pull-right">{{ $row->products()->conditionProduct()->count() }}</span>
+            {{ $row->name }}
           </a>
         </li>
       @empty

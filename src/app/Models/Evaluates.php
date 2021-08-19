@@ -21,4 +21,9 @@ class Evaluates extends Model
     {
         return $this->belongsTo(Product::class,'product_id');
     }
+
+    public function scopeGetWithProducts($query, $rating)
+    {
+        $query->selectRaw('product_id')->groupBy('product_id')->havingRaw("AVG(rating) >= " . $rating);
+    }
 }

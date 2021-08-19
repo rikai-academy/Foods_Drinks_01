@@ -19,8 +19,8 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('amount_of');
             $table->float('price');
-            $table->text('content');
-            $table->string('slug',100)->unique();
+            $table->text('content')->nullable();
+            $table->string('slug',100)->nullable()->unique();
             $table->tinyInteger('status');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

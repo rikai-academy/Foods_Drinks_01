@@ -11247,3 +11247,19 @@ body {
 #import_category_excel {
   display: inline-block;
 }
+/* manager product */
+strong {
+  color: red;
+}
+#btn_add_product {
+  float:right;
+}
+#img_product {
+  width: 60px;
+}
+#img_product_edit {
+  width: 100px;
+}
+#import_product_excel {
+  display: inline-block;
+}

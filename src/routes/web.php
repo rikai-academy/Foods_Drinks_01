@@ -18,6 +18,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SuggestProductController;
 use App\Http\Controllers\admin\ManagerCategoryController;
 
+use App\Http\Controllers\admin\ManagerProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,13 +56,22 @@ Route::group(['middleware' => 'locale'], function() {
     # Admin page
     Route::prefix('admin')->middleware('auth','check_role_admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
+
         # category
-        Route::get('/category/export', [ManagerCategoryController::class,'export'])->name('export');
+        Route::get('/category/export', [ManagerCategoryController::class,'export'])->name('export_category');
         Route::resource('/category', ManagerCategoryController::class);
         Route::get('/category/category_type/{id}', [ManagerCategoryController::class, 'showCategoryTy'])->where('id','[0-9]+')
         ->name('showCategoryTy');
-        Route::post('/category/import', [ManagerCategoryController::class,'import'])->name('import');
+        Route::post('/category/import', [ManagerCategoryController::class,'import'])->name('import_category');
+
+        # Product
+        Route::get('/product/export', [ManagerProductController::class, 'export'])->name('export_product');
+        Route::resource('/product', ManagerProductController::class);
+        Route::get('/product/category/{id}', [ManagerProductController::class, 'showProductByCategory'])
+        ->name('show_product_by_category')->where('id','[0-9]+');
+        Route::post('/product/import', [ManagerProductController::class,'import'])->name('import_product');
     });
+    
     # Search Products
     Route::get('/search', [SearchController::class, 'getSearchProducts'])->name('search_products');
 

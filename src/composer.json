@@ -45,7 +45,9 @@
             "app/Helpers/CheckStatusCategory.php",
             "app/Helpers/CheckCategoryTy.php",
             "app/Helpers/CategoryHelper.php",
-            "app/Helpers/ProductHelper.php"
+            "app/Helpers/ProductHelper.php",
+            "app/Helpers/CheckCategoryProduct.php",
+            "app/Helpers/CheckStatusProduct.php"
         ]
     },
     "autoload-dev": {

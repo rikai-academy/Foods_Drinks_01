@@ -47,13 +47,8 @@ class ManagerCategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        $count_name = Categories::WhereNameCategory($request->name)->count();
         DB::beginTransaction();
         try{
-            if($count_name > 0){
-                toast(__('custom.Category name already exists'),'error');
-                return redirect()->back();
-            }
             $OBJ_Categories = new Categories($request->all());
             $OBJ_Categories->slug = Str::slug($request->name);
             $OBJ_Categories->save();
@@ -102,13 +97,8 @@ class ManagerCategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id_category)
     {
-        $count_name = Categories::WhereUpdateCategory($id_category,$request->name)->count();
         DB::beginTransaction();
         try{
-            if($count_name > 0){
-                toast(__('custom.Category name already exists'),'error');
-                return redirect()->back();
-            }
             $getCategoryById = Categories::find($id_category);
             $getCategoryById->update($request->all());
             $getCategoryById->slug = Str::slug($request->name);

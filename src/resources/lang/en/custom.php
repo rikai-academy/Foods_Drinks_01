@@ -95,6 +95,7 @@ return [
     'choose_photo' => 'Choose photos',
     '404-title' => 'OPPS! We Couldn’t Find this Page',
     '404-back-home' => 'Bring me back Home',
+    'Number In Order' => 'Number In Order',
 
     /* Login... */
     'email' => 'Email',
@@ -177,6 +178,37 @@ return [
     'Import Excel' => 'Import excel',
     'Export Excel' => 'Export excel',
 
+    /* manager product... */
+    'ID Product' => 'ID Product',
+    'Product Name' => 'Product Name',
+    'Image' => 'Image',
+    'Category' => 'Category',
+    'Amount Of' => 'Amount Of',
+    'Price' => 'Price',
+    'Status' => 'Status',
+    'Action' => 'Action',
+    'Hidden' => 'Hidden',
+    'Show' => 'Show',
+    'Content' => 'Content',
+    'Save' => 'Save',
+    'Product Update' => 'Product Update',
+    'Update' => 'Update',
+    'Notification' => 'Notification',
+    'Add product successful' => 'Add product successful!',
+    'Add product failure' => 'Add product failure!',
+    'Update product successful' => 'Update product successful!',
+    'Update product failure' => 'Update product failure!',
+    'Delete product successful' => 'Delete product successful!',
+    'Delete product failure' => 'Delete product failure!',
+    'Export Excel' => 'Export Excel',
+    'Import Excel' => 'Import Excel',
+    'Import excel successful' => 'Import excel successful!',
+    'Import excel failed' => 'Import excel failed!',
+    'Confirm' => 'Confirm',
+    'Are you sure you want to remove the product' => 'Are you sure you want to remove the product?',
+    'Agree' => 'Agree',
+    'Exit' => 'Exit',
+    
 
     /* Message */
     'no_data' => "No data.",

@@ -9,6 +9,6 @@ use App\Models\CategoryType;
                 $selected = ($id_category_type == $OBJ_Category_Type->id) ? 'selected' : '';
                 $options .= "<option value='".$OBJ_Category_Type->id."'". $selected.">".$OBJ_Category_Type->name."</option>";
             }
-            echo $options;
+            return $options;
         }
     }

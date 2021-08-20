@@ -6,7 +6,7 @@ use App\Enums\Status;
             $options_status = ($status == Status::getValue('ACTIVE')) ?
             "<option value='1' selected>".__('custom.Show')."</option><option value='0'>".__('custom.Hidden')."</option>" :
             "<option value='0' selected>".__('custom.Hidden')."</option><option value='1'>".__('custom.Show')."</option>";
-            echo $options_status;
+            return $options_status;
         }
     }
 

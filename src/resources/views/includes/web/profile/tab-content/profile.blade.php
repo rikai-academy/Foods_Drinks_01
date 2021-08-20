@@ -39,7 +39,7 @@
                     <label class="control-label col-sm-3" for="gender">{{__('custom.Gender')}}</label>
                     <div class="col-sm-9">
                         <select name="gender" id="profile_gender">
-                           {{checkGenderUser()}}
+                           {!!checkGenderUser()!!}
                         </select>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             </div>
             <div class="col-md-5" id="div_image">
                 <div class="image_avatar_profile" id="holder">
-                    {{checkImageUser()}}
+                    {!!checkImageUser()!!}
                 </div>
                 <input id="thumbnail" class="form-control" type="hidden" name="image" value="{{Auth::user()->image}}">
                 <h5 class="mb-3"><button  id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-danger">{{__('custom.Choose')}}</button></h5>

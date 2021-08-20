@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class SaveProfileRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class SaveProfileRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string','max:11',Rule::unique('users')->ignore($this->user()->id)],
+            'phone' => ['required', 'string','max:11',Rule::unique('users')->ignore($this->user)],
             'date_of_birth' => ['required'],
             'address' => ['required', 'string', 'max:255'],
         ];

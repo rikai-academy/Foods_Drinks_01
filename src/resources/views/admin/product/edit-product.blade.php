@@ -18,7 +18,7 @@
                     <div class="form-group col-md-6">
                         <label for="inputCategory">{{__('custom.Category')}}</label>
                         <select name="category_id" class="form-control">
-                            {{checkCategoryProduct($OBJ_Products->category_id)}}
+                            {!!checkCategoryProduct($OBJ_Products->category_id)!!}
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="inputStatus">{{__('custom.Status')}}</label>
                     <select name="status" class="form-control">
-                        {{checkStatusProduct($OBJ_Products->status)}}
+                        {!!checkStatusProduct($OBJ_Products->status)!!}
                     </select>
                 </div>
                 <div class="form-group">

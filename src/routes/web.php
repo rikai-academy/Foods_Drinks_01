@@ -17,6 +17,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SuggestProductController;
 use App\Http\Controllers\admin\ManagerCategoryController;
+use App\Http\Controllers\admin\ManagerUserController;
 
 use App\Http\Controllers\admin\ManagerProductController;
 /*
@@ -70,6 +71,11 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/product/category/{id}', [ManagerProductController::class, 'showProductByCategory'])
         ->name('show_product_by_category')->where('id','[0-9]+');
         Route::post('/product/import', [ManagerProductController::class,'import'])->name('import_product');
+
+        # user
+        Route::resource('/user', ManagerUserController::class);
+        Route::get('/user/get-id-user/{id}', [ManagerUserController::class, 'getIdUser']);
+        Route::post('/user/active-block-user/{id}', [ManagerUserController::class, 'activeBlockUser']);
     });
     
     # Search Products

@@ -50,7 +50,8 @@
             "app/Helpers/CheckStatusProduct.php",
             "app/Helpers/CheckStatusUser.php",
             "app/Helpers/CheckGenderUserEdit.php",
-            "app/Helpers/CheckImageUserEdit.php"
+            "app/Helpers/CheckImageUserEdit.php",
+            "app/Helpers/CheckStatusOrder.php"
         ]
     },
     "autoload-dev": {

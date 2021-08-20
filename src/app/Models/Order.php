@@ -11,6 +11,13 @@ class Order extends Model
     use HasFactory;
     protected $table = "orders";
     protected $primaryKey = "id";
+
+    protected $fillable = [
+        'user_id',
+        'total_money',
+        'status'
+    ];
+
     protected $guarded = [];
 
     public function users()
@@ -55,4 +62,38 @@ class Order extends Model
     {
         return $query->findById($orderId)->update(['status' =>  $status]);
     }
+
+    public function scopeJoinUserSelectOrder($query)
+    {
+        return $query->join('users','users.id','=','orders.user_id')
+        ->select('orders.id as id_order','users.name','orders.total_money','orders.status as status_order','orders.created_at as order_date');
+    }
+
+    public function scopeByDateTime($query, $datetime)
+    {
+        return $query->where('orders.created_at','like','%'.$datetime.'%');
+    }
+
+    public function scopeLastWeek($query, $start_week,$end_week)
+    {
+        return $query->whereBetween('orders.created_at',[$start_week,$end_week]);
+    }
+
+    public function scopefilterByDate($query, $inputDate1,$inputDate2)
+    {
+        return $query->whereBetween('orders.created_at',[$inputDate1,$inputDate2]);
+    }
+
+    public function scopeByStatus($query, $status_order)
+    {
+        return $query->where('orders.status',$status_order);
+    }
+
+    public function scopeShowOrder($query, $id_order)
+    {
+        return $query->join('users','users.id','=','orders.user_id')
+        ->select('orders.id as id_order','users.name','users.email','users.phone','users.address','orders.total_money','orders.status','orders.created_at as order_date')
+        ->where('orders.id',$id_order);
+    }
+
 }

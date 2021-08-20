@@ -18,7 +18,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SuggestProductController;
 use App\Http\Controllers\admin\ManagerCategoryController;
 use App\Http\Controllers\admin\ManagerUserController;
-
+use App\Http\Controllers\admin\ManagerOrderController;
 use App\Http\Controllers\admin\ManagerProductController;
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +89,16 @@ Route::group(['middleware' => 'locale'], function() {
         Route::resource('/user', ManagerUserController::class);
         Route::get('/user/get-id-user/{id}', [ManagerUserController::class, 'getIdUser']);
         Route::post('/user/active-block-user/{id}', [ManagerUserController::class, 'activeBlockUser']);
+        
+        # manager order
+        Route::get('/order/all-time', [ManagerOrderController::class, 'getOrderAllTime']);
+        Route::get('/order/datetime', [ManagerOrderController::class, 'getOrderByDateTime']);
+        Route::get('/order/last-week', [ManagerOrderController::class, 'getOrderLastWeek']);
+        Route::get('/order/filter-by-datetime', [ManagerOrderController::class, 'filterByDate']);
+        Route::get('/order/status', [ManagerOrderController::class, 'getOrderByStatus']);
+        Route::get('/order/export', [ManagerOrderController::class, 'export'])->name('export_order');
+        Route::resource('/order', ManagerOrderController::class);
+        Route::get('/order/list-product-order/{id}', [ManagerOrderController::class, 'getListProductOrder'])->where('id','[0-9]+');
     });
     
     # Search Products

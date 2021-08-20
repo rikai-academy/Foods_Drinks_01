@@ -7,5 +7,6 @@
 <title>ADMIN | Food & Dinks</title>
 
 <link href="{{ asset('css/admin/styles.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/admin/order.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/admin/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
 <script src="{{ asset('js/admin/all.min.js') }}" crossorigin="anonymous"></script>

@@ -208,6 +208,38 @@ return [
     'Block user successful' => 'Chặn người dùng thành công!',
     'Warning' => 'Cảnh báo: Nếu tài khoản bị chặn sẽ không thể tương tác với website như (đặt hàng,đánh giá sản phẩm...).',
 
+    
+    /* manager order */
+    'List Order' => 'Danh Sách Đơn Hàng',
+    'ID Order' => 'ID Đơn Hàng',
+    'User Order' => 'Người Đặt Hàng',
+    'Total Money' => 'Tổng Tiền',
+    'Order Date' => 'Ngày Đặt Hàng',
+    'Choose Status' => '---Chọn trạng thái---',
+    'Unconfimred' => 'Chưa xác nhận',
+    'Confirmed' => 'Đã xác nhận',
+    'Cancelled' => 'Đã hủy',
+    'Are you sure you want to confirm the order' => 'Bạn có chắc chắn muốn xác nhận đơn đặt hàng không?',
+    'Are you sure you want to remove the order' => 'Bạn có chắc chắn muốn xóa đơn đặt hàng không?',
+    'Are you sure you want to cancel your order' => 'Bạn có chắc chắn muốn hủy đơn đặt hàng không?',
+    'Detail' => 'Chi Tiết',
+    'Ordered Products' => 'Sản Phẩm Đã Đặt',
+    'FILTER BY DATE' => 'LỌC THEO NGÀY',
+    'FILTER BY STATUS' => 'LỌC THEO TRẠNG THÁI',
+    'All the time' => 'Toàn Thời Gian',
+    'Today' => 'Hôm Nay',
+    'Yesterday' => 'Hôm Qua',
+    'Last week' => 'Tuần Trước',
+    'This month' => 'Tháng Này',
+    'Last month' => 'Tháng Trước',
+    'Another choice' => 'Lựa Chọn Khác',
+    'Delete Order successful' => 'Xóa đơn đặt hàng thành công!',
+    'Delete Order failure' => 'Xóa đơn đặt hàng thất bại!',
+    'Confirm order successful' => 'Xác nhận đơn hàng thành công!',
+    'Cancel order successful' => 'Hủy đơn hàng thành công!',
+  
+
+
     /* Button, other... */
     'btn_post' => 'Đăng',
     'btn_send_request' => 'Gửi yêu cầu',

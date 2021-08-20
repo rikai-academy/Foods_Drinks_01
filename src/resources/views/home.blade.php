@@ -23,7 +23,7 @@
                       <h2>{{ formatPrice($row->price) }}</h2>
                       <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star click-active" aria-hidden="true"></i></p>
                       <p>{{ $row->name }}</p>
-                      <a href="javascript:void(0)" class="btn btn-default add-to-cart" onclick="addToCart({!!$row->id!!},'add')">
+                      <a href="javascript:void(0)" class="btn btn-default add-to-cart" onclick="addToCart({!!$row->id!!},1,'add')">
                         <i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}
                       </a>
                     </div>

@@ -17,13 +17,13 @@
                 <div class="form-group">
                     <label for="inputCategory">{{__('custom.Category group')}}</label>
                     <select class="form-control" name="category_types_id">
-                        {{checkCategoryTy($getCategoryById->category_types_id)}}
+                        {!!checkCategoryTy($getCategoryById->category_types_id)!!}
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="inputStatus">{{__('custom.Status')}}</label>
                     <select class="form-control" name="status">
-                        {{checkStatusCategory($getCategoryById->status)}}
+                        {!!checkStatusCategory($getCategoryById->status)!!}
                     </select>
                 </div>
                 <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>

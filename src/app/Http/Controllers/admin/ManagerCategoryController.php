@@ -16,11 +16,7 @@ use App\imports\CategoryImport;
 use Maatwebsite\Excel\Facades\Excel;
 class ManagerCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $data['OBJ_Categories'] = Categories::OrderBy('id', 'desc')->get();
@@ -28,23 +24,12 @@ class ManagerCategoryController extends Controller
         return view('admin.categories.index',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $OBJ_Category_Types = CategoryType::all();
         return view('admin.categories.add',compact('OBJ_Category_Types'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CategoryRequest $request)
     {
         DB::beginTransaction();
@@ -62,13 +47,6 @@ class ManagerCategoryController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
     public function showCategoryTy($id_category_type)
     {
         $data['OBJ_Categories'] = Categories::WhereCategoryType($id_category_type)->OrderBy('id', 'desc')->get();
@@ -76,25 +54,12 @@ class ManagerCategoryController extends Controller
         return view('admin.categories.index',$data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id_category)
     {
         $getCategoryById = Categories::find($id_category);
         return view('admin.categories.edit',compact('getCategoryById'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(CategoryRequest $request, $id_category)
     {
         DB::beginTransaction();
@@ -114,12 +79,6 @@ class ManagerCategoryController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id_category)
     {
         try{

@@ -26,7 +26,7 @@
                     'password' => bcrypt(env('PASSWORD_USER_CREATE_SOCIAL')),
                     'provider' => $provider,
                     'provider_id' => $getInfo->id,
-                    'status' => 1
+                    'status' => 1,
                 ]);
             }
             catch(Exception $e){

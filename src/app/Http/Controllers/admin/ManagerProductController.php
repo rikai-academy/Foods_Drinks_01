@@ -16,7 +16,7 @@ use App\Services\ProductService;
 use DB;
 class ManagerProductController extends Controller
 {
-    
+
     public function index()
     {
         $data['OBJ_Products'] = Product::ProductJoin()->SelectProduct()->orderBy('products.id','desc')->get();
@@ -26,14 +26,12 @@ class ManagerProductController extends Controller
         return view('admin.product.index',$data);
     }
 
-
     public function create()
     {
         $OBJ_Categorys = Categories::all();
         return view('admin.product.add-product',compact('OBJ_Categorys'));
     }
 
-    
     public function store(AddProductRequest $request,ProductService $productService)
     {
         $createProduct = $productService->storeProduct($request);
@@ -46,7 +44,6 @@ class ManagerProductController extends Controller
         return redirect()->back();
     }
 
-
     public function showProductByCategory($id_category)
     {
         $data['OBJ_Products'] = Product::ProductJoin()->SelectProductByCategory($id_category)->orderBy('products.id','desc')->get();
@@ -57,7 +54,6 @@ class ManagerProductController extends Controller
 
     }
 
-
     public function edit($id_product)
     {
         $data['OBJ_Products'] = Product::find($id_product);
@@ -66,7 +62,6 @@ class ManagerProductController extends Controller
         return view('admin.product.edit-product',$data);
     }
 
-  
     public function update(UpdateProductRequest $request,ProductService $productService,$id_product)
     {
 
@@ -81,7 +76,6 @@ class ManagerProductController extends Controller
 
     }
 
-   
     public function destroy($id_product)
     {
         DB::beginTransaction();
@@ -99,11 +93,9 @@ class ManagerProductController extends Controller
         return redirect()->back();
     }
 
-
     public function export(){
         return Excel::download(new ProductExport, 'product.xlsx');
     }
-
 
     public function import(ImportRequest $request,ProductService $productService) 
     {

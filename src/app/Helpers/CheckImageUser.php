@@ -4,10 +4,10 @@
         {
             if (Auth::user()->image)
             {
-                echo "<img src='".Auth::user()->image."'/>";
+                return "<img src='".Auth::user()->image."'/>";
             }
             else{
-                echo "<img src='/storage/photos/2/avatar/thumbs/user.jpg'/>";
+                return "<img src='/storage/photos/2/avatar/thumbs/user.jpg'/>";
             }
         }
     }

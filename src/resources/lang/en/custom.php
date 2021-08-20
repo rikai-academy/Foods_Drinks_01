@@ -178,6 +178,7 @@ return [
     'Exit' => 'Exit',
     'Import Excel' => 'Import excel',
     'Export Excel' => 'Export excel',
+    
 
     /* manager product... */
     'ID Product' => 'ID Product',
@@ -209,7 +210,38 @@ return [
     'Are you sure you want to remove the product' => 'Are you sure you want to remove the product?',
     'Agree' => 'Agree',
     'Exit' => 'Exit',
-
+    
+    /* manager user */
+    'ID User' => 'ID User',
+    'User Name' => 'User Name',
+    'Date Of Birth' => 'Date Of Birth',
+    'Gender' => 'Gender',
+    'Email' => 'Email',
+    'Image' => 'Image',
+    'Address' => 'Address',
+    'Phone' => 'Phone',
+    'Status' => 'Status',
+    'Action' => 'Action',
+    'Confirm' => 'Confirm',
+    'Exit' => 'Exit',
+    'Agree' => 'Agree',
+    'Update User' => 'Update User',
+    'Do you want to block this user' => 'Do you want to block this user?',
+    'Do you want to active this user' => 'Do you want to active this user?',
+    'Are you sure you want to delete this user' => 'Are you sure you want to delete this user?',
+    'Delete user successful' => 'Delete user successful!',
+    'Delete user failure' => 'Delete user failure!',
+    'Phone number already exists' => 'Phone number already exists!',
+    'Update user successful' => 'Update user successful!',
+    'Update user failure' => 'Update user failure!',
+    'User detail' => 'User detail',
+    'Avatar' => 'Avatar',
+    'Active' => 'Active',
+    'Blocked' => 'Blocked',
+    'Operation start date' => 'Operation start date',
+    'Active user successful' => 'Active user successful!',
+    'Block user successful' => 'Block user successful!',
+    'Warning' => 'Warning: If the account is blocked, it will not be able to interact with the website such as (order, product review...).',
 
     /* Message */
     'no_data' => "No data.",

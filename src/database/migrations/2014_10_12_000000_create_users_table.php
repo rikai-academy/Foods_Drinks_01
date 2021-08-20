@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('password',60)->nullable();
             $table->string('image')->nullable();
             $table->string('address')->nullable();
-            $table->integer('phone')->nullable();
+            $table->integer('phone')->unique()->nullable();
             $table->enum('role',['ADMIN','CUSTOMER'])->default('CUSTOMER');
             $table->tinyInteger('status')->nullable();
             $table->rememberToken();

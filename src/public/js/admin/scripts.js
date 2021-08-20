@@ -15,3 +15,6 @@
     $("body").toggleClass("sb-sidenav-toggled");
   });
 })(jQuery);
+
+/*upload image*/
+$("#lfm").filemanager("image");

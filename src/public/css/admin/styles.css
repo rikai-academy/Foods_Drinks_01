@@ -11240,6 +11240,7 @@ body {
   background-color: #e9ecef;
 }
 
+/* manager category */
 #btn_add_category {
   float: right;
 }
@@ -11247,6 +11248,7 @@ body {
 #import_category_excel {
   display: inline-block;
 }
+
 /* manager product */
 strong {
   color: red;
@@ -11256,10 +11258,37 @@ strong {
 }
 #img_product {
   width: 60px;
+  height: 60px;
 }
 #img_product_edit {
   width: 100px;
 }
 #import_product_excel {
   display: inline-block;
+}
+
+/* manager user */
+.image_avatar_profile img {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px !important;
+  border-radius: 50%;
+}
+#div_image {
+  text-align: center;
+}
+.image_avatar_profile {
+  margin-bottom: 10px;
+}
+strong {
+  color: red;
+}
+#form_group_user {
+  margin-bottom: 30px;
+}
+#label_user {
+  font-weight: bold;
+}
+#col_left {
+  border-right: 1px solid #ccc;
 }

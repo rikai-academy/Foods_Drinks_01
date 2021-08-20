@@ -109,7 +109,9 @@
                 <div class="mainmenu pull-left">
                     <ul class="nav navbar-nav collapse navbar-collapse">
                         <li><a href="{{ route('home') }}">{{ __('custom.home_page') }}</a></li>
-                        <li><a href="{{ route('admin') }}">{{ __('custom.admin_page') }}</a></li>
+                        @if(Auth::check() && Auth::user()->isAdmin())
+                          <li><a href="{{ route('admin') }}">{{ __('custom.admin_page') }}</a></li>
+                        @endif
                         <li class="dropdown"><a href="#">{{ __('custom.category') }}<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="{{ route('search_category_type', ['slug' => 'food']) }}">{{ __('custom.food') }}</a></li>

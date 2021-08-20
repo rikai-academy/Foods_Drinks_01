@@ -7,8 +7,8 @@
       <span>
         {{ checkLanguage('Day: ' . $order->created_at->format('M d, Y \a\t h:i A'), 'Ngày: '
           . $order->created_at->format('d/m/yy \l\ú\c H:i')) }}.
+        {!! displayStatusOrder($order->status) !!}
       </span>
-
     </h4>
   </div>
   <table class="table">

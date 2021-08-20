@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div class="header-middle">
+<div class="header-middle" id="header-middle">
     <div class="container">
         <div class="row">
             <div class="col-md-2 clearfix">

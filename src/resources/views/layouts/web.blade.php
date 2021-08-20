@@ -8,7 +8,9 @@
         @include('includes.web.header')
     </header>
 
-    @yield('content')
+    <div class="section">
+      @yield('content')
+    </div>
 
     <footer id="footer">
         @include('includes.web.footer')
@@ -16,10 +18,10 @@
 
     {{-- Message when add to cart --}}
     <div id="messageAddToCart">
-      <a href="{{ route('cart') }}">
+      <a href="{{ route('cart') }}" id="messageAddToCart-tag_click">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         (<span id="cart-count-web">{{Cart::count()}}</span>)
-        {{ __('custom.add_to_cart_success') }}
+        <span id="cart-message-add"></span>
       </a>
     </div>
 

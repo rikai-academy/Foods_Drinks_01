@@ -59,10 +59,13 @@
                 contentType: "application/json; charset=utf-8",
                 data: {product_id:product_id,quantity:quantity,action:action},
                 success: function (data) {
-                    if (action == 'add') { // Show message
-                        let message = document.getElementById("messageAddToCart");
-                        message.className = "show";
-                        setTimeout(function(){ message.className = message.className.replace("show", ""); }, 3000);
+                    /* Check quantity error */
+                    if (data['error'] == 'error') {
+                        showMessage('error');
+                        return;
+                    }
+                    if (action == 'add') {
+                        showMessage();
                     }
                     if (action == 'increment' || action == 'decrease') {
                         let formatPrice = (data['price']+'').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -80,9 +83,39 @@
                     $("#cart-subtotal").text(data['subtotal'] + 'đ');
                 }
             });
+            function showMessage(message = 'success') {
+                const messageAddToCart = $("#messageAddToCart");
+                const cart_message_add = $("#cart-message-add");
+                const tag_click = $("#messageAddToCart-tag_click");
+                if (message == 'success') {
+                    cart_message_add.html("{{__('custom.add_to_cart_success')}}");
+                    messageAddToCart.css("background-color", "#03a66a");
+                } else {
+                    cart_message_add.html("{{__('custom.add_to_cart_fail')}}");
+                    messageAddToCart.css("background-color", "#f0262a");
+                }
+                messageAddToCart.addClass("show");
+                tag_click.show();
+                setTimeout(function(){
+                    messageAddToCart.removeClass("show");
+                    tag_click.hide();
+                }, 3000);
+            }
         });
     }
     setTimeout(function(){
         $("#message_time").hide(); // hide message
     }, 5000); // 5000ms
+
+    /* Pin Header when scroll */
+    window.onscroll = function() {myFunction()};
+    let header = document.getElementById("header-middle");
+    let sticky = header.offsetTop;
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky-header");
+        } else {
+            header.classList.remove("sticky-header");
+        }
+    }
 </script>

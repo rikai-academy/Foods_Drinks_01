@@ -44,8 +44,12 @@
               </div>
             </li>
           </ul>
+          <a class="btn btn-primary update" href="{{ route('profile') }}">{{__('custom.edit_information')}}</a>
         @else
-          <ul class="user_option"><h5>{{ __('custom.order_error_login') }}</h5></ul>
+          <div class="text-center">
+            <ul class="user_option"><h4>{{ __('custom.order_error_login') }}</h4></ul>
+            <a href="{{ route('login') }}" class="btn btn-primary">{{ __('custom.login') }}</a>
+          </div>
         @endif
       </div>
     </div>
@@ -57,11 +61,11 @@
           <li>{{__('custom.shipping_cost')}} <span>{{__('custom.free')}}</span></li>
           <li>{{__('custom.total_price')}} <span id="cart-subtotal">{{ formatPrice(Cart::subtotal()) }}</span></li>
           <li id="total_area_discount">
-            <input type="text" class="form-control" id="" value="" placeholder="{{__('custom.discount_code')}}" disabled>
+            <input type="text" class="form-control" id="" value="" placeholder="{{__('custom.discount_code')}}">
           </li>
         </ul>
         @if (Auth::check())
-          <a class="btn btn-default check_out" id="cart_btn-order" href="javascript:void(0);">{{__('custom.order')}}</a>
+          <a class="btn btn-danger check_out" id="cart_btn-order" href="javascript:void(0);">{{__('custom.order_product')}}</a>
         @endif
       </div>
     </div>

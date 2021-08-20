@@ -60,7 +60,6 @@ h6 {
 }
 
 .shop-menu ul li a {
-  background: #fff;
   color: #d92b34;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -801,7 +800,6 @@ a#scrollUp i {
 .companyinfo h2 span {
   color: #fe980f;
 }
-/* stylelint-enable no-descending-specificity */
 
 /*************************
 ********* Profile *********
@@ -844,7 +842,7 @@ border-bottom-color: transparent;
   border-color: #3071a9;
 }
 .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
-  color: #fff;   
+  color: #fff;
 }
 .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
 .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
@@ -901,3 +899,16 @@ border-bottom-color: transparent;
   text-align: center;
 }
 
+.sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f5f0e1;
+  z-index: 99;
+  opacity: 0.96;
+}
+
+.sticky + .section {
+  padding-top: 102px;
+}
+/* stylelint-enable no-descending-specificity */

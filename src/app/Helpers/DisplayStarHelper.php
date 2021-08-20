@@ -9,3 +9,13 @@ if (!function_exists('displayStar')) {
         return $htmlStar;
     }
 }
+
+if (!function_exists('displayStatusOrder')) {
+    function displayStatusOrder($status)
+    {
+        if ($status === \App\Enums\Status::BLOCK) {
+            return "<span class='label label-warning'>" . __('custom.message_order_processing') . "</span>";
+        }
+        return "<span class='label label-success'>" . __('custom.message_order_success') . "</span>";
+    }
+}

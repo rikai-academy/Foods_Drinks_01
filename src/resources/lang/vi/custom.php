@@ -96,6 +96,7 @@ return [
     '404-title' => 'Chúng tôi không thể tìm thấy trang này',
     '404-back-home' => 'Trở lại trang chủ',
     'Number In Order' => 'Số Thứ Tự',
+    'edit_information' => 'Chỉnh sửa thông tin',
 
   /* Login... */
     'email' => 'Địa chỉ email',
@@ -237,4 +238,7 @@ return [
     'message_category_empty' => 'Vui lòng chọn danh mục muốn đề xuất.',
     'message_suggest_validate_form' => 'Vui lòng nhập đầy đủ không bỏ trống các trường.',
     'message_suggest_validate_images' => 'Vui lòng chọn ảnh sản phẩm muốn đề xuất.',
+    'add_to_cart_fail' => 'Số lượng của sản phẩm không đủ',
+    'message_order_processing' => 'Đang xử lý',
+    'message_order_success' => 'Đặt hàng thành công',
 ];

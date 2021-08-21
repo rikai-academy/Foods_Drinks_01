@@ -46,7 +46,9 @@
             <div class="col-sm-7">
               <div class="product-information">
                 <h2>{{ $product->name }}</h2>
-                <p>ID {{ __('custom.product') }}: {{ $product->id }}</p>
+                @if(Auth::check() && Auth::user()->isAdmin())
+                  <p>ID {{ __('custom.product') }}: {{ $product->id }}</p>
+                @endif
                 <span>
                   <span>{{ formatPrice($product->price) }}</span>
                   @if($product->amount_of > 0)

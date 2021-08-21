@@ -67,4 +67,11 @@ class User extends Authenticatable
     {
         return $query->where('role','!=', UserRole::getKey(UserRole::ADMIN));
     }
+
+    /**
+     * Check user is Admin?
+     */
+    public function isAdmin() {
+        return $this->role == UserRole::getKey(0);
+    }
 }

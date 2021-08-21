@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -33,10 +35,31 @@ class LoginController extends Controller
      *
      * @return void
      */
-    
     public function __construct()
     {
         $this->redirectTo = url()->previous();
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Log the user out of the application.
+     * Set Cart when log out.
+     *
+     * @param  $request
+     * @return Response
+     */
+    public function logout(Request $request)
+    {
+        # Get Carts
+        $cart = session('cart');
+
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        # Set Carts
+        session(['cart' => $cart]);
+
+        return redirect()->route('login');
     }
 }

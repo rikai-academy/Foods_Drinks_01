@@ -50,4 +50,9 @@ class Order extends Model
             ->orderBy('total_money')
             ->take(5);
     }
+
+    public function scopeUpdateStatus($query, $orderId, $status)
+    {
+        return $query->findById($orderId)->update(['status' =>  $status]);
+    }
 }

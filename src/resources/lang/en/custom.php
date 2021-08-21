@@ -97,6 +97,7 @@ return [
     '404-back-home' => 'Bring me back Home',
     'Number In Order' => 'Number In Order',
     'edit_information' => 'Edit information',
+    'order_cancel' => 'Cancel Order',
 
     /* Login... */
     'email' => 'Email',
@@ -178,7 +179,7 @@ return [
     'Exit' => 'Exit',
     'Import Excel' => 'Import excel',
     'Export Excel' => 'Export excel',
-    
+
 
     /* manager product... */
     'ID Product' => 'ID Product',
@@ -210,7 +211,7 @@ return [
     'Are you sure you want to remove the product' => 'Are you sure you want to remove the product?',
     'Agree' => 'Agree',
     'Exit' => 'Exit',
-    
+
     /* manager user */
     'ID User' => 'ID User',
     'User Name' => 'User Name',
@@ -276,4 +277,7 @@ return [
     'add_to_cart_fail' => 'The quantity of the product is not enough',
     'message_order_processing' => 'Processing',
     'message_order_success' => 'Order Success',
+    'message_cancel_order_success' => 'Your order has been cancelled.',
+    'message_order_status_cancel' => 'Cancelled',
+    'message_order_cancel_condition' => 'Orders can only be canceled within 24 hours and the order must be in process.',
 ];

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Enums\Status;
+use App\Models\Order;
 use DB;
 use Cart;
 use App\Models\Product;
@@ -63,5 +64,38 @@ class OrderService {
     {
         $strPrice = str_replace(',', '', $price);
         return (float)$strPrice;
+    }
+
+    /**
+     * Cancel Order and add quantity to Products.
+     *
+     * @param $orderId
+     * @return array
+     */
+    public function cancelOrder($orderId)
+    {
+        DB::beginTransaction();
+        try {
+            # Update status
+            Order::updateStatus($orderId, Status::CANCEL);
+
+            # Add quantity to Products
+            $order_products = Order::findById($orderId)->order_product;
+            foreach ($order_products as $product) {
+                Product::incrementProduct($product->product_id, $product->amount_of);
+            }
+
+            DB::commit();
+            return array(
+                'alert'   => 'alert-success',
+                'message' => __('custom.message_cancel_order_success'),
+            );
+        } catch (Exception $e) {
+            DB::rollBack();
+            return array(
+                'alert'   => 'alert-danger',
+                'message' => __('custom.message_order_error_db'),
+            );
+        }
     }
 }

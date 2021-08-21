@@ -1,3 +1,6 @@
+<div class="list-order_text_cancel">
+  <span>{{ __('custom.message_order_cancel_condition') }}</span>
+</div>
 <div class="panel panel-default">
   @forelse($orders as $order)
   <div class="panel-footer text-left">
@@ -9,6 +12,7 @@
           . $order->created_at->format('d/m/yy \l\ú\c H:i')) }}.
         {!! displayStatusOrder($order->status) !!}
       </span>
+      {!! displayCancelOrder($order->created_at, $order->id, $order->status) !!}
     </h4>
   </div>
   <table class="table">

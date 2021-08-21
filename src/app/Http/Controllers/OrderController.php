@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use Cart;
 use Illuminate\Support\Facades\Auth;
@@ -79,6 +80,23 @@ class OrderController extends Controller
 
         }
         abort(404);
+    }
+
+    /**
+     * Cancel Product.
+     *
+     * @param OrderRequest $request
+     * @return Response
+     */
+    public function cancelOrder(OrderRequest $request)
+    {
+        if (isset($request->orderId)) {
+            $arr_message = $this->orderService->cancelOrder($request->orderId);
+
+            return back()->with($arr_message);
+        }
+
+        return abort(404);
     }
 
     # Format Price

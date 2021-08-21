@@ -46,10 +46,23 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    #Profile page
-    Route::get('/profile', [ProfileController::class, 'index'])->middleware('check_login')->name('profile');
-    Route::post('/profile/save-infor', [ProfileController::class, 'save_infor'])->middleware('check_login')->name('save_infor');
-    Route::post('change-password', [ChangePasswordController::class,'changePassword'])->name('profile.change.password');
+    # Group Check login
+    Route::group(['middleware' => 'check_login'], function() {
+        #Profile page
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        Route::post('/profile/save-infor', [ProfileController::class, 'save_infor'])->name('save_infor');
+        Route::post('change-password', [ChangePasswordController::class,'changePassword'])
+            ->name('profile.change.password');
+
+        # Order Products
+        Route::get('/order-products', [OrderController::class, 'orderProduct'])->name('order-products');
+
+        # Cancel Order
+        Route::post('/order-cancel', [OrderController::class, 'cancelOrder'])->name('order-cancel');
+
+        # Suggest Product
+        Route::resource('suggest', SuggestProductController::class)->only( 'create', 'store');
+    });
 
     # Route Auth
     Auth::routes();
@@ -92,20 +105,12 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/add-to-cart', [CartController::class, 'addOrUpdate'])->name('cart.add');
     Route::get('/destroy-cart', [CartController::class, 'destroy'])->name('cart.destroy');
 
-    # Order Products
-    Route::get('/order-products', [OrderController::class, 'orderProduct'])->middleware('check_login')
-      ->name('order-products');
-
     # Product Detail
     Route::get('/{slug}', [ProductController::class, 'getProductDetail'])->name('product_detail');
 
     # Rating
     Route::post('/rating', [RatingController::class, 'ratingProduct'])->name('rating');
 
-    # Suggest Product
-    Route::resource('suggest', SuggestProductController::class)
-        ->middleware('check_login')
-        ->only( 'create', 'store');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

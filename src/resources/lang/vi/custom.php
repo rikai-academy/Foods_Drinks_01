@@ -97,6 +97,7 @@ return [
     '404-back-home' => 'Trở lại trang chủ',
     'Number In Order' => 'Số Thứ Tự',
     'edit_information' => 'Chỉnh sửa thông tin',
+    'order_cancel' => 'Hủy đơn',
 
   /* Login... */
     'email' => 'Địa chỉ email',
@@ -174,7 +175,7 @@ return [
     'Import Excel' => 'Nhập excel',
     'Export Excel' => 'Xuất excel',
 
-    
+
     /* manager user */
     'ID User' => 'ID Người Dùng',
     'User Name' => 'Tên Người Dùng',
@@ -274,4 +275,7 @@ return [
     'add_to_cart_fail' => 'Số lượng của sản phẩm không đủ',
     'message_order_processing' => 'Đang xử lý',
     'message_order_success' => 'Đặt hàng thành công',
+    'message_cancel_order_success' => 'Đơn hàng của bạn đã được hủy.',
+    'message_order_status_cancel' => 'Đã hủy',
+    'message_order_cancel_condition' => 'Đơn hàng chỉ được hủy trong 24 tiếng và đơn hàng phải đang được xử lý.',
 ];

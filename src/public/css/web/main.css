@@ -911,4 +911,16 @@ border-bottom-color: transparent;
 .sticky + .section {
   padding-top: 102px;
 }
+
+#formCancelOrder {
+  float: right;
+}
+
+.list-order_text_cancel {
+  color: #d62728;
+  font-weight: bolder;
+  font-style: italic;
+  text-align: right;
+  margin-bottom: 8px;
+}
 /* stylelint-enable no-descending-specificity */

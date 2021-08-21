@@ -30,4 +30,5 @@
         </div>
 	</div>
 </div>
+@include('profile.js-profile')
 @endsection

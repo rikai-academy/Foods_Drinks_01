@@ -97,4 +97,9 @@ class Product extends Model
         ->where('products.category_id',$id_category)
         ->where('images.STT',1);
     }
+
+    public function scopeIncrementProduct($query, $productId, $quantity)
+    {
+        return $query->where('id', '=', $productId)->increment('amount_of', $quantity);
+    }
 }

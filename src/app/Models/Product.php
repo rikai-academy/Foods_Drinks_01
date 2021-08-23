@@ -102,4 +102,21 @@ class Product extends Model
     {
         return $query->where('id', '=', $productId)->increment('amount_of', $quantity);
     }
+    
+    public function scopeJoinOrderProductAndImage($query)
+    {
+        return $query->join('order_product','products.id','=','order_product.product_id')
+        ->join('images','images.product_id','=','products.id');
+    }
+
+    public function scopeSelectProductOrder($query)
+    {
+        return $query->select('products.id as id_product','products.name','images.image','products.price',
+        'order_product.amount_of as amount_of_product','order_product.total_money');
+    }
+
+    public function scopeWhereProductOrder($query,$id_order)
+    {
+        return $query->where('order_product.order_id',$id_order)->where('images.STT',1);
+    }
 }

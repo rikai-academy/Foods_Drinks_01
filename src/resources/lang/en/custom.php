@@ -244,6 +244,37 @@ return [
     'Block user successful' => 'Block user successful!',
     'Warning' => 'Warning: If the account is blocked, it will not be able to interact with the website such as (order, product review...).',
 
+    
+    /* manager order */
+    'List Order' => 'Order List ',
+    'ID Order' => 'ID Order',
+    'User Order' => 'User Order',
+    'Total Money' => 'Total Money',
+    'Order Date' => 'Order Date',
+    'Choose Status' => '---Choose Status---',
+    'Unconfimred' => 'Unconfimred',
+    'Confirmed' => 'Confirmed',
+    'Cancelled' => 'Cancelled',
+    'Are you sure you want to confirm the order' => 'Are you sure you want to confirm the order?',
+    'Are you sure you want to remove the order' => 'Are you sure you want to remove the order?',
+    'Are you sure you want to cancel your order' => 'Are you sure you want to cancel your order?',
+    'Detail' => 'Detail',
+    'Ordered Products' => 'Ordered Products',
+    'FILTER BY DATE' => 'FILTER BY DATE',
+    'FILTER BY STATUS' => 'FILTER BY STATUS',
+    'All the time' => 'All the time',
+    'Today' => 'Today',
+    'Yesterday' => 'Yesterday',
+    'Last week' => 'Last week',
+    'This month' => 'This month',
+    'Last month' => 'Last month',
+    'Another choice' => 'Another choice',
+    'Delete Order successful' => 'Delete Order successful!',
+    'Delete Order failure' => 'Delete Order failure!',
+    'Confirm order successful' => 'Confirm order successful!',
+    'Cancel order successful' => 'Cancel order successful!',
+
+
     /* Message */
     'no_data' => "No data.",
     'Login_error' => "Login unsuccessful!",

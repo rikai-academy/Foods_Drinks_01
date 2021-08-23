@@ -34,19 +34,18 @@
             </nav>
         </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseLayouts">
-            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-            {{ __('custom.order') }}
+            <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
+            {{ __('custom.List Order') }}
             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
         <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="">{{ __('custom.list_orders') }}</a>
-                <a class="nav-link" href="">{{ __('custom.add_order') }}</a>
+                <a class="nav-link" href="{{route('order.index')}}">{{ __('custom.List Order') }}</a>
             </nav>
         </div>
     </div>
 </div>
 <div class="sb-sidenav-footer">
     <div class="small">{{ __('custom.logged_in_as') }}:</div>
-    <span>username</span> {{-- DATA DEMO --}}
+    <span>{{Auth::user()->name}}</span> {{-- DATA DEMO --}}
 </div>

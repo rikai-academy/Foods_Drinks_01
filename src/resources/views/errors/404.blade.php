@@ -16,7 +16,7 @@
             <img src="{{asset('images/404.png')}}" id="content-404-image" class="img-responsive" alt="404" />
             <h1>{{ __('custom.404-title') }}</h1>
             <p>{{ $exception->getMessage() }}</p>
-            <h3><a href="{{ route('index') }}">{{ __('custom.404-back-home') }}</a></h3>
+            <h3><a href="{{ route('index') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ __('custom.404-back-home') }}</a></h3>
         </div>
     </div>
 </body>

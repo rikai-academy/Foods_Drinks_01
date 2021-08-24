@@ -65,8 +65,7 @@
                 </p>
                 <p>
                   <b>{{ __('custom.rating') }}:</b>
-                  {{ getRatingProduct($product->id) }}
-                  <i class="fa fa-star click-active" aria-hidden="true"></i>
+                  {!! getRatingProduct($product->id)  !!}
                 </p>
                 <p><b>{{ __('custom.type') }}:</b> {{ $product->categories->category_type->name }}</p>
                 <p><b>{{ __('custom.category') }}:</b> {{ $product->categories->name }}</p>

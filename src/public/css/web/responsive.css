@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 /* md */
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -476,3 +477,10 @@
     float: none;
   }
 }
+
+@media only screen and (width: 1366px) {
+  .search_box input {
+    padding-top: 3px;
+  }
+}
+/* stylelint-enable no-descending-specificity */

@@ -36,5 +36,8 @@
 </div>
 {{-- Image ads --}}
 <div class="shipping text-center">
+  <img src="/storage/home/poster_drink.jpg" alt="poster-drink" />
+</div>
+<div class="shipping text-center">
   <img src="/storage/home/banner-shop-page.png" alt="banner-shop-page" />
 </div>

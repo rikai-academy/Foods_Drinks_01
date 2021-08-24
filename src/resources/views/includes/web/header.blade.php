@@ -35,11 +35,11 @@
             <div class="col-md-10 clearfix">
                 <div class="btn-group pull-right clearfix btn-group__language">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle usa" id="usa" data-toggle="dropdown">
                             {{ checkLanguage('EN', 'VI') }}
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="dropdown-menu-language">
                             <li><a href="{!! route('change-language', ['en']) !!}">EN</a></li>
                             <li><a href="{!! route('change-language', ['vi']) !!}">VI</a></li>
                         </ul>
@@ -58,11 +58,11 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user"></i> {{Auth::user()->name}}
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <div class="profile">
+                                <ul class="dropdown-menu" id="dropdown-menu-profile" aria-labelledby="userDropdown">
+                                    <li>
                                         <a class="dropdown-item" href="{{ route('profile') }}">{{ __('custom.profile') }}</a>
-                                    </div>
-                                    <div class="logout">
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">{{ __('custom.logout') }}
                                         </a>
@@ -70,8 +70,8 @@
                                             style="display: none;">
                                             @csrf
                                         </form>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
                             </li>
                         @else
                         <li>

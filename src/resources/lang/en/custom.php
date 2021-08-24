@@ -244,7 +244,7 @@ return [
     'Block user successful' => 'Block user successful!',
     'Warning' => 'Warning: If the account is blocked, it will not be able to interact with the website such as (order, product review...).',
 
-    
+
     /* manager order */
     'List Order' => 'Order List ',
     'ID Order' => 'ID Order',
@@ -311,4 +311,6 @@ return [
     'message_cancel_order_success' => 'Your order has been cancelled.',
     'message_order_status_cancel' => 'Cancelled',
     'message_order_cancel_condition' => 'Orders can only be canceled within 24 hours and the order must be in process.',
+    'message_order_success_db' => 'Send mail report to Admin successfully.',
+    'message_rating_no_data' => 'No reviews.',
 ];

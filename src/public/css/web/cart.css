@@ -40,6 +40,10 @@
   margin-bottom: 50px;
 }
 
+#cart_items h3 {
+  color: #e34042;
+}
+
 #cart_items .cart_info .cart_menu {
   background: #fe980f;
   color: #fff;
@@ -117,6 +121,11 @@
   line-height: 28px;
 }
 
+.cart_quantity_button a:hover {
+  background: #f5f0e1;
+  color: #696763;
+}
+
 .cart_quantity_input {
   color: #696763;
   float: left;
@@ -165,6 +174,11 @@
   padding-bottom: 18px;
 }
 
+#do_action h3 {
+  font-size: 24px;
+  color: #e03e2d;
+}
+
 #do_action .total_area,
 #do_action .chose_area {
   border: 1px solid #e6e4df;
@@ -178,7 +192,7 @@
 }
 
 .total_area ul li {
-  background: #e6e4df;
+  background: #f5f0e1;
   color: #696763;
   margin-top: 10px;
   padding: 7px 20px;
@@ -196,11 +210,12 @@
 
 .chose_area .update {
   margin-left: 40px;
+  border-radius: 4px;
 }
 
 .check_out {
   background: #fe980f;
-  border-radius: 0;
+  border-radius: 4px;
   color: #fff;
   margin-top: 27px;
   border: none;
@@ -236,13 +251,14 @@
   margin-left: -125px;
   background-color: #03a66a;
   text-align: center;
-  border-radius: 2px;
   padding: 16px;
   position: fixed;
   z-index: 1;
   left: 50%;
   bottom: 30px;
   font-size: 17px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 25px 50px -12px;
 }
 
 #messageAddToCart a {

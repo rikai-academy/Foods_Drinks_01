@@ -54,14 +54,16 @@
 }
 
 .item-control i {
-  background: #fe980f;
-  color: #fff;
+  background-color: #f0f0e9;
+  color: #d92b34;
   font-size: 20px;
   padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .item-control i:hover {
-  background: #ccccc6;
+  background-color: #fe980f;
+  color: #f0f0e9;
 }
 
 .product-information {
@@ -134,12 +136,17 @@
 .cart {
   background: #fe980f;
   border: 0 none;
-  border-radius: 0;
+  border-radius: 4px;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   margin-bottom: 10px;
   margin-left: 20px;
+}
+
+.cart:hover {
+  background-color: #d92b34;
+  color: white;
 }
 
 .shop-details-tab {
@@ -245,7 +252,7 @@
   color: #fff;
   line-height: 2em;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 4px;
   white-space: nowrap;
   display: inline-block;
   margin-bottom: 4px;
@@ -262,7 +269,6 @@
 
 .category-tab ul {
   background: #40403e;
-  border-bottom: 1px solid #fe980f;
   list-style: none outside none;
   margin: 0 0 30px;
   padding: 0;

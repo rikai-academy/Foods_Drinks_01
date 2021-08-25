@@ -17,7 +17,8 @@
                     <td class="quantity">{{ __('custom.quantity') }}</td>
                     <td class="total">{{ __('custom.total_price') }}</td>
                     <td>
-                        <a class="btn btn-danger" href="{{ route('cart.destroy') }}" title="{{ __('custom.delete_all') }}">
+                        <a class="btn btn-danger" id="cart__btn-delete-all" href="javascript:void(0);"
+                           title="{{ __('custom.delete_all') }}">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </a>
                     </td>

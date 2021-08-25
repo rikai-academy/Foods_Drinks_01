@@ -145,17 +145,18 @@ class CartController extends Controller
             $qtyCart = Cart::get($cart)->qty;
         }
         $sumQuantity = $qtyInput + $qtyCart;
-        if ($action == 'add' || $action == 'increment') {
-            if ($sumQuantity > $qtyProduct) {
-                return 'error';
-            }
+        if (($action == 'add') && $sumQuantity > $qtyProduct) return 'error';
+
+        if ($action == 'increment') {
+            $incrementQuantity = $qtyInput + 1;
+            if ($incrementQuantity > $qtyProduct) return 'error';
         }
+
         if ($action == 'decrease') {
-            $decreaseQuantity = $sumQuantity - $qtyProduct;
-            if ($decreaseQuantity < 0) {
-                return 'error';
-            }
+            $decreaseQuantity = $sumQuantity - 1;
+            if ($decreaseQuantity < 0) return 'error';
         }
+
         return false;
     }
 }

@@ -297,7 +297,7 @@ return [
     'message_orders_success' => 'Order has been placed successfully!',
     'message_order_no_data' => 'You currently have no orders.',
     'message_order_error_db' => 'An error occurred, please try again later.',
-    'message_file_length' => 'You can only select up to 6 photos!',
+    'message_file_length' => 'You can only select up to 3 photos!',
     'message_file_image' => 'You can only choose the image format!',
     'message_file_size' => 'You can only select files that are no larger than 2MB!',
     'message_suggest_success' => 'Your suggestions have been sent successfully.',

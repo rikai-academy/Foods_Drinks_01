@@ -89,6 +89,8 @@
                     alert("{{ __('custom.js_price_format') }}");
                     return;
                 }
+                str_min_price = Number(str_min_price);
+                str_max_price = Number(str_max_price);
                 if (str_min_price >= str_max_price) {
                     min_price = 0;
                     max_price = 0;

@@ -57,10 +57,7 @@ class Product extends Model
 
     public function scopeProductDetail($query, $slug)
     {
-        return $query->where([
-            'status' => Status::ACTIVE,
-            'slug'   => $slug,
-        ])->orderBy('updated_at', 'DESC');
+        return $query->where('products.slug', '=', $slug)->conditionProduct();
 
     }
 
@@ -75,9 +72,13 @@ class Product extends Model
     }
 
     public function scopeConditionProduct($query) {
-        return $query->where('products.amount_of', '>', '0')->where('products.status', '=', Status::ACTIVE);
+        return $query->where('products.amount_of', '>', '0')
+            ->where('products.status', '=', Status::ACTIVE)
+            ->whereHas('categories', function ($query_categories) {
+                $query_categories->where('categories.status', '=', Status::ACTIVE);
+            });
     }
-    
+
     public function scopeProductJoin($query)
     {
         return $query->join('categories','categories.id','=','products.category_id')->join('images','product_id','=','products.id');
@@ -102,7 +103,7 @@ class Product extends Model
     {
         return $query->where('id', '=', $productId)->increment('amount_of', $quantity);
     }
-    
+
     public function scopeJoinOrderProductAndImage($query)
     {
         return $query->join('order_product','products.id','=','order_product.product_id')

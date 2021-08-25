@@ -296,7 +296,7 @@ return [
     'message_orders_success' => 'Đơn hàng đã được đặt thành công!',
     'message_order_no_data' => 'Hiện tại bạn chưa có đơn hàng nào.',
     'message_order_error_db' => 'Đã xảy ra lỗi vui lòng thử lại sau.',
-    'message_file_length' => 'Bạn chỉ có thể chọn tối đa 6 ảnh!',
+    'message_file_length' => 'Bạn chỉ có thể chọn tối đa 3 ảnh!',
     'message_file_image' => 'Bạn chỉ có thể chọn định dạng ảnh!',
     'message_file_size' => 'Bạn chỉ có thể chọn các file không quá 2MB!',
     'message_suggest_success' => 'Đề xuất của bạn đã được gửi thành công.',

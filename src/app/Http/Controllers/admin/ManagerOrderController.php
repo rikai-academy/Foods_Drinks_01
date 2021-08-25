@@ -71,16 +71,34 @@ class ManagerOrderController extends Controller
         return json_encode($id_oder);
     }
 
-    public function update(Request $request, $id_oder)
+    public function update(Request $request, ManagerOrderService $managerOrderService,$id_oder)
     {
-        Order::find($id_oder)->update($request->all());
-        if($request->has('btn_confirm')){
-            toast(__('custom.Confirm order successful'),'success');
+        try {
+            $OBJ_Order = Order::find($id_oder);
+            $OBJ_Order->update($request->all());
+            if($request->has('btn_confirm')){
+                toast(__('custom.Confirm order successful'),'success');
+                $message = __('custom.successful order confirmation message');
+            }
+            else{
+                toast(__('custom.Cancel order successful'),'success');
+                $message = __('custom.failed order confirmation message');
+            }
+            $order_products = $OBJ_Order->order_product;
+            $notify = $this->getMessage($OBJ_Order->users->name, $OBJ_Order->id, $OBJ_Order->total_money, $OBJ_Order->created_at);
+            $managerOrderService->sendMail($message,$notify,$order_products,$OBJ_Order->user_id);
         }
-        else{
-            toast(__('custom.Cancel order successful'),'success');
+        catch(Exception $ex){
+            toast(__('custom.Update Status Order failure'),'error');
         }
         return redirect()->back();
+    }
+
+    public function getMessage($nameUser, $idOrders, $totalMoney, $created_at) {
+        $date = checkLanguageWithDay($created_at);
+        $message_en = "$nameUser has ordered product: Order Id is $idOrders. Total amount is $totalMoney. At $date.";
+        $message_vi = "$nameUser đã đặt sản phẩm: Mã đơn hàng là $idOrders. Tổng số tiền là $totalMoney. Lúc $date.";
+        return checkLanguage($message_en, $message_vi);
     }
 
     public function destroy($id_order)

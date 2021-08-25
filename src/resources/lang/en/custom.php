@@ -283,7 +283,10 @@ return [
     'Delete Order failure' => 'Delete Order failure!',
     'Confirm order successful' => 'Confirm order successful!',
     'Cancel order successful' => 'Cancel order successful!',
-
+    'successful order confirmation message' => 'Your order has been confirmed, you have successfully placed your order!',
+    'failed order confirmation message' => 'We sorry that the product you ordered was not in sufficient quantity, so we canceled your order!',
+    'mail_order_confirm' => 'Announcement of order results',
+    'Update Status Order failure' => 'Update Status Order failure',
 
     /* Message */
     'no_data' => "No data.",

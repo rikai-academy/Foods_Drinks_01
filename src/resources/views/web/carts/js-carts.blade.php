@@ -101,4 +101,10 @@
             }
         });
     }
+
+    /* Delete all items in shopping cart */
+    $("#cart__btn-delete-all").on("click", function () {
+        if (!confirm("{{__('custom.message_confirm')}}")) return false;
+        window.location.href = "{{ route('cart.destroy') }}";
+    })
 </script>

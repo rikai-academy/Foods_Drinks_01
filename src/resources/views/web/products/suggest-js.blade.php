@@ -95,7 +95,7 @@
             return false;
         }
         /* Check length files */
-        if (length > 6) {
+        if (length > 3) {
             jcAlert.content = "{{__('custom.message_file_length')}}";
             jcAlert.toggle();
             images.val("");

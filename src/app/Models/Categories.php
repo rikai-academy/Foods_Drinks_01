@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,7 +33,8 @@ class Categories extends Model
 
     public function scopeCategoryType($query, $category_types)
     {
-        return $query->where('category_types_id', $category_types)->orderBy('name');
+        return $query->where('category_types_id', $category_types)->orderBy('categories.name')
+          ->where('categories.status', '=', Status::ACTIVE);
     }
     public function scopeSlug($query, $slug) {
         return $query->where('slug', $slug);

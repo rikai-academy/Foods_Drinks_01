@@ -32,4 +32,21 @@ class SuggestProductRequest extends FormRequest
           'images' => 'required',
         ];
     }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'category_id' => __('custom.category'),
+            'name'        => __('custom.name_product'),
+            'price'       => __('custom.price'),
+            'amount_of'   => __('custom.quantity'),
+            'content'     => __('custom.content'),
+            'images'      => __('custom.images'),
+        ];
+    }
 }

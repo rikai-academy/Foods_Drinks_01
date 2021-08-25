@@ -32,16 +32,19 @@ class SuggestService {
                 "updated_at"  => $timestamps,
             ]);
             # Insert Images to DB
+            $count = 0;
             foreach($data['images'] as $image) {
                 $imageName = $image->getClientOriginalName();
                 $image->storeAs('products', $imageName, 'public');
                 DB::table('images')->insert([
                     'image'      => $imageName,
                     'status'     => Status::ACTIVE,
+                    'STT'        => $count,
                     'product_id' => $productId,
                     "created_at" => $timestamps,
                     "updated_at" => $timestamps,
                 ]);
+                $count++;
             }
             # Commit data success
             DB::commit();

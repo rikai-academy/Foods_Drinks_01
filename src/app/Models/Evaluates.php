@@ -26,4 +26,9 @@ class Evaluates extends Model
     {
         $query->selectRaw('product_id')->groupBy('product_id')->havingRaw("AVG(rating) >= " . $rating);
     }
+
+    public function scopeByProductId($query, $productId)
+    {
+        $query->where('product_id', '=', $productId);
+    }
 }

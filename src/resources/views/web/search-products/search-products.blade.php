@@ -26,14 +26,14 @@
                         <img src="/storage/products/{{$row->images->first()->image}}" alt="" />
                         <h2>{{ formatPrice($row->price) }}</h2>
                         <p>{{ $row->name }}</p>
-                        <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star click-active" aria-hidden="true"></i></p>
+                        <p>{!! getRatingProduct($row->id)  !!}</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}</a>
                       </div>
                       <div class="product-overlay">
                         <div class="overlay-content">
                           <h2>{{ formatPrice($row->price) }}</h2>
                           <p><a href="{{ route('product_detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a></p>
-                          <p>{{ getRatingProduct($row->id) }} <i class="fa fa-star text-white" aria-hidden="true"></i></p>
+                          <p>{!! getRatingProduct($row->id)  !!}</p>
                           <a href="javascript:void(0)" class="btn btn-default add-to-cart" onclick="addToCart({!!$row->id!!},1,'add')">
                             <i class="fa fa-shopping-cart"></i>{{ __('custom.add_to_cart') }}
                           </a>

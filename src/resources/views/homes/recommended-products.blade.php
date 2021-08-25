@@ -14,11 +14,12 @@
                 </a>
                 <h2>{{ formatPrice($row->price) }}</h2>
                 <p><a href="{{ route('product_detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a></p>
-                <a href="javascript:void(0);" class="btn btn-default add-to-cart add_to_cart-hover"
+                <a href="javascript:void(0);" id="recommend-btn-cart" class="btn btn-default add-to-cart add_to_cart-hover"
                    onclick="addToCart({!!$row->id!!},1,'add')">
                   <i class="fa fa-shopping-cart"></i> {{ __('custom.add_to_cart') }}
                 </a>
               </div>
+              {!! getNewProduct($row->created_at) !!}
             </div>
           </div>
         </div>
@@ -28,11 +29,13 @@
       <span>{{ __('custom.no_data') }}</span>
       @endforelse
     </div>
-    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-      <i class="fa fa-angle-left"></i>
-    </a>
-    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-      <i class="fa fa-angle-right"></i>
-    </a>
+    @if(!empty($recommend_products))
+      <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+      </a>
+    @endif
   </div>
 </div>

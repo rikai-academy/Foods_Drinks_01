@@ -8,7 +8,7 @@
         @include('includes.web.header')
     </header>
 
-    <div class="section">
+    <div class="section" id="section">
       @yield('content')
     </div>
 

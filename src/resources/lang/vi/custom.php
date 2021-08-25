@@ -208,7 +208,7 @@ return [
     'Block user successful' => 'Chặn người dùng thành công!',
     'Warning' => 'Cảnh báo: Nếu tài khoản bị chặn sẽ không thể tương tác với website như (đặt hàng,đánh giá sản phẩm...).',
 
-    
+
     /* manager order */
     'List Order' => 'Danh Sách Đơn Hàng',
     'ID Order' => 'ID Đơn Hàng',
@@ -237,7 +237,7 @@ return [
     'Delete Order failure' => 'Xóa đơn đặt hàng thất bại!',
     'Confirm order successful' => 'Xác nhận đơn hàng thành công!',
     'Cancel order successful' => 'Hủy đơn hàng thành công!',
-  
+
 
 
     /* Button, other... */
@@ -310,4 +310,6 @@ return [
     'message_cancel_order_success' => 'Đơn hàng của bạn đã được hủy.',
     'message_order_status_cancel' => 'Đã hủy',
     'message_order_cancel_condition' => 'Đơn hàng chỉ được hủy trong 24 tiếng và đơn hàng phải đang được xử lý.',
+    'message_order_success_db' => 'Gửi báo cáo thư cho Admin thành công.',
+    'message_rating_no_data' => 'Chưa có đánh giá.',
 ];

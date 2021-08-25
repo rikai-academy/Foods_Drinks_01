@@ -29,7 +29,7 @@
         <p>{{ $row->review }}</p>
         <hr/>
       @empty
-        {{ __('custom.no_data') }}
+        <p>{{ __('custom.message_rating_no_data') }}</p>
       @endforelse
       {!! $reviews->links('pagination::bootstrap-4') !!}
       @if(Auth::user())

@@ -1,4 +1,67 @@
 <script>
+
+function listContentOrder(data){
+    var content = "";
+    var text = "";
+    var class_div = "";
+    var class_button_2 = "";
+    var data_target_2 = "";
+    var class_tag_i_2 = "";
+    var class_button_3 = "";
+    var data_target_3 = "";
+    var class_tag_i_3 = "";
+    var hidden = "";
+    var stt = 1;
+    for (var i = 0; i < data.data.length; i++) {
+        if(data.data[i].status_order == 0){
+            text = "{{__('custom.Unconfimred')}}";
+            class_div = 'success';
+            class_button_2 = 'btn btn-success';
+            data_target_2 = '#modalConfirmOrder';
+            class_tag_i_2 = 'fa fa-check';
+            class_button_3 = 'btn btn-danger';
+            data_target_3 = '#modalCancelOrder';
+            class_tag_i_3 = 'fa fa-times';
+            hidden = '';
+        }
+        else if(data.data[i].status_order == 1){
+            text = "{{__('custom.Confirmed')}}";
+            class_div = 'primary';
+            class_button_2 = 'btn btn-primary';
+            data_target_2 = '#modalDeliveryOrder';
+            class_tag_i_2 = 'fa fa-truck';
+            class_button_3 = 'btn btn-danger';
+            data_target_3 = '#modalCancelOrder';
+            class_tag_i_3 = 'fa fa-times';
+            hidden = '';
+        }
+        else{
+            text = "{{__('custom.Cancelled')}}";
+            class_div = 'danger';
+            class_button_2 = 'btn btn-danger';
+            data_target_2 = '#modalDeleteOrder';
+            class_tag_i_2 = 'far fa-trash-alt';
+            hidden = 'hidden';
+        }
+
+        content += "<tr><td>" + stt++ +
+            "</td><td>" +
+            data.data[i].order_date +
+            "</td><td>" +
+            data.data[i].name +
+            "</td><td>" +
+            new Intl.NumberFormat().format(data.data[i].total_money)+"đ" +
+            "</td><td>" +
+            "<div class='badge badge-"+class_div+" text-wrap' style='width: 6rem;'>"+text+"</div>" +
+            "</td><td>" +
+            "<button class='btn btn-warning' onclick='getOrderDetail("+data.data[i].id_order+")' data-toggle='modal' data-target='#modalViewDetail'><i class='fa fa-eye'></i></button> "+
+            "<button class='"+class_button_2+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_2+"'><i class='"+class_tag_i_2+"'></i></button> " +
+            "<button class='"+class_button_3+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_3+"'"+hidden+"><i class='"+class_tag_i_3+"'></i></button>" +
+            "</td></tr>"
+        }
+        $("#list_product_order").html(content);    
+}
+
 function getOrderDetail(id_order){
     $.ajax({
         url : "/admin/order/" + id_order,
@@ -69,71 +132,10 @@ $(document).on('click', '#exampleRadios1', function() {
         url: '/admin/order/all-time',
         dataType: 'json',
         success: function(data) {
-            var content = "";
-            var text = "";
-            var class_div = "";
-            var class_button_2 = "";
-            var data_target_2 = "";
-            var class_tag_i_2 = "";
-            var class_button_3 = "";
-            var data_target_3 = "";
-            var class_tag_i_3 = "";
-            var hidden = "";
-            var stt = 1;
-            for (var i = 0; i < data.data.length; i++) {
-                if(data.data[i].status_order == 0){
-                    text = "{{__('custom.Unconfimred')}}";
-                    class_div = 'success';
-                    class_button_2 = 'btn btn-success';
-                    data_target_2 = '#modalConfirmOrder';
-                    class_tag_i_2 = 'fa fa-check';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else if(data.data[i].status_order == 1){
-                    text = "{{__('custom.Confirmed')}}";
-                    class_div = 'primary';
-                    class_button_2 = 'btn btn-primary';
-                    data_target_2 = '#modalDeliveryOrder';
-                    class_tag_i_2 = 'fa fa-truck';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else{
-                    text = "{{__('custom.Cancelled')}}";
-                    class_div = 'danger';
-                    class_button_2 = 'btn btn-danger';
-                    data_target_2 = '#modalDeleteOrder';
-                    class_tag_i_2 = 'far fa-trash-alt';
-                    hidden = 'hidden';
-                }
-
-                content += "<tr><td>" + stt++ +
-                    "</td><td>" +
-                    data.data[i].id_order +
-                    "</td><td>" +
-                    data.data[i].order_date +
-                    "</td><td>" +
-                    data.data[i].name +
-                    "</td><td>" +
-                    new Intl.NumberFormat().format(data.data[i].total_money)+"đ" +
-                    "</td><td>" +
-                    "<div class='badge badge-"+class_div+" text-wrap' style='width: 6rem;'>"+text+"</div>" +
-                    "</td><td>" +
-                    "<button class='btn btn-warning' onclick='getOrderDetail("+data.data[i].id_order+")' data-toggle='modal' data-target='#modalViewDetail'><i class='fa fa-eye'></i></button> "+
-                    "<button class='"+class_button_2+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_2+"'><i class='"+class_tag_i_2+"'></i></button> " +
-                    "<button class='"+class_button_3+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_3+"'"+hidden+"><i class='"+class_tag_i_3+"'></i></button>" +
-                    "</td></tr>"
-            }
-            $("#list_product_order").html(content);
+            listContentOrder(data);
         }
     });
 });
-
 
 
 function getOrderByDateTime(datetime) {
@@ -146,67 +148,7 @@ function getOrderByDateTime(datetime) {
             datetime: datetime
         },
         success: function(data) {
-            var content = "";
-            var text = "";
-            var class_div = "";
-            var class_button_2 = "";
-            var data_target_2 = "";
-            var class_tag_i_2 = "";
-            var class_button_3 = "";
-            var data_target_3 = "";
-            var class_tag_i_3 = "";
-            var hidden = "";
-            var stt = 1;
-            for (var i = 0; i < data.data.length; i++) {
-                if(data.data[i].status_order == 0){
-                    text = "{{__('custom.Unconfimred')}}";
-                    class_div = 'success';
-                    class_button_2 = 'btn btn-success';
-                    data_target_2 = '#modalConfirmOrder';
-                    class_tag_i_2 = 'fa fa-check';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else if(data.data[i].status_order == 1){
-                    text = "{{__('custom.Confirmed')}}";
-                    class_div = 'primary';
-                    class_button_2 = 'btn btn-primary';
-                    data_target_2 = '#modalDeliveryOrder';
-                    class_tag_i_2 = 'fa fa-truck';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else{
-                    text = "{{__('custom.Cancelled')}}";
-                    class_div = 'danger';
-                    class_button_2 = 'btn btn-danger';
-                    data_target_2 = '#modalDeleteOrder';
-                    class_tag_i_2 = 'far fa-trash-alt';
-                    hidden = 'hidden';
-                }
-
-                content += "<tr><td>" + stt++ +
-                    "</td><td>" +
-                    data.data[i].id_order +
-                    "</td><td>" +
-                    data.data[i].order_date +
-                    "</td><td>" +
-                    data.data[i].name +
-                    "</td><td>" +
-                    new Intl.NumberFormat().format(data.data[i].total_money)+"đ" +
-                    "</td><td>" +
-                    "<div class='badge badge-"+class_div+" text-wrap' style='width: 6rem;'>"+text+"</div>" +
-                    "</td><td>" +
-                    "<button class='btn btn-warning' onclick='getOrderDetail("+data.data[i].id_order+")' data-toggle='modal' data-target='#modalViewDetail'><i class='fa fa-eye'></i></button> "+
-                    "<button class='"+class_button_2+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_2+"'><i class='"+class_tag_i_2+"'></i></button> " +
-                    "<button class='"+class_button_3+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_3+"'"+hidden+"><i class='"+class_tag_i_3+"'></i></button>" +
-                    "</td></tr>"
-            }
-            $("#list_product_order").html(content);
+            listContentOrder(data)
         }
     });
 }
@@ -223,67 +165,7 @@ function getOrderByLastWeek(start_week,end_week){
             end_week : end_week
         },
         success: function(data) {
-            var content = "";
-            var text = "";
-            var class_div = "";
-            var class_button_2 = "";
-            var data_target_2 = "";
-            var class_tag_i_2 = "";
-            var class_button_3 = "";
-            var data_target_3 = "";
-            var class_tag_i_3 = "";
-            var hidden = "";
-            var stt = 1;
-            for (var i = 0; i < data.data.length; i++) {
-                if(data.data[i].status_order == 0){
-                    text = "{{__('custom.Unconfimred')}}";
-                    class_div = 'success';
-                    class_button_2 = 'btn btn-success';
-                    data_target_2 = '#modalConfirmOrder';
-                    class_tag_i_2 = 'fa fa-check';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else if(data.data[i].status_order == 1){
-                    text = "{{__('custom.Confirmed')}}";
-                    class_div = 'primary';
-                    class_button_2 = 'btn btn-primary';
-                    data_target_2 = '#modalDeliveryOrder';
-                    class_tag_i_2 = 'fa fa-truck';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else{
-                    text = "{{__('custom.Cancelled')}}";
-                    class_div = 'danger';
-                    class_button_2 = 'btn btn-danger';
-                    data_target_2 = '#modalDeleteOrder';
-                    class_tag_i_2 = 'far fa-trash-alt';
-                    hidden = 'hidden';
-                }
-
-                content += "<tr><td>" + stt++ +
-                    "</td><td>" +
-                    data.data[i].id_order +
-                    "</td><td>" +
-                    data.data[i].order_date +
-                    "</td><td>" +
-                    data.data[i].name +
-                    "</td><td>" +
-                    new Intl.NumberFormat().format(data.data[i].total_money)+"đ" +
-                    "</td><td>" +
-                    "<div class='badge badge-"+class_div+" text-wrap' style='width: 6rem;'>"+text+"</div>" +
-                    "</td><td>" +
-                    "<button class='btn btn-warning' onclick='getOrderDetail("+data.data[i].id_order+")' data-toggle='modal' data-target='#modalViewDetail'><i class='fa fa-eye'></i></button> "+
-                    "<button class='"+class_button_2+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_2+"'><i class='"+class_tag_i_2+"'></i></button> " +
-                    "<button class='"+class_button_3+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_3+"'"+hidden+"><i class='"+class_tag_i_3+"'></i></button>" +
-                    "</td></tr>"
-            }
-            $("#list_product_order").html(content);
+            listContentOrder(data);
         }
     });
 }
@@ -307,74 +189,14 @@ function filterByDate() {
                 inputDate2: $('#inputDate2').val()
             },
             success: function(data) {
-                var content = "";
-                var text = "";
-                var class_div = "";
-                var class_button_2 = "";
-                var data_target_2 = "";
-                var class_tag_i_2 = "";
-                var class_button_3 = "";
-                var data_target_3 = "";
-                var class_tag_i_3 = "";
-                var hidden = "";
-                var stt = 1;
-                for (var i = 0; i < data.data.length; i++) {
-                    if(data.data[i].status_order == 0){
-                        text = "{{__('custom.Unconfimred')}}";
-                        class_div = 'success';
-                        class_button_2 = 'btn btn-success';
-                        data_target_2 = '#modalConfirmOrder';
-                        class_tag_i_2 = 'fa fa-check';
-                        class_button_3 = 'btn btn-danger';
-                        data_target_3 = '#modalCancelOrder';
-                        class_tag_i_3 = 'fa fa-times';
-                        hidden = '';
-                    }
-                    else if(data.data[i].status_order == 1){
-                        text = "{{__('custom.Confirmed')}}";
-                        class_div = 'primary';
-                        class_button_2 = 'btn btn-primary';
-                        data_target_2 = '#modalDeliveryOrder';
-                        class_tag_i_2 = 'fa fa-truck';
-                        class_button_3 = 'btn btn-danger';
-                        data_target_3 = '#modalCancelOrder';
-                        class_tag_i_3 = 'fa fa-times';
-                        hidden = '';
-                    }
-                    else{
-                        text = "{{__('custom.Cancelled')}}";
-                        class_div = 'danger';
-                        class_button_2 = 'btn btn-danger';
-                        data_target_2 = '#modalDeleteOrder';
-                        class_tag_i_2 = 'far fa-trash-alt';
-                        hidden = 'hidden';
-                    }
-
-                    content += "<tr><td>" + stt++ +
-                        "</td><td>" +
-                        data.data[i].id_order +
-                        "</td><td>" +
-                        data.data[i].order_date +
-                        "</td><td>" +
-                        data.data[i].name +
-                        "</td><td>" +
-                        new Intl.NumberFormat().format(data.data[i].total_money)+"đ" +
-                        "</td><td>" +
-                        "<div class='badge badge-"+class_div+" text-wrap' style='width: 6rem;'>"+text+"</div>" +
-                        "</td><td>" +
-                        "<button class='btn btn-warning' onclick='getOrderDetail("+data.data[i].id_order+")' data-toggle='modal' data-target='#modalViewDetail'><i class='fa fa-eye'></i></button> "+
-                        "<button class='"+class_button_2+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_2+"'><i class='"+class_tag_i_2+"'></i></button> " +
-                        "<button class='"+class_button_3+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_3+"'"+hidden+"><i class='"+class_tag_i_3+"'></i></button>" +
-                        "</td></tr>"
-                }
-                $("#list_product_order").html(content);
+                listContentOrder(data);
             }
         });
     }
 }
 
 
-//event click option status bill
+//event click option status order
 $("#status_order").change(function() {
     $.ajax({
         method: 'get',
@@ -384,67 +206,7 @@ $("#status_order").change(function() {
             status_order: $('#status_order option:selected').val()
         },
         success: function(data) {
-            var content = "";
-            var text = "";
-            var class_div = "";
-            var class_button_2 = "";
-            var data_target_2 = "";
-            var class_tag_i_2 = "";
-            var class_button_3 = "";
-            var data_target_3 = "";
-            var class_tag_i_3 = "";
-            var hidden = "";
-            var stt = 1;
-            for (var i = 0; i < data.data.length; i++) {
-                if(data.data[i].status_order == 0){
-                    text = "{{__('custom.Unconfimred')}}";
-                    class_div = 'success';
-                    class_button_2 = 'btn btn-success';
-                    data_target_2 = '#modalConfirmOrder';
-                    class_tag_i_2 = 'fa fa-check';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else if(data.data[i].status_order == 1){
-                    text = "{{__('custom.Confirmed')}}";
-                    class_div = 'primary';
-                    class_button_2 = 'btn btn-primary';
-                    data_target_2 = '#modalDeliveryOrder';
-                    class_tag_i_2 = 'fa fa-truck';
-                    class_button_3 = 'btn btn-danger';
-                    data_target_3 = '#modalCancelOrder';
-                    class_tag_i_3 = 'fa fa-times';
-                    hidden = '';
-                }
-                else{
-                    text = "{{__('custom.Cancelled')}}";
-                    class_div = 'danger';
-                    class_button_2 = 'btn btn-danger';
-                    data_target_2 = '#modalDeleteOrder';
-                    class_tag_i_2 = 'far fa-trash-alt';
-                    hidden = 'hidden';
-                }
-
-                content += "<tr><td>" + stt++ +
-                    "</td><td>" +
-                    data.data[i].id_order +
-                    "</td><td>" +
-                    data.data[i].order_date +
-                    "</td><td>" +
-                    data.data[i].name +
-                    "</td><td>" +
-                    new Intl.NumberFormat().format(data.data[i].total_money)+"đ" +
-                    "</td><td>" +
-                    "<div class='badge badge-"+class_div+" text-wrap' style='width: 6rem;'>"+text+"</div>" +
-                    "</td><td>" +
-                    "<button class='btn btn-warning' onclick='getOrderDetail("+data.data[i].id_order+")' data-toggle='modal' data-target='#modalViewDetail'><i class='fa fa-eye'></i></button> "+
-                    "<button class='"+class_button_2+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_2+"'><i class='"+class_tag_i_2+"'></i></button> " +
-                    "<button class='"+class_button_3+"' onclick='getOrderById("+data.data[i].id_order+")' data-toggle='modal' data-target='"+data_target_3+"'"+hidden+"><i class='"+class_tag_i_3+"'></i></button>" +
-                    "</td></tr>"
-            }
-            $("#list_product_order").html(content);
+            listContentOrder(data);
         }
     });
 });

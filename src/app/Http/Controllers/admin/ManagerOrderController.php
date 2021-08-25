@@ -9,15 +9,17 @@ use App\Models\Product;
 use App\Models\OrderProduct;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\OrderExport;
+use App\Services\ManagerOrderService;
 use DB;
 
 class ManagerOrderController extends Controller
 {
 
-    public function index()
+    public function index(ManagerOrderService $managerOrderService)
     {
+        $data = $managerOrderService->getDatetime();
         $list_orders = Order::orderBy('id','desc')->get();
-        return view('admin.order.index',compact('list_orders'));
+        return view('admin.order.index',$data,compact('list_orders'));
     }
 
     public function getOrderAllTime()

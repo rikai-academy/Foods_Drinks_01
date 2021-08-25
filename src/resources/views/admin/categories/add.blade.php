@@ -28,7 +28,7 @@
                         <option value="0">{{__('custom.Hidden')}}</option>
                     </select>
                 </div>
-                <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>
+                <a href="{{route('category.index')}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>
                 <button type="submit" class="btn btn-primary">{{__('custom.Save')}} <i class="fa fa-save"></i></button>
             </form>
         </div>

@@ -4,7 +4,7 @@
   <title>Food and Drinks</title>
 </head>
 <body>
-<p>{{ __('custom.hello') }} Admin,</p>
+<p>{{ __('custom.hello', [], $details['locale']) }},</p>
   <br>
   <h2>{{ $details['title'] }}!</h2>
   <h4>- {!! $details['body'] !!}</h4>
@@ -12,10 +12,10 @@
     <table style="border-color: #666;" cellpadding="10">
       <tr style='background: #eee;'>
         <th>#</th>
-        <th>{{ __('custom.product') }}</th>
-        <th>{{ __('custom.quantity') }}</th>
-        <th>{{ __('custom.price_total') }}</th>
-        <th>{{ __('custom.ordered_at') }}</th>
+        <th>{{ __('custom.product', [], $details['locale']) }}</th>
+        <th>{{ __('custom.quantity', [], $details['locale']) }}</th>
+        <th>{{ __('custom.price_total', [], $details['locale']) }}</th>
+        <th>{{ __('custom.ordered_at', [], $details['locale']) }}</th>
       </tr>
       @foreach($details['orders'] as $order)
         <tr>
@@ -28,8 +28,7 @@
       @endforeach
     </table>
   @endif
-  <p>{{ __('custom.mail_message') }}</p>
   <br>
-  <p>{{ __('custom.thank_you') }}!</p>
+  <p>{{ __('custom.thank_you', [], $details['locale']) }}!</p>
 </body>
 </html>

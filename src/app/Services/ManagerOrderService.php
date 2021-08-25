@@ -1,6 +1,10 @@
 <?php
 namespace App\Services;
 
+use App\Models\Order;
+use Mail;
+use App\Jobs\AdminMailJob;
+
 class ManagerOrderService
 {
     public function getDatetime()
@@ -12,7 +16,7 @@ class ManagerOrderService
         $endDate = date('Y-m-d 23:59:59',$endTime);
 
         date_default_timezone_set("Asia/Ho_Chi_Minh");
-        $data['today'] = date("Y-m-d");   
+        $data['today'] = date("Y-m-d");
         $data['yesterday'] = date("Y-m-d",mktime(0, 0, 0, date("m"), (date("d") - 1), date("Y")));
         $data['start_week'] = $startDate;
         $data['end_week'] = $endDate;
@@ -21,4 +25,19 @@ class ManagerOrderService
 
         return $data;
     }
+
+    public function sendMailToUser($orderId, $message)
+    {
+        $order = Order::findById($orderId)->first();
+        $email = $order->users()->first()->email;
+        $order_products = $order->order_product;
+        $details = [
+            'title'  => __('custom.message_mail_order_confirm'),
+            'body'   => $message,
+            'orders' => $order_products,
+            'locale' => session('website_language')
+        ];
+        AdminMailJob::dispatch($email, $details);
+    }
+
 }

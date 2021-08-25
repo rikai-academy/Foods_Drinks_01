@@ -42,11 +42,10 @@ class OrderController extends Controller
                   'alert' => 'alert-danger',
                 ]);
             }
-            # Get Id User login, Total all carts
-            $userId = $user->id;
-            $totalAllCarts = $this->replacePrice(Cart::subtotal());
+
             # Insert Orders to DB
-            $orderId = $this->orderService->create($userId, $totalAllCarts);
+            $orderId = $this->orderService->create($user);
+
             # Check error when insert data
             if (empty($orderId)) {
                 return redirect()->route('cart')->with([
@@ -54,26 +53,8 @@ class OrderController extends Controller
                     'alert' => 'alert-danger',
                 ]);
             }
-            # Get Orders last insert
-            $order = Order::findById($orderId);
-            $total = formatPrice($totalAllCarts);
-            $order_products = $order->order_product;
-            # Get Message Send mail and send Chatwork
-            $message = $this->getMessage($user->name, $orderId, $total, $order->created_at);
-            # Send mail to Admin
-            $this->sendMail($message, $order_products);
-            if(count(Mail::failures()) > 0) {
-                return redirect()->route('cart')->with([
-                  'message' => __('custom.message_order_error_db'),
-                  'alert' => 'alert-danger',
-                ]);
-            }
-            # Sent message to Chatwork
-            $this->sendMessageToChatwork($message);
-            # Destroy Carts
-            Cart::destroy();
 
-            return redirect('/profile#tab2primary')->with([
+            return redirect()->route('profile')->with([
                 'message' => __('custom.message_orders_success'),
                 'alert' => 'alert-success',
             ]);

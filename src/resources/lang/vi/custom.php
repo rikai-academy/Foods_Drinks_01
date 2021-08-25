@@ -325,4 +325,5 @@ return [
     'message_mail_order_confirm' => 'Đơn hàng của bạn đã được xử lý.',
     'message_mail_order_confirm_success' => 'Đơn hàng của bạn đã được đặt thành công.',
     'message_mail_order_confirm_fail' => 'Rất làm tiếc, sản phẩm của bạn không đủ số lượng nên chúng tôi đã hủy đơn hàng của bạn.',
+    'message_mail_rating_title' => 'Có một người dùng đánh giá sản phẩm!',
 ];

@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Evaluates;
+use App\Services\RatingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
+    protected $ratingService;
+
+    public function __construct(RatingService $ratingService)
+    {
+        $this->ratingService = $ratingService;
+    }
+
     /**
      * Add Product review.
      *
@@ -24,25 +31,13 @@ class RatingController extends Controller
               'user_id'    => Auth::user()->id,
               'product_id' => $request->get('product_id'),
             ];
-            $this->create($data);
-            return back()->with([
-              'message' => __('custom.rating_success'),
-              'alert' => 'alert-success',
-            ]);
+            if ($this->ratingService->ratingProduct($data)) {
+                return back()->with([
+                    'message' => __('custom.rating_success'),
+                    'alert'   => 'alert-success',
+                ]);
+            }
         }
         return abort(404);
-    }
-
-    /**
-     * Insert review to Database.
-     */
-    private function create($data)
-    {
-        return Evaluates::create([
-            'review' => $data['review'],
-            'rating' => $data['rating'],
-            'user_id' => $data['user_id'],
-            'product_id' => $data['product_id'],
-        ]);
     }
 }

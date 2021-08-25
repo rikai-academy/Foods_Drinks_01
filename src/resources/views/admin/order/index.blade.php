@@ -12,7 +12,6 @@
                 <thead>
                     <tr>
                         <th>{{__('custom.Number In Order')}}</th>
-                        <th>{{__('custom.ID Order')}}</th>
                         <th>{{__('custom.Order Date')}}</th>
                         <th>{{__('custom.User Order')}}</th>
                         <th>{{__('custom.Total Money')}}</th>
@@ -24,7 +23,6 @@
                     @foreach($list_orders as $list_order)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$list_order->id}}</td>
                             <td>{{$list_order->created_at}}</td>
                             <td>{{$list_order->users->name}}</td>
                             <td>{{ formatPrice($list_order->total_money) }}</td>
@@ -66,6 +64,7 @@
         </div>
     </div>
 </div>
+<a href="{{route('admin')}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>
 @include('includes.admin.order.modal-view-detail')
 @include('includes.admin.order.modal-confirm')
 @include('includes.admin.order.modal-cancel')

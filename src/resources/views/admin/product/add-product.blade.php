@@ -69,7 +69,7 @@
                 <label for="inputContent">{{__('custom.Content')}}</label>
                 <textarea name="content" id="content" class="form-control" rows="3"></textarea>
             </div>
-            <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>
+            <a href="{{ route('product.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>
             <button type="submit" class="btn btn-primary">{{__('custom.Save')}} <i class="fa fa-save"></i></button>
         </form>
     </div>

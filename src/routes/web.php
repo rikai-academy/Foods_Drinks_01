@@ -74,15 +74,18 @@ Route::group(['middleware' => 'locale'], function() {
         # category
         Route::get('/category/export', [ManagerCategoryController::class,'export'])->name('export_category');
         Route::resource('/category', ManagerCategoryController::class);
-        Route::get('/category/category_type/{id}', [ManagerCategoryController::class, 'showCategoryTy'])->where('id','[0-9]+')
-        ->name('showCategoryTy');
+        Route::get('/category/getcategory-by-id/{id}', [ManagerCategoryController::class,'getCategoryByID']);
+        Route::post('/category/show-hidden/{id}', [ManagerCategoryController::class,'showOrHidden']);
+        Route::get('/category/category_type/{id}', [ManagerCategoryController::class, 'showCategoryTy'])->where('id','[0-9]+')->name('showCategoryTy');
         Route::post('/category/import', [ManagerCategoryController::class,'import'])->name('import_category');
 
         # Product
         Route::get('/product/export', [ManagerProductController::class, 'export'])->name('export_product');
         Route::resource('/product', ManagerProductController::class);
-        Route::get('/product/category/{id}', [ManagerProductController::class, 'showProductByCategory'])
-        ->name('show_product_by_category')->where('id','[0-9]+');
+        Route::get('/product/getproduct-by-id/{id}', [ManagerProductController::class,'getProductByID']);
+        Route::post('/product/show-hidden/{id}', [ManagerProductController::class,'showOrHidden']);
+        Route::get('/product/category/{id}', [ManagerProductController::class, 'showProductByCategory'])->name('show_product_by_category')->where('id','[0-9]+');
+        Route::get('/product/category-type/{id}', [ManagerProductController::class, 'showProductByCategoryType'])->name('show_product_by_CategoryType')->where('id','[0-9]+');
         Route::post('/product/import', [ManagerProductController::class,'import'])->name('import_product');
 
         # user

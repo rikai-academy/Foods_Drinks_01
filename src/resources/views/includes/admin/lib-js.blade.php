@@ -6,4 +6,6 @@
 <script src="{{ asset('js/admin/dataTables.bootstrap4.min.js') }}" crossorigin="anonymous"></script>
 <script src="{{asset('js/admin/datatables-demo.js')}}"></script>
 <script src="{{asset('js/admin/manager-user.js')}}"></script>
+<script src="{{asset('js/admin/manager-category.js')}}"></script>
+<script src="{{asset('js/admin/manager-product.js')}}"></script>
 

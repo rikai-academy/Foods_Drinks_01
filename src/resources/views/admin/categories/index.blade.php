@@ -11,6 +11,7 @@
                         {{__('custom.Category group')}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{route('category.index')}}">{{__('custom.Show all')}}</a>
                         @foreach($OBJ_Category_Types as $OBJ_Category_Type)
                         <a class="dropdown-item" href="{{route('showCategoryTy',['id' =>$OBJ_Category_Type->id ])}}">{{$OBJ_Category_Type->name}}</a>
                         @endforeach
@@ -47,7 +48,6 @@
                 <thead>
                     <tr>
                         <th>{{__('custom.Number In Order')}}</th>
-                        <th>{{__('custom.ID category')}}</th>
                         <th>{{__('custom.Category Name')}}</th>
                         <th>{{__('custom.Category group')}}</th>
                         <th>{{__('custom.Status')}}</th>
@@ -58,7 +58,6 @@
                     @foreach($OBJ_Categories as $OBJ_Categorie)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$OBJ_Categorie->id}}</td>
                             <td>{{$OBJ_Categorie->name}}</td>
                             <td>{{$OBJ_Categorie->category_type->name}}</td>
                             <td>
@@ -72,6 +71,7 @@
                                 <a href="{{route('category.edit',$OBJ_Categorie->id)}}" class="btn btn-primary">
                                     <i class="fa fa-edit "></i>
                                 </a>
+                                {!!checkStatusCategory($OBJ_Categorie->status,$OBJ_Categorie->id)!!}
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#modalDeleteCategory">
                                     <i class="far fa-trash-alt"></i>
                                 </button>
@@ -87,5 +87,7 @@
         </div>
     </div>
 </div>
+@include('includes.admin.category.modal-hidden')
+@include('includes.admin.category.modal-show')
 @include('includes.admin.category.modal-delete')
 @endsection

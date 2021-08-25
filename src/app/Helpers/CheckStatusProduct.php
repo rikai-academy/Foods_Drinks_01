@@ -1,12 +1,15 @@
 <?php
 use App\Enums\Status;
     if (!function_exists('checkStatusProduct')) {
-        function checkStatusProduct($status)
+        function checkStatusProduct($status,$id_product)
         {
-            $options_status = $status == Status::getValue('ACTIVE') ?
-            "<option value='1' selected>".__('custom.Show')."</option><option value='0'>".__('custom.Hidden')."</option>" :
-            "<option value='1'>".__('custom.Show')."</option><option value='0'selected>".__('custom.Hidden')."</option>";
-            return $options_status;
+            $categoryProduct = Status::getValue('ACTIVE');
+            $class_btn = $status == $categoryProduct ? 'btn btn-warning' : 'btn btn-success';
+            $data_target = $status == $categoryProduct ? '#modalHiddenProduct' : '#modalShowProduct';
+            $class_tag_i = $status == $categoryProduct ? 'fa fa-toggle-off' : 'fa fa-toggle-on';
+            $button = "<button class='".$class_btn."' data-toggle='modal' onclick='getProductById($id_product)' data-target='".$data_target."'>
+            <i class='".$class_tag_i."'></i></button>";
+            return $button;
         }
     }
 

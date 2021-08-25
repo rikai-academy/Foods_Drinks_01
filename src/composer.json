@@ -48,6 +48,7 @@
             "app/Helpers/ProductHelper.php",
             "app/Helpers/CheckCategoryProduct.php",
             "app/Helpers/CheckStatusProduct.php",
+            "app/Helpers/StatusProduct.php",
             "app/Helpers/CheckStatusUser.php",
             "app/Helpers/CheckGenderUserEdit.php",
             "app/Helpers/CheckImageUserEdit.php",

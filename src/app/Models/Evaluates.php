@@ -31,4 +31,9 @@ class Evaluates extends Model
     {
         $query->where('product_id', '=', $productId);
     }
+
+    public function scopeByUserId($query, $userId)
+    {
+        $query->where('user_id', '!=', $userId);
+    }
 }

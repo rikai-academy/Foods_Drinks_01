@@ -6,6 +6,7 @@ use App\Console\Commands\SendReminderEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Console\Commands\MailCommand;
+use App\Console\Commands\OrderCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        MailCommand::class
+        MailCommand::class,
+        OrderCommand::class
     ];
 
     /**
@@ -30,6 +32,12 @@ class Kernel extends ConsoleKernel
         $schedule->command('mail:send')
             ->lastDayOfMonth('8:00')
             ->timezone('Asia/Ho_Chi_Minh');
+        
+        # Delete rejected orders at 23:59 on the last day of the month
+        $schedule->command('order:delete')
+        ->withoutOverlapping()
+        ->lastDayOfMonth('23:59')
+        ->timezone('Asia/Ho_Chi_Minh');
     }
 
     /**

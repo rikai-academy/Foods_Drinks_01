@@ -1,5 +1,9 @@
 <?php
 namespace App\Services;
+use App\Mail\UserMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use App\Jobs\UserMailJob;
 
 class ManagerOrderService
 {
@@ -20,5 +24,13 @@ class ManagerOrderService
         $data['last_month'] =  date("Y-m",mktime(0, 0, 0, (date("m") - 1), date("d"), date("Y")));
 
         return $data;
+    }
+
+    public function sendMail($message,$notify,$order_products,$user_id)
+    {
+        $users = User::find($user_id);
+        $details = ['title' => __('custom.mail_order_confirm'),'name_user' => $users->name,
+        'message' => $message, 'notify' => $notify, 'orders' => $order_products];
+        UserMailJob::dispatch($users->email, $details);
     }
 }

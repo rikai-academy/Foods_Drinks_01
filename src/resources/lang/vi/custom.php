@@ -242,7 +242,10 @@ return [
     'Delete Order failure' => 'Xóa đơn đặt hàng thất bại!',
     'Confirm order successful' => 'Xác nhận đơn hàng thành công!',
     'Cancel order successful' => 'Hủy đơn hàng thành công!',
-
+    'successful order confirmation message' => 'Đơn hàng của bạn đã được xác nhận,bạn đã đặt hàng thành công!',
+    'failed order confirmation message' => 'Chúng tôi rất tiếc khi sản phẩm bạn đặt không đủ số lượng nên chúng tôi đã hủy đơn hàng của bạn!',
+    'mail_order_confirm' => 'Thông báo kết quả đặt hàng',
+    'Update Status Order failure' => 'Cập nhật trạng thái đơn hàng thất bại!',
 
 
     /* Button, other... */

@@ -31,4 +31,9 @@ class Evaluates extends Model
     {
         $query->where('product_id', '=', $productId);
     }
+
+    public function scopeFindById($query, $id)
+    {
+        return $query->find($id);
+    }
 }

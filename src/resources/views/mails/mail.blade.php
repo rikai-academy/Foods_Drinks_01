@@ -6,7 +6,7 @@
 <body>
 <p>{{ __('custom.hello', [], $details['locale']) }},</p>
   <br>
-  <h2>{{ $details['title'] }}!</h2>
+  <h2>{{ $details['title'] }}</h2>
   <h4>- {!! $details['body'] !!}</h4>
    @if(!empty($details['orders']))
     <table style="border-color: #666;" cellpadding="10">

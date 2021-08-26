@@ -326,4 +326,5 @@ return [
     'message_mail_order_confirm' => 'Your order has been processed.',
     'message_mail_order_confirm_success' => 'Your order has been placed successfully.',
     'message_mail_order_confirm_fail' => 'Sorry, your product is not in sufficient quantity, so we have canceled your order.',
+    'message_mail_rating_title' => 'There is a user rating the product!',
 ];

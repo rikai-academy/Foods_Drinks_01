@@ -114,8 +114,32 @@
                         @endif
                         <li class="dropdown"><a href="#">{{ __('custom.category') }}<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="{{ route('search_category_type', ['slug' => 'food']) }}">{{ __('custom.food') }}</a></li>
-                                <li><a href="{{ route('search_category_type', ['slug' => 'drink']) }}">{{ __('custom.drink') }}</a></li>
+                                <li {!! !getChildrenCategories(\App\Enums\CategoryTypes::FOOD) ?: "class='dropdown-submenu'"  !!}>
+                                  <a tabindex="-1" href="{{ route('search_category_type', ['slug' => 'food']) }}">
+                                      {{ __('custom.food') }}
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                    @foreach(getChildrenCategories(\App\Enums\CategoryTypes::FOOD) as $row)
+                                      <li>
+                                        <a href="{{route('search_category_type', ['slug' => $row->slug])}}">
+                                          {{ $row->name }}
+                                        </a>
+                                      </li>
+                                    @endforeach
+                                  </ul>
+                                </li>
+                                <li {!! !getChildrenCategories(\App\Enums\CategoryTypes::DRINK) ?: "class='dropdown-submenu'" !!}>
+                                  <a tabindex="-1" href="{{ route('search_category_type', ['slug' => 'drink']) }}">{{ __('custom.drink') }}</a>
+                                  <ul class="dropdown-menu">
+                                    @foreach(getChildrenCategories(\App\Enums\CategoryTypes::DRINK) as $row)
+                                      <li>
+                                        <a href="{{ route('search_category_type', ['slug' => $row->slug]) }}">
+                                          {{ $row->name }}
+                                        </a>
+                                      </li>
+                                    @endforeach
+                                  </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>

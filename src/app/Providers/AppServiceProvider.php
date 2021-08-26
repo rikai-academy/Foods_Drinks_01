@@ -27,11 +27,5 @@ class AppServiceProvider extends ServiceProvider
     {
         // Set language default
         \Session::put('website_language', 'en');
-        // Share data all site
-        \View::share([
-            'category_foods' => Categories::categoryType(Category::FOOD)->get(),
-            'category_drinks' => Categories::categoryType(Category::DRINK)->get(),
-        ]);
-
     }
 }

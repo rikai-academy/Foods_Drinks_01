@@ -13,7 +13,20 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{route('category.index')}}">{{__('custom.Show all')}}</a>
                         @foreach($OBJ_Category_Types as $OBJ_Category_Type)
-                        <a class="dropdown-item" href="{{route('showCategoryTy',['id' =>$OBJ_Category_Type->id ])}}">{{$OBJ_Category_Type->name}}</a>
+                          <li {!! !getChildrenCategories($OBJ_Category_Type->id) ?: "class='dropdown-submenu'" !!}>
+                            <a class="dropdown-item" href="{{route('showCategoryTy',['id' =>$OBJ_Category_Type->id ])}}" tabindex="-1">
+                              {{$OBJ_Category_Type->name}}
+                            </a>
+                            <ul class="dropdown-menu">
+                              @foreach(getChildrenCategories($OBJ_Category_Type->id) as $row)
+                                <li class="dropdown-item">
+                                  <a tabindex="-1" class="text-dark text-decoration-none" href="{{route('showCategoryTy',['id' =>$row->id ])}}">
+                                    {{ $row->name }}
+                                  </a>
+                                </li>
+                              @endforeach
+                            </ul>
+                          </li>
                         @endforeach
                     </div>
                 </div>

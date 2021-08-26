@@ -92,7 +92,7 @@ Route::group(['middleware' => 'locale'], function() {
         Route::resource('/user', ManagerUserController::class);
         Route::get('/user/get-id-user/{id}', [ManagerUserController::class, 'getIdUser']);
         Route::post('/user/active-block-user/{id}', [ManagerUserController::class, 'activeBlockUser']);
-        
+
         # manager order
         Route::get('/order/all-time', [ManagerOrderController::class, 'getOrderAllTime']);
         Route::get('/order/datetime', [ManagerOrderController::class, 'getOrderByDateTime']);
@@ -103,13 +103,12 @@ Route::group(['middleware' => 'locale'], function() {
         Route::resource('/order', ManagerOrderController::class);
         Route::get('/order/list-product-order/{id}', [ManagerOrderController::class, 'getListProductOrder'])->where('id','[0-9]+');
     });
-    
+
     # Search Products
     Route::get('/search', [SearchController::class, 'getSearchProducts'])->name('search_products');
 
     # Search Category Type
-    Route::get('/{slug}/category-type', [SearchController::class, 'getCategoryType'])->name('search_category_type')
-        ->where('slug', '[A-Za-z]+');
+    Route::get('/{slug}/category-type', [SearchController::class, 'getCategoryType'])->name('search_category_type');
     # Search Category
     Route::get('/{slug}/category', [SearchController::class, 'getCategory'])->name('search_categories');
 

@@ -120,4 +120,13 @@ class Product extends Model
     {
         return $query->where('order_product.order_id',$id_order)->where('images.STT',1);
     }
+
+    public function scopeBySubCategory($query, $categoryId)
+    {
+        return $query->select('products.*')
+          ->join('categories', 'categories.id', '=', 'products.category_id')
+          ->join('category_type', 'category_type.id', '=', 'categories.category_types_id')
+          ->where('category_type.sub_id', '=', $categoryId)
+          ->conditionProduct();
+    }
 }

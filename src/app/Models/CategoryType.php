@@ -24,6 +24,24 @@ class CategoryType extends Model
         );
     }
 
+    public function children()
+    {
+        return $this->hasMany(__CLASS__, 'sub_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(  __CLASS__, 'sub_id');
+    }
+
+    public function scopeFindById($query, $id) {
+        return $query->find($id);
+    }
+
+    public function scopeGetParent($query) {
+        return $query->whereNull('sub_id');
+    }
+
     public function scopeSlug($query, $slug) {
         return $query->where('slug', $slug);
     }

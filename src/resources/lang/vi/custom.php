@@ -73,7 +73,7 @@ return [
     'order' => 'Đặt hàng',
     'price_total' => 'Tổng tiền',
     'ordered_at' => 'Ngày đặt',
-    'hello' => 'Xin chào',
+    'hello' => 'Xin chào bạn',
     'mail_message' => 'Bạn có thể vào trang quản lý của website Food and Drinks để xem thêm thông tin chi tiết về đơn hàng.',
     'thank_you' => 'Xin cảm ơn',
     'mail_order' => 'Một đơn hàng đã được đặt!',
@@ -322,4 +322,7 @@ return [
     'message_order_cancel_condition' => 'Đơn hàng chỉ được hủy trong 24 tiếng và đơn hàng phải đang được xử lý.',
     'message_order_success_db' => 'Gửi báo cáo thư cho Admin thành công.',
     'message_rating_no_data' => 'Chưa có đánh giá.',
+    'message_mail_order_confirm' => 'Đơn hàng của bạn đã được xử lý.',
+    'message_mail_order_confirm_success' => 'Đơn hàng của bạn đã được đặt thành công.',
+    'message_mail_order_confirm_fail' => 'Rất làm tiếc, sản phẩm của bạn không đủ số lượng nên chúng tôi đã hủy đơn hàng của bạn.',
 ];

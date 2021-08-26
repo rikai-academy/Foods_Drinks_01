@@ -122,7 +122,8 @@ class OrderController extends Controller
     private function sendMail($message, $order_products) {
         $users = User::byRole(UserRole::getKey(0))->get();
         foreach ($users as $user) {
-            $details = ['title' => __('custom.mail_order'), 'body' => $message, 'orders' => $order_products];
+            $details = ['title' => __('custom.mail_order'), 'body' => $message, 'orders' => $order_products,
+                        'locale' => session('website_language'),];
             Mail::to($user->email)->send(new \App\Mail\AdminMail($details));
         }
     }

@@ -21,4 +21,9 @@ class OrderProduct extends Model
     {
         return $this->belongsTo(Product::class,'product_id');
     }
+
+    public function scopeFindById($query, $id)
+    {
+        return $query->find($id);
+    }
 }

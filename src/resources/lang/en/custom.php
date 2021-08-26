@@ -72,7 +72,7 @@ return [
     'delete_all' => 'Delete all',
     'price_total' => 'Total Price',
     'ordered_at' => 'Ordered at',
-    'hello' => 'Hello',
+    'hello' => 'Hello you',
     'mail_message' => 'You can go to the management page of the Food and Drinks website to see more details about the order.',
     'thank_you' => 'Thank you',
     'mail_order' => 'An order has been placed!',
@@ -323,4 +323,7 @@ return [
     'message_order_cancel_condition' => 'Orders can only be canceled within 24 hours and the order must be in process.',
     'message_order_success_db' => 'Send mail report to Admin successfully.',
     'message_rating_no_data' => 'No reviews.',
+    'message_mail_order_confirm' => 'Your order has been processed.',
+    'message_mail_order_confirm_success' => 'Your order has been placed successfully.',
+    'message_mail_order_confirm_fail' => 'Sorry, your product is not in sufficient quantity, so we have canceled your order.',
 ];

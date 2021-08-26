@@ -14,8 +14,14 @@ use DB;
 
 class ManagerOrderController extends Controller
 {
+    protected $managerOrderService;
 
-    public function index(ManagerOrderService $managerOrderService)
+    public function __construct(ManagerOrderService $managerOrderService)
+    {
+        $this->managerOrderService = $managerOrderService;
+    }
+
+  public function index(ManagerOrderService $managerOrderService)
     {
         $data = $managerOrderService->getDatetime();
         $list_orders = Order::orderBy('id','desc')->get();
@@ -76,10 +82,16 @@ class ManagerOrderController extends Controller
         Order::find($id_oder)->update($request->all());
         if($request->has('btn_confirm')){
             toast(__('custom.Confirm order successful'),'success');
+            $message = __('custom.message_mail_order_confirm_success');
         }
         else{
             toast(__('custom.Cancel order successful'),'success');
+            $message = __('custom.message_mail_order_confirm_fail');
         }
+
+        # Send mail
+        $this->managerOrderService->sendMailToUser($id_oder, $message);
+
         return redirect()->back();
     }
 

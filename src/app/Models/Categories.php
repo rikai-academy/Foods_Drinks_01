@@ -57,4 +57,9 @@ class Categories extends Model
         return $query->find($idCategory);
     }
 
+    public function scopeJoinCategory($query)
+    {
+        return $query->join('products','products.category_id','=','categories.id');
+    }
+
 }

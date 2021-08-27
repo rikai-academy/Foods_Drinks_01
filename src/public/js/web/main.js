@@ -70,3 +70,24 @@ function scrollWindowFunction() {
 window.onscroll = function() {
   scrollWindowFunction();
 };
+
+// menu multi level
+function getCategory(id_categorytype){
+    $.ajax({
+        url : "/get-category/" + id_categorytype,
+        method : "get",
+        dataType : "json",
+        success: function(data){
+            var content="";
+            for (var i = 0; i < data.length; i++) {
+                content+="<li><a href='/"+data[i].slug+"/category' id='dropdown-item'>"+data[i].name+"</a></li>";
+                if(data[i].category_types_id == 1){
+                    $("#list_category_food").html(content);
+                }
+                else{
+                    $("#list_category_drink").html(content);
+                }
+            }
+        }
+    });
+}

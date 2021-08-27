@@ -364,6 +364,24 @@ ul.sub-menu {
   -o-transition: all 0.9s ease 0s;
 }
 
+/* ----menu multi level */
+.dropdown-submenu {
+  left: 219px;top: 0px;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+#dropdown-item {
+  color:#fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: -6px;
+}
+
+.sub-menu > li:hover > .dropdown-submenu {
+  display: block;
+}
+
 /*************************
 *******Footer CSS******
 **************************/

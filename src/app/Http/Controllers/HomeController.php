@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Status;
 use App\Models\Product;
+use App\Models\Categories;
 
 class HomeController extends Controller
 {
@@ -17,5 +18,10 @@ class HomeController extends Controller
             'latest_products'    => $latest_products,
             'recommend_products' => $product_recommends->chunk(3),
           ]);
+    }
+
+    public function getCategory($id_category_type){
+        $data = Categories::where('category_types_id',$id_category_type)->get();
+        return json_encode($data);
     }
 }

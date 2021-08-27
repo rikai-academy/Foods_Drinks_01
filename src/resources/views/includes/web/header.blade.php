@@ -35,7 +35,8 @@
             <div class="col-md-10 clearfix">
                 <div class="btn-group pull-right clearfix btn-group__language">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle usa" id="usa" data-toggle="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle usa" id="usa"
+                            data-toggle="dropdown">
                             {{ checkLanguage('EN', 'VI') }}
                             <span class="caret"></span>
                         </button>
@@ -48,31 +49,32 @@
                 <div class="shop-menu pull-right clearfix">
                     <ul class="nav navbar-nav">
                         @if(Auth::user())
-                            <li>
-                                <a href="{{route('suggest.create')}}">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> {{ __('custom.suggest') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a class="nav-link dropdown-toggle" id="userDropdown" href="" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-user"></i> {{Auth::user()->name}}
-                                </a>
-                                <ul class="dropdown-menu" id="dropdown-menu-profile" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('profile') }}">{{ __('custom.profile') }}</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();
+                        <li>
+                            <a href="{{route('suggest.create')}}">
+                                <i class="fa fa-plus" aria-hidden="true"></i> {{ __('custom.suggest') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link dropdown-toggle" id="userDropdown" href="" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user"></i> {{Auth::user()->name}}
+                            </a>
+                            <ul class="dropdown-menu" id="dropdown-menu-profile" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('profile') }}">{{ __('custom.profile') }}</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }} " onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">{{ __('custom.logout') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                         @else
                         <li>
                             <a href="{{route('login')}}"><i class="fa fa-lock"></i> {{ __('custom.login') }}</a>
@@ -110,12 +112,24 @@
                     <ul class="nav navbar-nav collapse navbar-collapse">
                         <li><a href="{{ route('home') }}">{{ __('custom.home_page') }}</a></li>
                         @if(Auth::check() && Auth::user()->isAdmin())
-                          <li><a href="{{ route('admin') }}">{{ __('custom.admin_page') }}</a></li>
+                        <li><a href="{{ route('admin') }}">{{ __('custom.admin_page') }}</a></li>
                         @endif
-                        <li class="dropdown"><a href="#">{{ __('custom.category') }}<i class="fa fa-angle-down"></i></a>
-                            <ul role="menu" class="sub-menu">
-                                <li><a href="{{ route('search_category_type', ['slug' => 'food']) }}">{{ __('custom.food') }}</a></li>
-                                <li><a href="{{ route('search_category_type', ['slug' => 'drink']) }}">{{ __('custom.drink') }}</a></li>
+                        <li><a href="#">{{ __('custom.category') }}<i class="fa fa-angle-down"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('search_category_type', ['slug' => 'food']) }}" onmouseover="getCategory(1)">
+                                        {{ __('custom.food') }}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu" id="list_category_food"></ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('search_category_type', ['slug' => 'drink']) }}" onmouseover="getCategory(2)">
+                                        {{ __('custom.drink') }}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu" id="list_category_drink"></ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -124,8 +138,10 @@
             <div class="col-sm-3">
                 <div class="search_box pull-right">
                     <form action="{{ route('search_products') }}" method="get">
-                        <input type="text" name="keyword" required placeholder="{{ __('custom.search') }}" value="{{ app('request')->input('keyword') }}"/>
-                        <button type="submit" class="search_box_button"><img src="/images/layouts/searchicon.png"/></button>
+                        <input type="text" name="keyword" required placeholder="{{ __('custom.search') }}"
+                            value="{{ app('request')->input('keyword') }}" />
+                        <button type="submit" class="search_box_button"><img
+                                src="/images/layouts/searchicon.png" /></button>
                     </form>
                 </div>
             </div>

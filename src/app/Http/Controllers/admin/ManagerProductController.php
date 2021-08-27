@@ -22,7 +22,13 @@ class ManagerProductController extends Controller
     public function index()
     {
         $data['OBJ_Products'] = Product::ProductJoin()->SelectProduct()->orderBy('products.id','desc')->get();
-        $data['OBJ_Categorys'] = Categories::all();
+        $data['OBJ_CategoryTypes'] = CategoryType::all();
+        return view('admin.product.index',$data);
+    }
+
+    public function show($id_product)
+    {
+        $data['OBJ_Products'] = Product::ProductJoin()->where('products.id',$id_product)->SelectProduct()->get();
         $data['OBJ_CategoryTypes'] = CategoryType::all();
         return view('admin.product.index',$data);
     }
@@ -45,10 +51,21 @@ class ManagerProductController extends Controller
         return redirect()->back();
     }
 
+    public function categoryByIDCategoryType($id_categorytype)
+    {
+        $data = Categories::where('categories.category_types_id',$id_categorytype)->get();
+        return json_encode($data);
+    }
+
+    public function productByIDCategory($id_category)
+    {
+        $data = Product::where('category_id',$id_category)->get();
+        return json_encode($data);
+    }
+
     public function showProductByCategory($id_category)
     {
         $data['OBJ_Products'] = Product::ProductJoin()->SelectProductByCategory($id_category)->orderBy('products.id','desc')->get();
-        $data['OBJ_Categorys'] = Categories::all();
         $data['OBJ_CategoryTypes'] = CategoryType::all();
         return view('admin.product.index',$data);
     }
@@ -57,7 +74,6 @@ class ManagerProductController extends Controller
     {
         $data['OBJ_Products'] = CategoryType::CategoryTypeJoin()->SelectProductByCategoryType()->whereCategoryType($id_categoryType)
         ->orderBy('products.id','desc')->get();
-        $data['OBJ_Categorys'] = Categories::all();
         $data['OBJ_CategoryTypes'] = CategoryType::all();
         return view('admin.product.index',$data);
     }

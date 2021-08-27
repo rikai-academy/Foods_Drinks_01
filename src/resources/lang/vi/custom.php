@@ -106,6 +106,13 @@ return [
     'sort_display_categories' => 'Sắp xếp các danh mục hiển thị',
     'sort_display_categories_msg' => 'Danh mục ở trang chủ sẽ thay đổi theo sự sắp xếp của bạn',
     'order_of_display' => 'Thứ tự hiển thị',
+    'statistic_products' => 'Thống kê sản phẩm',
+    'statistic_order_products' => 'Thống kê sản phẩm được mua nhiều nhất',
+    'column_stt' => 'STT',
+    'total_quantity' => 'Tống số lượng',
+    'to' => 'đến',
+    'reload' => 'Tải lại trang',
+    'statistic_filter_error' => 'Ngày thứ nhất phải bé hơn ngày thứ 2!',
 
   /* Login... */
     'email' => 'Địa chỉ email',

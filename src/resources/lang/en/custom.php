@@ -106,6 +106,13 @@ return [
     'sort_display_categories' => 'Sort display categories',
     'sort_display_categories_msg' => 'The category on the homepage will change according to your arrangement',
     'order_of_display' => 'Order of display',
+    'statistic_products' => 'Statistic Products',
+    'statistic_order_products' => 'Statistic most purchased Products',
+    'column_stt' => 'No.',
+    'total_quantity' => 'Total quantity',
+    'to' => 'to',
+    'reload' => 'Reload Page',
+    'statistic_filter_error' => 'The first day must be smaller than the second day!',
 
     /* Login... */
     'email' => 'Email',

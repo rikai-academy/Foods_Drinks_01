@@ -4,7 +4,7 @@ use App\Enums\Status;
         function statusProduct($status)
         {
             $statusProduct = Status::getValue('ACTIVE');
-            $class_tag_p = $status == $statusProduct ? 'text-primary' : 'text-danger';
+            $class_tag_p = $status == $statusProduct ? 'text-success' : 'text-danger';
             $test = $status == $statusProduct ? __('custom.Show') : __('custom.Hidden');
             $content = "<p class='".$class_tag_p."'>".$test."</p>";
             return $content;

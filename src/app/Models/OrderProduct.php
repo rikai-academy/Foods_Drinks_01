@@ -26,4 +26,21 @@ class OrderProduct extends Model
     {
         return $query->find($id);
     }
+
+    public function scopeGetMostProducts($query)
+    {
+        return $query->selectRaw('product_id, created_at, COUNT(amount_of) AS count_products')
+            ->groupBy('product_id')
+            ->orderBy('count_products', 'DESC');
+    }
+
+    public function scopeGetByBetweenDay($query, $dayOne, $dayTwo)
+    {
+        return $query->whereBetween('created_at', [$dayOne, $dayTwo]);
+    }
+
+    public function scopeGetDayNow($query)
+    {
+        return $query->where('created_at', '>=', date('Y-m-d').' 00:00:00');
+    }
 }

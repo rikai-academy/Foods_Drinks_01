@@ -42,6 +42,10 @@ class CategoryType extends Model
         return $query->whereNull('sub_id');
     }
 
+    public function scopeGetChildren($query) {
+        return $query->whereNotNull('sub_id');
+    }
+
     public function scopeSlug($query, $slug) {
         return $query->where('slug', $slug);
     }

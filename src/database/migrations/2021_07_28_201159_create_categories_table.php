@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('category_types_id')->unsigned();
             $table->string('slug',100)->unique();
             $table->tinyInteger('status');
+            $table->integer('cardinal_numbers')->unique();
             $table->timestamps();
             $table->foreign('category_types_id')->references('id')->on('category_type')->onDelete('cascade');
         });

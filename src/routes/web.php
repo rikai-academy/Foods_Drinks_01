@@ -78,6 +78,7 @@ Route::group(['middleware' => 'locale'], function() {
         Route::post('/category/show-hidden/{id}', [ManagerCategoryController::class,'showOrHidden']);
         Route::get('/category/category_type/{id}', [ManagerCategoryController::class, 'showCategoryTy'])->where('id','[0-9]+')->name('showCategoryTy');
         Route::post('/category/import', [ManagerCategoryController::class,'import'])->name('import_category');
+        Route::post('/sort-categories/category', [ManagerCategoryController::class,'sortCategories'])->name('categories.sort-categories');
 
         # Product
         Route::get('/product/export', [ManagerProductController::class, 'export'])->name('export_product');
@@ -87,6 +88,8 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/product/category/{id}', [ManagerProductController::class, 'showProductByCategory'])->name('show_product_by_category')->where('id','[0-9]+');
         Route::get('/product/category-type/{id}', [ManagerProductController::class, 'showProductByCategoryType'])->name('show_product_by_CategoryType')->where('id','[0-9]+');
         Route::post('/product/import', [ManagerProductController::class,'import'])->name('import_product');
+        Route::get('/get-categories', [ManagerProductController::class,'getCategories'])->name('product.get_categories');
+        Route::post('/show-Product-Categories', [ManagerProductController::class,'showProductCategories'])->name('product.show-products');
 
         # user
         Route::resource('/user', ManagerUserController::class);

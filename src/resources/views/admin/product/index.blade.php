@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,19 +36,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{__('custom.Category')}}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sortCategories">
+                                <i class="fas fa-filter"></i> {{__('custom.Category')}}
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('product.index')}}">{{__('custom.Show all')}}</a>
-                                @foreach($OBJ_Categorys as $OBJ_Category)
-                                <a class="dropdown-item"
-                                    href="{{route('show_product_by_category',['id'=>$OBJ_Category->id ])}}">{{$OBJ_Category->name}}</a>
-                                @endforeach
-                            </div>
+                            @include('admin.product.index-inc-sort-categories')
                         </div>
                     </div>
                 </div>
@@ -134,4 +127,5 @@
 @include('includes.admin.product.modal-show')
 @include('includes.admin.product.modal-hidden')
 @include('includes.admin.product.modal-delete')
+@include('admin.product.index-inc-js')
 @endsection

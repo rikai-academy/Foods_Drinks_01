@@ -98,6 +98,14 @@ return [
     'Number In Order' => 'Số Thứ Tự',
     'edit_information' => 'Chỉnh sửa thông tin',
     'order_cancel' => 'Hủy đơn',
+    'sort' => 'Sắp xếp',
+    'sort_date_desc' => 'Ngày tạo mới nhất',
+    'sort_date_asc' => 'Ngày tạo lâu nhất',
+    'sort_quantity_desc' => 'Số lượng nhiều nhất',
+    'sort_quantity_asc' => 'Số lượng thấp nhất',
+    'sort_display_categories' => 'Sắp xếp các danh mục hiển thị',
+    'sort_display_categories_msg' => 'Danh mục ở trang chủ sẽ thay đổi theo sự sắp xếp của bạn',
+    'order_of_display' => 'Thứ tự hiển thị',
 
   /* Login... */
     'email' => 'Địa chỉ email',

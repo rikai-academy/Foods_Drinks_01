@@ -98,6 +98,14 @@ return [
     'Number In Order' => 'Number In Order',
     'edit_information' => 'Edit information',
     'order_cancel' => 'Cancel Order',
+    'sort' => 'Sort',
+    'sort_date_desc' => 'Last creation date',
+    'sort_date_asc' => 'Longest creation date',
+    'sort_quantity_desc' => 'Maximum number',
+    'sort_quantity_asc' => 'Last count',
+    'sort_display_categories' => 'Sort display categories',
+    'sort_display_categories_msg' => 'The category on the homepage will change according to your arrangement',
+    'order_of_display' => 'Order of display',
 
     /* Login... */
     'email' => 'Email',

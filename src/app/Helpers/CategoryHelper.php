@@ -8,9 +8,9 @@ use App\Models\CategoryType;
         {
             if ($type === CategoryTypes::FOOD)
             {
-                return Categories::CategoryType(CategoryTypes::FOOD)->get();
+                return Categories::bySubCategories(CategoryTypes::FOOD)->get()->sortBy('cardinal_numbers');
             }
-            return Categories::CategoryType(CategoryTypes::DRINK)->get();
+            return Categories::bySubCategories(CategoryTypes::DRINK)->get()->sortBy('cardinal_numbers');
         }
     }
 

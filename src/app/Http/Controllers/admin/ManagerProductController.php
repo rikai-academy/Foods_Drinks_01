@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\CategoryType;
 use App\Models\Categories;
 use App\Models\Image;
+use App\Services\ManagerProductService;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -19,6 +20,12 @@ use App\Services\ProductService;
 use DB;
 class ManagerProductController extends Controller
 {
+    protected $managerProductService;
+
+    public function __construct(ManagerProductService $managerProductService)
+    {
+        $this->managerProductService = $managerProductService;
+    }
 
     public function index()
     {
@@ -152,5 +159,32 @@ class ManagerProductController extends Controller
         if ($categoryId == CategoryTypes::FOOD || $categoryId == CategoryTypes::DRINK)
             $products = Product::bySubCategory($categoryId)->orderBy('products.id','desc')->get();
         return $products;
+    }
+
+    /**
+     * Get Categories.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getCategories(Request $request)
+    {
+        return $this->managerProductService->getCategoriesSort($request);
+    }
+
+    /**
+     * Show Products by Categories Id.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function showProductCategories(Request $request)
+    {
+        $id_category = $request->id;
+        $data['OBJ_Categorys'] = Categories::all();
+        $data['OBJ_CategoryTypes'] = CategoryType::getParent()->get();
+        $data['OBJ_Products'] = Product::ProductJoin()->SelectProductByCategory($id_category)
+            ->orderBy('products.id','desc')->get();
+        return view('admin.product.index', $data);
     }
 }

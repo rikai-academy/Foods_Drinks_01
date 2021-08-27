@@ -28,8 +28,15 @@ class Kernel extends ConsoleKernel
     {
         # Send statistic to all Admin
         $schedule->command('mail:send')
-            ->lastDayOfMonth('8:00')
-            ->timezone('Asia/Ho_Chi_Minh');
+            ->lastDayOfMonth(config('app.mailSendTime'))
+            ->timezone(config('app.timezone'))
+            ->appendOutputTo(config('app.directFileInspire'));
+
+        # Delete rejected orders
+        $schedule->command('order:destroy')
+            ->lastDayOfMonth(config('app.orderDestroyTime'))
+            ->timezone(config('app.timezone'))
+            ->appendOutputTo(config('app.directFileInspire'));
     }
 
     /**

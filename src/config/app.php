@@ -242,4 +242,8 @@ return [
 
     'apiKeyChatwork' => 'ca2c90d4186da287d44566ac293425b7',
     'roomIdChatwork' => 239576421,
+
+    'directFileInspire' => 'C:\inspire.txt',
+    'mailSendTime'      => '8:00',
+    'orderDestroyTime'  => '23:59',
 ];

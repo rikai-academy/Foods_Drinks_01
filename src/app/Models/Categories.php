@@ -57,4 +57,12 @@ class Categories extends Model
         return $query->find($idCategory);
     }
 
+    public function scopeBySubCategories($query, $categoryTypeId)
+    {
+        return $query->select('categories.*')
+          ->join('category_type', 'category_type.id', '=', 'categories.category_types_id')
+          ->where('category_type.sub_id', '=', $categoryTypeId)
+          ->where('categories.status', '=', Status::ACTIVE);
+    }
+
 }

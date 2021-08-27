@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Enums\CategoryTypes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
@@ -20,7 +21,7 @@ class ManagerCategoryController extends Controller
     public function index()
     {
         $data['OBJ_Categories'] = Categories::OrderBy('id', 'desc')->get();
-        $data['OBJ_Category_Types'] = CategoryType::all();
+        $data['OBJ_Category_Types'] = CategoryType::getParent()->get();
         return view('admin.categories.index', $data);
     }
 
@@ -48,8 +49,14 @@ class ManagerCategoryController extends Controller
 
     public function showCategoryTy($id_category_type)
     {
-        $data['OBJ_Categories'] = Categories::WhereCategoryType($id_category_type)->OrderBy('id', 'desc')->get();
-        $data['OBJ_Category_Types'] = CategoryType::all();
+        $categories = $this->getProductBySubCategories($id_category_type);
+        if ($categories) {
+          $data['OBJ_Categories'] = $categories;
+        } else {
+          $data['OBJ_Categories'] = Categories::WhereCategoryType($id_category_type)->OrderBy('id', 'desc')->get();
+        }
+
+        $data['OBJ_Category_Types'] = CategoryType::getParent()->get();
         return view('admin.categories.index', $data);
     }
 
@@ -120,5 +127,19 @@ class ManagerCategoryController extends Controller
             DB::rollBack();
         }
         return redirect()->back();
+    }
+
+    /**
+     * Get Products by Category sub id.
+     *
+     * @param $categoryId
+     * @return array
+     */
+    private function getProductBySubCategories($categoryId)
+    {
+        $categories = [];
+        if ($categoryId == CategoryTypes::FOOD || $categoryId == CategoryTypes::DRINK)
+            $categories = Categories::BySubCategories($categoryId)->OrderBy('id', 'desc')->get();
+        return $categories;
     }
 }

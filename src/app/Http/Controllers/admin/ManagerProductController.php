@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Enums\CategoryTypes;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\CategoryType;
@@ -23,7 +24,7 @@ class ManagerProductController extends Controller
     {
         $data['OBJ_Products'] = Product::ProductJoin()->SelectProduct()->orderBy('products.id','desc')->get();
         $data['OBJ_Categorys'] = Categories::all();
-        $data['OBJ_CategoryTypes'] = CategoryType::all();
+        $data['OBJ_CategoryTypes'] = CategoryType::getParent()->get();
         return view('admin.product.index',$data);
     }
 
@@ -49,16 +50,21 @@ class ManagerProductController extends Controller
     {
         $data['OBJ_Products'] = Product::ProductJoin()->SelectProductByCategory($id_category)->orderBy('products.id','desc')->get();
         $data['OBJ_Categorys'] = Categories::all();
-        $data['OBJ_CategoryTypes'] = CategoryType::all();
+        $data['OBJ_CategoryTypes'] = CategoryType::getParent()->get();
         return view('admin.product.index',$data);
     }
 
     public function showProductByCategoryType($id_categoryType)
     {
-        $data['OBJ_Products'] = CategoryType::CategoryTypeJoin()->SelectProductByCategoryType()->whereCategoryType($id_categoryType)
-        ->orderBy('products.id','desc')->get();
+        $products = $this->getProductBySubCategory($id_categoryType);
+        if ($products) {
+          $data['OBJ_Products'] = $products;
+        } else {
+          $data['OBJ_Products'] = CategoryType::CategoryTypeJoin()->SelectProductByCategoryType()->whereCategoryType($id_categoryType)
+            ->orderBy('products.id','desc')->get();
+        }
         $data['OBJ_Categorys'] = Categories::all();
-        $data['OBJ_CategoryTypes'] = CategoryType::all();
+        $data['OBJ_CategoryTypes'] = CategoryType::getParent()->get();
         return view('admin.product.index',$data);
     }
 
@@ -122,7 +128,7 @@ class ManagerProductController extends Controller
         return Excel::download(new ProductExport, 'product.xlsx');
     }
 
-    public function import(ImportRequest $request,ProductService $productService) 
+    public function import(ImportRequest $request,ProductService $productService)
     {
         $importProduct = $productService->importProduct($request);
         if ($importProduct) {
@@ -132,5 +138,19 @@ class ManagerProductController extends Controller
             toast(__('custom.Import excel failed'),'error');
         }
         return redirect()->back();
+    }
+
+    /**
+     * Get Products by Category sub id.
+     *
+     * @param $categoryId
+     * @return array
+     */
+    private function getProductBySubCategory($categoryId)
+    {
+        $products = [];
+        if ($categoryId == CategoryTypes::FOOD || $categoryId == CategoryTypes::DRINK)
+            $products = Product::bySubCategory($categoryId)->orderBy('products.id','desc')->get();
+        return $products;
     }
 }

@@ -7,6 +7,35 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="row">
+                    <div class="col-md-5">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{__('custom.Category group')}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{route('product.index')}}">{{__('custom.Show all')}}</a>
+                                @foreach($OBJ_CategoryTypes as $OBJ_CategoryType)
+                                  <li {!! !getChildrenCategories($OBJ_CategoryType->id) ?: "class='dropdown-submenu'"  !!}>
+                                    <a class="dropdown-item" href="{{route('show_product_by_CategoryType',['id' =>$OBJ_CategoryType->id ])}}"
+                                       tabindex="-1">
+                                      {{$OBJ_CategoryType->name}}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      @foreach(getChildrenCategories($OBJ_CategoryType->id) as $row)
+                                        <li class="dropdown-item">
+                                          <a tabindex="-1" class="text-dark text-decoration-none"
+                                             href="{{route('show_product_by_CategoryType',['id' =>$row->id ])}}">
+                                            {{ $row->name }}
+                                          </a>
+                                        </li>
+                                      @endforeach
+                                    </ul>
+                                  </li>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-3">
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -18,21 +47,6 @@
                                 @foreach($OBJ_Categorys as $OBJ_Category)
                                 <a class="dropdown-item"
                                     href="{{route('show_product_by_category',['id'=>$OBJ_Category->id ])}}">{{$OBJ_Category->name}}</a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{__('custom.Category group')}}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('product.index')}}">{{__('custom.Show all')}}</a>
-                                @foreach($OBJ_CategoryTypes as $OBJ_CategoryType)
-                                <a class="dropdown-item"
-                                    href="{{route('show_product_by_CategoryType',['id'=>$OBJ_CategoryType->id ])}}">{{$OBJ_CategoryType->name}}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -86,11 +100,11 @@
                     @foreach($OBJ_Products as $OBJ_Product)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{$OBJ_Product->name_product}}</td>
+                        <td>{{$OBJ_Product->name_product ?: $OBJ_Product->name}}</td>
                         <td>
-                            <img src="{{asset('/storage/products')}}/{{$OBJ_Product->image}}" id="img_product">
+                            <img src="{{asset('/storage/products')}}/{{$OBJ_Product->image ?: $OBJ_Product->images()->first()->image}}" id="img_product">
                         </td>
-                        <td>{{$OBJ_Product->name_category}}</td>
+                        <td>{{$OBJ_Product->name_category ?: $OBJ_Product->categories()->first()->name}}</td>
                         <td>{{$OBJ_Product->amount_of}}</td>
                         <td>{{ formatPrice($OBJ_Product->price) }}</td>
                         <td>
@@ -98,13 +112,13 @@
                         </td>
                         <td>
                             {!!checkStatusProduct($OBJ_Product->status_product,$OBJ_Product->id_product)!!}
-                            <a href="{{route('product.edit',$OBJ_Product->id_product)}}" class="btn btn-primary">
+                            <a href="{{route('product.edit',$OBJ_Product->id_product ?: $OBJ_Product->id)}}" class="btn btn-primary">
                                 <i class="fa fa-edit "></i>
                             </a>
                             <button class="btn btn-danger" data-toggle="modal" data-target="#modalDeleteProduct">
                                 <i class="far fa-trash-alt"></i>
                             </button>
-                            <form action="{{ route('product.destroy',$OBJ_Product->id_product) }}" method="post"
+                            <form action="{{ route('product.destroy',$OBJ_Product->id_product ?: $OBJ_Product->id) }}" method="post"
                                 id="delete">
                                 @csrf
                                 @method('DELETE')

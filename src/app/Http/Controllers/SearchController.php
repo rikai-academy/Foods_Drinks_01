@@ -53,13 +53,20 @@ class SearchController extends Controller
     {
         // Find Category Type by slug
         $products = $this->getProductBySlug($slug);
-        if ($products)
+        $productsBackup = $this->getProductBySubCategory($slug);
+
+        if ($products || $productsBackup)
         {
             // Set param
             $param = ['category' => $products->id, 'sortCategory' => 0, 'sortPrice' => 0,
                 'minPrice' => 0, 'maxPrice' => 0, 'rating' => 0];
+
             // Get Products
-            $products = $products->products()->conditionProduct()->orderBy('products.updated_at', 'DESC')->paginate(21);
+            if ($productsBackup) {
+                $products = $productsBackup->paginate(21);
+            } else {
+                $products = $products->products()->conditionProduct()->orderBy('products.updated_at', 'DESC')->paginate(21);
+            }
 
             return view('web.search-products.search-products')->with([
                 'products' => $products, 'param' => $param, 'keyword' => '',
@@ -106,6 +113,19 @@ class SearchController extends Controller
         {
             $products = Categories::slug($slug)->first();
         }
+        return $products;
+    }
+
+    /**
+     * Get Products by Category sub id.
+     *
+     * @param $slug
+     * @return array
+     */
+    private function getProductBySubCategory($slug)
+    {
+        $categoryId = CategoryType::slug($slug)->first()->id;
+        $products = Product::bySubCategory($categoryId);
         return $products;
     }
 }

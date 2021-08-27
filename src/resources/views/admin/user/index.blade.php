@@ -21,12 +21,12 @@
                 </thead>
                 <tbody>
                     @foreach($OBJ_Users as $OBJ_User)
-                        <tr>    
+                        <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$OBJ_User->id}}</td>
                             <td>{{$OBJ_User->name}}</td>
                             <td>
-                                <img src="{{$OBJ_User->image}}" alt="" style="width:60px;height: 60px;">
+                                <img src="/storage/photos/{{$OBJ_User->id}}/avatar/thumbs/user.jpg" alt="" style="width:60px;height: 60px;">
                             </td>
                             <td>
                                 {!!checkStatusUser($OBJ_User->status)!!}
@@ -60,4 +60,4 @@
 </div>
 @include('includes.admin.user.modal-delete')
 @include('includes.admin.user.modal-active-block')
-@endsection 
+@endsection

@@ -3,7 +3,7 @@
   <h2>{{ __('custom.food') }}</h2>
   <div class="brands-name">
     <ul class="nav nav-pills nav-stacked">
-      @forelse($category_foods as $row)
+      @forelse(getCategoriesByType(\App\Enums\CategoryTypes::FOOD) as $row)
         <li>
           <a href="{{ route('search_categories', ['slug' => $row->slug]) }}">
             <span class="pull-right">{{ $row->products()->conditionProduct()->count() }}</span>
@@ -21,7 +21,7 @@
   <h2>{{ __('custom.drink') }}</h2>
   <div class="brands-name">
     <ul class="nav nav-pills nav-stacked">
-      @forelse($category_drinks as $row)
+      @forelse(getCategoriesByType(\App\Enums\CategoryTypes::DRINK) as $row)
         <li>
           <a href="{{ route('search_categories', ['slug' => $row->slug]) }}">
             <span class="pull-right">{{ $row->products()->conditionProduct()->count() }}</span>

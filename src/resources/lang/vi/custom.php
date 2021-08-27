@@ -98,6 +98,7 @@ return [
     'Number In Order' => 'Số Thứ Tự',
     'edit_information' => 'Chỉnh sửa thông tin',
     'order_cancel' => 'Hủy đơn',
+    'Mail from Food and Drinks' => 'Thư từ Food and Drinks',
 
   /* Login... */
     'email' => 'Địa chỉ email',
@@ -298,6 +299,7 @@ return [
     'js_rating_empty' => 'Vui lòng không để trống trường đánh giá!',
     'js_rating_star'  => 'Vui lòng chọn sao đánh giá!',
     'rating_success'  => 'Đánh giá bài viết của bạn đã được đăng!',
+    'rating_false' => 'Bài viết đánh giá của bạn đã thất bại!',
     'js_cart_quantity_qty'  => 'Số lượng của sản phẩm không đủ!',
     'js_cart_quantity_zero'  => 'Số lượng phải lớn hơn 0!',
     'product_detail_review' => 'Vui lòng đăng nhập để được đánh giá sản phẩm.',

@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Evaluates;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\RatingService;
+use App\Models\Product;
 
 class RatingController extends Controller
 {
-    /**
-     * Add Product review.
-     *
-     * @param Request $request
-     * @return Response
-     */
+    protected $ratingService;
+
+    public function __construct(RatingService $ratingService)
+    {
+        $this->ratingService = $ratingService;
+    }
+    
     public function ratingProduct(Request $request)
     {
         if ($request || Auth::check())
@@ -24,25 +27,35 @@ class RatingController extends Controller
               'user_id'    => Auth::user()->id,
               'product_id' => $request->get('product_id'),
             ];
-            $this->create($data);
+            $this->ratingService->create($data);
+            $nameUser = Auth::user()->name;
+            $rating = $data['rating'];
+            $name_product = Product::find($data['product_id'])->name;
+            $created_at = Evaluates::orderBy('id','desc')->first()->created_at;
+            $message = $this->getMessage($nameUser,$rating,$name_product,$created_at);
+            $send_mail_rating = $this->ratingService->sendMailUser($message,$data);
+
+            if($send_mail_rating){
+                $mess = __('custom.rating_success');
+                $alert = 'alert-success';
+            }
+            else{
+                $mess = __('custom.rating_false');
+                $alert = 'alert-danger';
+            }
             return back()->with([
-              'message' => __('custom.rating_success'),
-              'alert' => 'alert-success',
+              'message' => $mess,
+              'alert' => $alert
             ]);
         }
         return abort(404);
     }
 
-    /**
-     * Insert review to Database.
-     */
-    private function create($data)
-    {
-        return Evaluates::create([
-            'review' => $data['review'],
-            'rating' => $data['rating'],
-            'user_id' => $data['user_id'],
-            'product_id' => $data['product_id'],
-        ]);
+    private function getMessage($nameUser,$rating,$name_product,$created_at) {
+        $date = checkLanguageWithDay($created_at);
+        $message_en = "$nameUser Also commented and rated $rating start for product $name_product. At $date.";
+        $message_vi = "$nameUser cũng đã bình luận và đánh giá $rating sao cho sản phẩm $name_product. Lúc $date.";
+        return checkLanguage($message_en, $message_vi);
     }
+
 }

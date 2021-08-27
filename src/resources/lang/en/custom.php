@@ -98,6 +98,7 @@ return [
     'Number In Order' => 'Number In Order',
     'edit_information' => 'Edit information',
     'order_cancel' => 'Cancel Order',
+    'Mail from Food and Drinks' => 'Mail from Food and Drinks',
 
     /* Login... */
     'email' => 'Email',
@@ -299,6 +300,7 @@ return [
     'js_cart_quantity_qty'  => 'The quantity of the product is not enough!',
     'js_cart_quantity_zero'  => 'The number must be greater than 0!',
     'rating_success'  => 'Review your article has been published!',
+    'rating_false' => 'Your review has failed!',
     'product_detail_review' => 'Please login to rate the product.',
     'product-detail_review' => 'Please login to rate the product.',
     'add_to_cart_success' => 'Product added to cart successfully',

@@ -478,7 +478,7 @@
   }
 }
 
-@media only screen and (width: 1366px) {
+@media screen and (min-width: 1500px) and (max-width: 1600px){
   .search_box input {
     padding-top: 3px;
   }

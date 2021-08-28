@@ -299,12 +299,6 @@ h6 {
   border-bottom-left-radius: 4px;
 }
 
-.search_box input:focus {
-  width: 199px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
 .search_box_button {
   background: #f0f0e9;
   border: medium none;
@@ -314,6 +308,36 @@ h6 {
   margin-left: -5px;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
+}
+
+.search_box ul {
+  background: #f0f0e9;
+  position: absolute;
+  z-index: 1;
+  padding: 5px 20px;
+  width: 64%;
+}
+
+.search_box ul li {
+  list-style-type: circle;
+  margin-left: 10px;
+  margin-bottom: 7px;
+}
+
+.search_box ul li a {
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+}
+
+.search_box ul li a:hover {
+  color: #fe980f;
+}
+
+.search_box_loading {
+  position: absolute;
+  z-index: 2;
+  background-color: #fff;
+  width: 64%;
 }
 
 .navbar-header .navbar-toggle .icon-bar {

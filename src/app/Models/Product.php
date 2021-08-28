@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\Status;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
     protected $table = "products";
     protected $primaryKey = "id";
 
@@ -43,6 +44,16 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(Image::class,'product_id');
+    }
+
+    public function searchableAs()
+    {
+        return "products";
+    }
+
+    public function toSearchableArray()
+    {
+        return $this->only('name', 'slug', 'content', 'status');
     }
 
     public function scopeStatus($query, $status)

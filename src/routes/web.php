@@ -87,6 +87,8 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/product/category/{id}', [ManagerProductController::class, 'showProductByCategory'])->name('show_product_by_category')->where('id','[0-9]+');
         Route::get('/product/category-type/{id}', [ManagerProductController::class, 'showProductByCategoryType'])->name('show_product_by_CategoryType')->where('id','[0-9]+');
         Route::post('/product/import', [ManagerProductController::class,'import'])->name('import_product');
+        Route::get('/product/category-multi-level/{id}', [ManagerProductController::class,'categoryByIDCategoryType']);
+        Route::get('/product/product-multi-level/{id}', [ManagerProductController::class,'productByIDCategory']);
 
         # user
         Route::resource('/user', ManagerUserController::class);
@@ -124,6 +126,8 @@ Route::group(['middleware' => 'locale'], function() {
     # Rating
     Route::post('/rating', [RatingController::class, 'ratingProduct'])->name('rating');
 
+    # menu multi level
+    Route::get('/get-category/{id}', [HomeController::class, 'getCategory']);
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

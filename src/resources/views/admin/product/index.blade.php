@@ -5,41 +5,27 @@
 <div class="card mb-4">
     <div class="card-header">
         <div class="row">
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{__('custom.Category')}}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('product.index')}}">{{__('custom.Show all')}}</a>
-                                @foreach($OBJ_Categorys as $OBJ_Category)
-                                <a class="dropdown-item"
-                                    href="{{route('show_product_by_category',['id'=>$OBJ_Category->id ])}}">{{$OBJ_Category->name}}</a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{__('custom.Category group')}}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('product.index')}}">{{__('custom.Show all')}}</a>
-                                @foreach($OBJ_CategoryTypes as $OBJ_CategoryType)
-                                <a class="dropdown-item"
-                                    href="{{route('show_product_by_CategoryType',['id'=>$OBJ_CategoryType->id ])}}">{{$OBJ_CategoryType->name}}</a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-md-2">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{__('custom.Category')}}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @foreach($OBJ_CategoryTypes as $OBJ_CategoryType)
+                        <li>
+                            <a class="dropdown-item" id="category_type"
+                                onmouseover="getCategory('{{$OBJ_CategoryType->id}}')"
+                                href="{{route('show_product_by_CategoryType',['id'=>$OBJ_CategoryType->id ])}}">{{$OBJ_CategoryType->name}}
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu" id="category_multi_{{$OBJ_CategoryType->id}}">
+                            </ul>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <a href="{{route('export_product')}}" class="btn btn-success">{{__('custom.Export Excel')}} <i
                         class="fas fa-file-excel"></i></a>
                 <form id="import_product_excel" method="POST" action="{{route('import_product')}}"

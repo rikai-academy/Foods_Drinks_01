@@ -65,4 +65,11 @@ class Categories extends Model
           ->where('categories.status', '=', Status::ACTIVE);
     }
 
+    public function scopeSortCategories($query, $name, $sort) {
+        return $query->orderBy($name, $sort);
+    }
+
+    public function scopeGetActive($query) {
+        return $query->where('status', '=', Status::ACTIVE);
+    }
 }

@@ -5,8 +5,9 @@
 <div class="card mb-4">
     <div class="card-header">
         <div class="row">
-            <div class="col-md-2">
-                <div class="dropdown">
+            <div class="col">
+                <div class="row">
+                  <div class="dropdown mr-2">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{__('custom.Category group')}}
                     </button>
@@ -29,29 +30,20 @@
                           </li>
                         @endforeach
                     </div>
+                  </div>
+                  <a href="{{route('category.create')}}" class="btn btn-primary mr-2" id="btn_add_category">
+                    <i class="fa fa-plus"></i> {{__('custom.Add category')}}
+                  </a>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#showSortCategories">
+                    <i class="fas fa-sort"></i> {{ __('custom.sort_display_categories') }}
+                  </button>
+                  @include('admin.categories.index-inc-show-sort')
                 </div>
             </div>
-            <div class="col-md-8">
-                <a href="{{route('export_category')}}" class="btn btn-success">{{__('custom.Export Excel')}} <i class="fas fa-file-excel"></i></a>
-                <form id="import_category_excel" method="POST"  action="{{route('import_category')}}" accept-charset="utf-8" enctype="multipart/form-data">
-                    @csrf
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <input type="file" name="file" placeholder="Choose file">
-                                </div>
-                                @error('file')
-                                    <strong>{{ $message }}</strong>
-                                @enderror
-                            </div>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-success" id="submit">{{__('custom.Import Excel')}} <i class="fas fa-file-excel"></i></button>
-                            </div>
-                        </div>
-                 </form>
-            </div>
-            <div class="col-md-2">
-            <a href="{{route('category.create')}}" class="btn btn-primary" id="btn_add_category">{{__('custom.Add category')}} <i class="fa fa-plus"></i></a>
+            <div class="col text-right">
+                <a href="{{route('export_category')}}" class="btn btn-success">
+                  <i class="fas fa-file-excel"></i> {{__('custom.Export Excel')}}
+                </a>
             </div>
         </div>
     </div>
@@ -63,6 +55,7 @@
                         <th>{{__('custom.Number In Order')}}</th>
                         <th>{{__('custom.Category Name')}}</th>
                         <th>{{__('custom.Category group')}}</th>
+                        <th>{{__('custom.order_of_display')}}</th>
                         <th>{{__('custom.Status')}}</th>
                         <th>{{__('custom.Action')}}</th>
                     </tr>
@@ -73,6 +66,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$OBJ_Categorie->name}}</td>
                             <td>{{$OBJ_Categorie->category_type->name}}</td>
+                            <td>{{$OBJ_Categorie->cardinal_numbers}}</td>
                             <td>
                                 @if($OBJ_Categorie->status == 1)
                                 <p class="text-primary">{{__('custom.Show')}}</p>

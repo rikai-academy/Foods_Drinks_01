@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Enums\CategoryTypes;
 use App\Http\Controllers\Controller;
+use App\Services\ManagerCategoryService;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\CategoryType;
@@ -18,7 +19,15 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ManagerCategoryController extends Controller
 {
-    public function index()
+
+    protected $manageCategoryService;
+
+    public function __construct(ManagerCategoryService $manageCategoryService)
+    {
+        $this->manageCategoryService = $manageCategoryService;
+    }
+
+  public function index()
     {
         $data['OBJ_Categories'] = Categories::OrderBy('id', 'desc')->get();
         $data['OBJ_Category_Types'] = CategoryType::getParent()->get();
@@ -141,5 +150,21 @@ class ManagerCategoryController extends Controller
         if ($categoryId == CategoryTypes::FOOD || $categoryId == CategoryTypes::DRINK)
             $categories = Categories::BySubCategories($categoryId)->OrderBy('id', 'desc')->get();
         return $categories;
+    }
+
+    /**
+     * Sort cardinal numbers Categories.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function sortCategories(Request $request) {
+        if ($this->manageCategoryService->sortIndexCategories($request)) {
+            alert()->success(__('custom.Notification'), __('custom.Update category successful'));
+        } else {
+            alert()->error(__('custom.Notification'), __('custom.message_order_error_db'));
+        }
+
+        return redirect()->back();
     }
 }

@@ -25,6 +25,5 @@
             </footer>
         </div>
     </div>
-
     @include('includes.admin.lib-js')
 </body>

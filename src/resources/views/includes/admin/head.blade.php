@@ -10,3 +10,4 @@
 <link href="{{ asset('css/admin/order.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/admin/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
 <script src="{{ asset('js/admin/all.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ asset('js/admin/Chart.min.js') }}" crossorigin="anonymous"></script>

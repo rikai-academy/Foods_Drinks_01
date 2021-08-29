@@ -289,6 +289,16 @@ return [
     'mail_order_confirm' => 'Announcement of order results',
     'Update Status Order failure' => 'Update Status Order failure',
 
+    /* Statistic */
+    'Statistic' => 'Statistic',
+    'Statistic Product' => 'Statistic Product',
+    'Statistics of most ordered products' => 'Statistics of most ordered products',
+    'Amount Of Order' => 'Amount Of Order',
+    'Date time' => 'Date time',
+    'Choose a timeline' => 'Choose a timeline',
+    'This year' => 'This year',
+    'Last year' => 'Last year',
+
     /* Message */
     'no_data' => "No data.",
     'Login_error' => "Login unsuccessful!",

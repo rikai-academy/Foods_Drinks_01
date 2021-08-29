@@ -249,6 +249,18 @@ return [
     'Update Status Order failure' => 'Cập nhật trạng thái đơn hàng thất bại!',
 
 
+    /* Statistic */
+    'Statistic' => 'Thống Kê',
+    'Statistic Product' => 'Thống kê sản phẩm',
+    'Statistic Product' => 'Thống kê sản phẩm',
+    'Statistics of most ordered products' => 'Thống kê sản phẩm được đặt hàng nhiều nhất',
+    'Amount Of Order' => 'Số lượng đặt hàng',
+    'Date time' => 'Thời gian',
+    'Choose a timeline' => 'Chọn mốc thời gian',
+    'This year' => 'Năm này',
+    'Last year' => 'Năm trước',
+
+
     /* Button, other... */
     'btn_post' => 'Đăng',
     'btn_send_request' => 'Gửi yêu cầu',

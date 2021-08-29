@@ -22,6 +22,8 @@ class ManagerOrderService
         $data['end_week'] = $endDate;
         $data['this_month'] = date("Y-m");
         $data['last_month'] =  date("Y-m",mktime(0, 0, 0, (date("m") - 1), date("d"), date("Y")));
+        $data['this_year'] =  date("Y");
+        $data['last_year'] =  date("Y",mktime(0, 0, 0, date("m"), date("d"), (date("Y") - 1)));
 
         return $data;
     }

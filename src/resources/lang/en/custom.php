@@ -113,6 +113,8 @@ return [
     'to' => 'to',
     'reload' => 'Reload Page',
     'statistic_filter_error' => 'The first day must be smaller than the second day!',
+    'all' => 'All',
+    'this_year' => 'This year',
 
     /* Login... */
     'email' => 'Email',

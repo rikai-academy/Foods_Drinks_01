@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
+use App\Exports\StatisticProductExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StatisticController extends Controller
 {
@@ -31,5 +33,10 @@ class StatisticController extends Controller
         }
 
       return view('admin.statistic.index', compact('order_products'));
+    }
+
+    public function exportExcel($type)
+    {
+        return Excel::download(new StatisticProductExport($type), 'order_products.xlsx');
     }
 }

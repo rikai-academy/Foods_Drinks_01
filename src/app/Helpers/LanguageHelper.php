@@ -1,4 +1,6 @@
 <?php
+    use App\Enums\Status;
+
     if (!function_exists('checkLanguage')) {
         function checkLanguage($result1, $result2)
         {
@@ -24,9 +26,12 @@
   if (!function_exists('checkStatus')) {
       function checkStatus($status)
       {
-          if ($status === \App\Enums\Status::ACTIVE)
+          if ($status === Status::ACTIVE)
           {
               return __('custom.status_active');
+          }
+          else if ($status === Status::CANCEL) {
+              return __('custom.order_cancel');
           }
           return __('custom.status_block');
       }

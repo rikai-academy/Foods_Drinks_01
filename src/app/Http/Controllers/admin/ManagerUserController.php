@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\UserExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\UpdateUserRequest;
 class ManagerUserController extends Controller
@@ -74,5 +76,10 @@ class ManagerUserController extends Controller
             toast(__('custom.Delete user failure'),'error');
         }
         return redirect()->back();
+    }
+
+    public function exportExcel($type)
+    {
+        return Excel::download(new UserExport($type), 'list_users.xlsx');
     }
 }

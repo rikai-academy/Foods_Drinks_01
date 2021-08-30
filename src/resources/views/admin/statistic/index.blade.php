@@ -21,9 +21,25 @@
                 </form>
             </div>
             <div class="col text-right">
-              <button type="submit" class="btn btn-success" id="submit">
-                <i class="fas fa-file-excel"></i> {{__('custom.Import Excel')}}
-              </button>
+                <div class="btn-group dropleft">
+                    <a href="javascript:void(0)" class="btn btn-success">
+                        <i class="fas fa-file-excel"></i> {{__('custom.Export Excel')}}
+                    </a>
+                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'all']) }}">
+                            {{ __('custom.all') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'year']) }}">
+                            {{ __('custom.this_year') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'month']) }}">
+                            {{ __('custom.This month') }}
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

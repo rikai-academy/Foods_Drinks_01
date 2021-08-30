@@ -4,7 +4,29 @@
 <h1 class="mt-4">{{__('custom.list_users')}}</h1>
 <div class="card mb-4">
     <div class="card-header">
-        <i class="fas fa-table mr-1"></i>{{__('custom.list_users')}}
+        <div class="row">
+            <div class="col text-right">
+                <div class="btn-group dropleft">
+                    <a href="javascript:void(0)" class="btn btn-success">
+                        <i class="fas fa-file-excel"></i> {{__('custom.Export Excel')}}
+                    </a>
+                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('user.export_excel', ['type' => 'all']) }}">
+                            {{ __('custom.all') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('user.export_excel', ['type' => 'year']) }}">
+                            {{ __('custom.this_year') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('user.export_excel', ['type' => 'month']) }}">
+                            {{ __('custom.This month') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">

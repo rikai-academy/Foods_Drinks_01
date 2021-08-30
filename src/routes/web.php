@@ -20,6 +20,7 @@ use App\Http\Controllers\admin\ManagerCategoryController;
 use App\Http\Controllers\admin\ManagerUserController;
 use App\Http\Controllers\admin\ManagerOrderController;
 use App\Http\Controllers\admin\ManagerProductController;
+use App\Http\Controllers\admin\StatisticController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,6 +106,11 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/order/export', [ManagerOrderController::class, 'export'])->name('export_order');
         Route::resource('/order', ManagerOrderController::class);
         Route::get('/order/list-product-order/{id}', [ManagerOrderController::class, 'getListProductOrder'])->where('id','[0-9]+');
+
+        # Statistic most Order Products
+        Route::resource('/statistic', StatisticController::class)->only('index');
+        Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
+          ->name('statistic.filter_products');
     });
 
     # Search Products

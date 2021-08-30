@@ -27,6 +27,10 @@
             {{ __('custom.product') }}
             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
+        <a class="nav-link collapsed" href="{{route('statistic.index')}}">
+            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+            {{ __('custom.statistic_products') }}
+        </a>
         <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav">
                 <a class="nav-link" href="{{route('product.index')}}">{{ __('custom.list_products') }}</a>

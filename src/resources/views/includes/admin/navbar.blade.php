@@ -33,6 +33,10 @@
                 <a class="nav-link" href="{{route('product.create')}}">{{ __('custom.add_product') }}</a>
             </nav>
         </div>
+        <a class="nav-link collapsed" href="{{route('statistic.index')}}">
+          <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+          {{ __('custom.statistic_products') }}
+        </a>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseLayouts">
             <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
             {{ __('custom.List Order') }}

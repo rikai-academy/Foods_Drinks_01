@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\OrderProduct;
 use App\Services\ManagerOrderService;
 use DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductOrderExport;
 
 class ManagerStatisticController extends Controller
 {
@@ -45,5 +47,10 @@ class ManagerStatisticController extends Controller
         ->get();
 
         return json_encode($data);
+    }
+
+    public function export()
+    {
+        return Excel::download(new ProductOrderExport, 'statistic-product-order.xlsx');
     }
 }

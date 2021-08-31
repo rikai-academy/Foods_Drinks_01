@@ -12,3 +12,14 @@
         }
     }
 
+    if (!function_exists('checkGenderUserDefault')) {
+        function checkGenderUserDefault($gender)
+        {
+            if ($gender == 0)
+            {
+                return __('custom.Male');
+            }
+            return __('custom.Female');
+        }
+    }
+

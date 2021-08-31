@@ -43,4 +43,14 @@ class OrderProduct extends Model
     {
         return $query->where('created_at', '>=', date('Y-m-d').' 00:00:00');
     }
+    
+    public function scopeGetThisYear($query)
+    {
+        return $query->whereYear('created_at', date("Y"));
+    }
+
+    public function scopeGetThisMonth($query)
+    {
+        return $query->whereMonth('created_at', date("m"));
+    }
 }

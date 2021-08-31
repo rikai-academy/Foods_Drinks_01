@@ -3,6 +3,8 @@
 namespace App\Exports;
 
 use App\Models\Categories;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,8 +16,10 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class CategoryExport implements FromCollection,WithHeadings,WithEvents, ShouldAutoSize,WithColumnFormatting
+class CategoryExport implements FromCollection,WithHeadings,WithEvents, ShouldAutoSize,WithColumnFormatting, ShouldQueue
 {
+    use Queueable;
+  
     /**
     * @return \Illuminate\Support\Collection
     */

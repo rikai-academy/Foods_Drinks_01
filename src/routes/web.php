@@ -96,6 +96,7 @@ Route::group(['middleware' => 'locale'], function() {
         Route::resource('/user', ManagerUserController::class);
         Route::get('/user/get-id-user/{id}', [ManagerUserController::class, 'getIdUser']);
         Route::post('/user/active-block-user/{id}', [ManagerUserController::class, 'activeBlockUser']);
+        Route::get('/export-user/{type}', [ManagerUserController::class, 'exportExcel'])->name('user.export_excel');
 
         # manager order
         Route::get('/order/all-time', [ManagerOrderController::class, 'getOrderAllTime']);
@@ -111,6 +112,7 @@ Route::group(['middleware' => 'locale'], function() {
         Route::resource('/statistic', StatisticController::class)->only('index');
         Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
           ->name('statistic.filter_products');
+        Route::get('/export/{type}', [StatisticController::class, 'exportExcel'])->name('statistic.export_excel');
     });
 
     # Search Products

@@ -74,4 +74,14 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->role == UserRole::getKey(0);
     }
+    
+    public function scopeGetThisYear($query)
+    {
+        return $query->whereYear('created_at', date("Y"));
+    }
+    
+    public function scopeGetThisMonth($query)
+    {
+        return $query->whereMonth('created_at', date("m"));
+    }
 }

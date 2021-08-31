@@ -113,6 +113,8 @@ return [
     'to' => 'đến',
     'reload' => 'Tải lại trang',
     'statistic_filter_error' => 'Ngày thứ nhất phải bé hơn ngày thứ 2!',
+    'all' => 'Tất cả',
+    'this_year' => 'Năm này',
 
   /* Login... */
     'email' => 'Địa chỉ email',

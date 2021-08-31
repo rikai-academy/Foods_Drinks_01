@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\Status;
+use DB;
 
 class Product extends Model
 {
@@ -119,5 +120,31 @@ class Product extends Model
     public function scopeWhereProductOrder($query,$id_order)
     {
         return $query->where('order_product.order_id',$id_order)->where('images.STT',1);
+    }
+
+    public function scopeProductJoinOrderProduct($query)
+    {
+        return $query->join('order_product','products.id','=','order_product.product_id');
+    }
+
+    public function scopeWhereProduct($query,$time)
+    {
+        return $query->where('order_product.created_at','like','%'.$time.'%');
+    }
+
+    public function scopeSelectProducOrder($query)
+    {
+        return $query->select(DB::raw('sum(order_product.amount_of) as amount_of_order'))
+        ->groupBy('order_product.product_id')
+        ->orderBy('amount_of_order','desc')
+        ->limit(5);
+    }
+
+    public function scopeSelectProducName($query)
+    {
+        return $query->select('products.name',DB::raw('sum(order_product.amount_of) as amount_of_order'))
+        ->groupBy('order_product.product_id')
+        ->orderBy('amount_of_order','desc')
+        ->limit(5);
     }
 }

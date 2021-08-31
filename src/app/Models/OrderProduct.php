@@ -35,9 +35,11 @@ class OrderProduct extends Model
 
     public function scopeSelectStatisticProduct($query)
     {
-        return $query->select('products.id as id_product','products.name','images.image',
+        return $query->select('products.id as id_product','products.name','images.image','order_product.created_at as datetime',
         DB::raw('sum(order_product.amount_of) as amount_of_order'),
-        DB::raw('sum(order_product.total_money) as total_money_order_product'));
+        DB::raw('sum(order_product.total_money) as total_money_order_product'))
+        ->groupBy('order_product.product_id')
+        ->orderBy('amount_of_order','desc');
     }
 
     public function scopeLastWeek($query,$start_week,$end_week)

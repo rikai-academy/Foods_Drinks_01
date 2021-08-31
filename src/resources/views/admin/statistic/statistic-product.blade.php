@@ -13,7 +13,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button class="dropdown-item" onclick="searchStatisticProductByTime('{{$today}}','Today')">{{__('custom.Today')}}</button>
                         <button class="dropdown-item" onclick="searchStatisticProductByTime('{{$yesterday}}','Yesterday')">{{__('custom.Yesterday')}}</button>
-                        <button class="dropdown-item" onclick="searchStatisticProductByLastWeek('{{$start_week}}','{{$end_week}}')">{{__('custom.Last week')}}</button>
+                        <button class="dropdown-item" onclick="searchStatisticProductByLastWeek('{{$start_week}}','{{$end_week}}','Last Week')">{{__('custom.Last week')}}</button>
                         <button class="dropdown-item" onclick="searchStatisticProductByTime('{{$this_month}}','This month')">{{__('custom.This month')}}</button>
                         <button class="dropdown-item" onclick="searchStatisticProductByTime('{{$last_month}}','Last month')">{{__('custom.Last month')}}</button>
                         <button class="dropdown-item" onclick="searchStatisticProductByTime('{{$this_year}}','This year')">{{__('custom.This year')}}</button>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <a href="" class="btn btn-success">{{__('custom.Export Excel')}} <i class="fas fa-file-excel"></i></a>
+                <a href="{{route('export_statistic_product')}}" class="btn btn-success">{{__('custom.Export Excel')}} <i class="fas fa-file-excel"></i></a>
             </div>
         </div>
     </div>

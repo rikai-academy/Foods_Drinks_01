@@ -19,7 +19,7 @@
           {
             return date_format($date, 'M d, Y h:i A');
           }
-        return date_format($date, ' H:i d/m/Y');
+        return date_format($date, 'H:i d/m/Y');
       }
   }
 

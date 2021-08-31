@@ -38,15 +38,15 @@
                         <span class="sr-only"></span>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'all']) }}">
-                            {{ __('custom.all') }}
-                        </a>
-                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'year']) }}">
-                            {{ __('custom.this_year') }}
-                        </a>
-                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'month']) }}">
-                            {{ __('custom.This month') }}
-                        </a>
+                      <a class="dropdown-item" href="{{ url('/admin/export-tags/all') }}">
+                        {{ __('custom.all') }}
+                      </a>
+                      <a class="dropdown-item" href="{{ url('/admin/export-tags/year') }}">
+                        {{ __('custom.this_year') }}
+                      </a>
+                      <a class="dropdown-item" href="{{ url('/admin/export-tags/month') }}">
+                        {{ __('custom.This month') }}
+                      </a>
                     </div>
                 </div>
             </div>

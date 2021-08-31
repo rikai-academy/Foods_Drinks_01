@@ -3,6 +3,14 @@
 <ul class="navbar-nav d-flex d-none d-md-inline-block ml-auto mr-0 mr-md-3 my-2 my-md-0">
     <div class="row">
         <li class="nav-item">
+            <a href="{{ route('admin.notify') }}" type="button" class="btn btn-light">
+                {{ __('custom.notify') }} <livewire:notify-component />
+            </a>
+        </li>
+        <li class="nav-item">
+            <span class="nav-link">|</span>
+        </li>
+        <li class="nav-item">
             <a class="nav-link @if (session('website_language') == 'en') active @endif" href="{{ route('change-language', ['en']) }}">EN</a>
         </li>
         <li class="nav-item">

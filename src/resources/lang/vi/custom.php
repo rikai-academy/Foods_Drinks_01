@@ -152,19 +152,9 @@ return [
     'registered_person' => 'Người đã đăng ký',
     'order_placed' => 'Đơn hàng đã đặt',
     'subtitle_source' => 'Nguồn',
-    'tags' => 'Nhãn',
-    'before' => 'Trước đó',
-    'add_tag' => 'Thêm nhãn',
-    'list_tags' => 'Danh sách nhãn',
-    'tag_en_name' => '[en] Tên nhãn',
-    'tag_vi_name' => '[vi] Tên nhãn',
-    'tag_count_tags' => 'Số nhãn đã sử dụng',
-    'tag_add' => 'Thêm mới nhãn',
-    'tag_update' => 'Cập nhật mới nhãn',
-    'tag_add_success' => 'Bạn đã thêm nhãn thành công!',
-    'tag_update_success' => 'Bạn đã cập nhật nhãn thành công!',
-    'tag_delete_success' => 'Bạn đã xóa nhãn thành công!',
-    'tag_filter_error' => 'Ngày thứ nhất phải bé hơn ngày thứ 2!',
+    'notify' => 'Thông báo',
+    'mark_as_read' => 'Đánh dấu đã đọc',
+    'mark_all_as_read' => 'Đánh dấu tất cả đã đọc',
 
   /* Login... */
     'email' => 'Địa chỉ email',
@@ -393,4 +383,5 @@ return [
     'message_mail_order_confirm_success' => 'Đơn hàng của bạn đã được đặt thành công.',
     'message_mail_order_confirm_fail' => 'Rất làm tiếc, sản phẩm của bạn không đủ số lượng nên chúng tôi đã hủy đơn hàng của bạn.',
     'message_mail_rating_title' => 'Có một người dùng đánh giá sản phẩm!',
+    'message_notify_order_product' => '[:day] Người dùng :username đã đặt sản phẩm, tổng giỏ hàng là :price',
 ];

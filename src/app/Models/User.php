@@ -98,4 +98,9 @@ class User extends Authenticatable
             ->whereRaw('YEAR(created_at) = ' . date('Y'))
             ->groupByRaw('MONTH(created_at)');
     }
+    
+    public function scopeFindById($query, $id)
+    {
+        return $query->find($id);
+    }
 }

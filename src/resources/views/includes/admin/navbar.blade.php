@@ -44,12 +44,6 @@
                 <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.add_tag') }}</a>
             </nav>
         </div>
-        <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-            <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="{{route('tag.index')}}">{{ __('custom.list_tags') }}</a>
-                <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.add_tag') }}</a>
-            </nav>
-        </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStatistic" aria-expanded="false" aria-controls="collapseLayouts">
             <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
             {{ __('custom.statistic') }}

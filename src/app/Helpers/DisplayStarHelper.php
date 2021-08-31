@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\ProductTag;
+use App\Enums\UserRole;
+use App\Models\User;
 use Carbon\Carbon;
 use App\Enums\Status;
 
@@ -148,4 +150,50 @@ if (!function_exists('checkActionTagFormDelete')) {
         }
         return $htmlTagFormDelete;
     }
+}
+
+if (!function_exists('displayNotifyAdmin')) {
+    function displayNotifyAdmin()
+    {
+        $userAdmin  = User::byRole(UserRole::getKey(0))->first();
+        $notifies   = $userAdmin->notifications->sortBy('create_at');
+        $htmlNotify = "";
+
+        if ($notifies) {
+            foreach ($notifies as $notify) {
+                $username = User::findById($notify->data['user_id'])->first()->name;
+                $message = __('custom.message_notify_order_product', [
+                    'day'      => checkLanguageWithDay($notify->created_at),
+                    'username' => $username,
+                    'price'    => formatPrice($notify->data['total_money']),
+                ]);
+
+                if ($notify->read_at) $htmlNotify .= htmlNotifyRead($message);
+                else $htmlNotify .= htmlNotifyUnread($message, $notify->id);
+            }
+            return $htmlNotify;
+        }
+        return $htmlNotify;
+    }
+}
+
+function htmlNotifyRead($message) {
+    $htmlNotify  = "<div class='alert alert-secondary' role='alert'>";
+    $htmlNotify .= "<h6 class='pt-2 pb-1'>$message</h6>";
+    $htmlNotify .= "</div>";
+    return $htmlNotify;
+}
+
+function htmlNotifyUnread($message, $notifyId) {
+    $htmlNotify  = "<div class='alert alert-success' id='notify-unread' role='alert'>";
+    $htmlNotify .= "<div class='row'>";
+    $htmlNotify .= "<div class='col pt-2 pb-1'><h6>$message</h6></div>";
+    $htmlNotify .= "<div class='text-right'>";
+    $htmlNotify .= "<button class='btn btn-success btn-mask-as-read' id='mask-as-read' data-id='$notifyId'>";
+    $htmlNotify .= __('custom.mark_as_read');
+    $htmlNotify .= "</button>";
+    $htmlNotify .= "</div>";
+    $htmlNotify .= "</div>";
+    $htmlNotify .= "</div>";
+    return $htmlNotify;
 }

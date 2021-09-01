@@ -7,6 +7,7 @@ use App\Services\SearchProductService;
 use Illuminate\Http\Request;
 use App\Models\CategoryType;
 use App\Models\Product;
+use App\Enums\Status;
 
 class SearchController extends Controller
 {
@@ -38,7 +39,8 @@ class SearchController extends Controller
             return $this->searchProduct->search($param, $numberPaginate);
         }
         # Search Product
-        $products = Product::searchName($keyword)->paginate($numberPaginate);
+        // $products = Product::searchName($keyword)->paginate($numberPaginate);
+        $products = Product::search($keyword)->where('status', Status::ACTIVE)->paginate($numberPaginate);
 
         return view('web.search-products.search-products', compact(['products', 'param']));
     }

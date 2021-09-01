@@ -96,4 +96,16 @@ class Order extends Model
         ->where('orders.id',$id_order);
     }
 
+    public function scopeGetCountOrders($query) {
+        return $query->selectRaw('COUNT(*) as count_orders')
+          ->whereRaw('YEAR(created_at) = ' . date('Y'))
+          ->groupByRaw('MONTH(created_at)');
+    }
+
+    public function scopeGetCountMonth($query) {
+        return $query->selectRaw('MONTH(created_at) as month')
+          ->whereRaw('YEAR(created_at) = ' . date('Y'))
+          ->groupByRaw('MONTH(created_at)');
+    }
+
 }

@@ -84,4 +84,18 @@ class User extends Authenticatable
     {
         return $query->whereMonth('created_at', date("m"));
     }
+
+    public function scopeGetCountUsers($query) 
+    {
+        return $query->selectRaw('COUNT(*) as count_users')
+            ->whereRaw('YEAR(created_at) = ' . date('Y'))
+            ->groupByRaw('MONTH(created_at)');
+    }
+
+    public function scopeGetCountMonth($query)
+    {
+        return $query->selectRaw('MONTH(created_at) as month')
+            ->whereRaw('YEAR(created_at) = ' . date('Y'))
+            ->groupByRaw('MONTH(created_at)');
+    }
 }

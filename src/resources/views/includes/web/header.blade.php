@@ -118,14 +118,16 @@
                             <ul class="sub-menu">
                                 <li>
                                     <a class="dropdown-item"
-                                        href="{{ route('search_category_type', ['slug' => 'food']) }}" onmouseover="getCategory(1)">
+                                        href="{{ route('search_category_type', ['slug' => 'food']) }}"
+                                        onmouseover="getCategory(1)">
                                         {{ __('custom.food') }}
                                     </a>
                                     <ul class="dropdown-menu dropdown-submenu" id="list_category_food"></ul>
                                 </li>
                                 <li>
                                     <a class="dropdown-item"
-                                        href="{{ route('search_category_type', ['slug' => 'drink']) }}" onmouseover="getCategory(2)">
+                                        href="{{ route('search_category_type', ['slug' => 'drink']) }}"
+                                        onmouseover="getCategory(2)">
                                         {{ __('custom.drink') }}
                                     </a>
                                     <ul class="dropdown-menu dropdown-submenu" id="list_category_drink"></ul>
@@ -144,6 +146,15 @@
                                 src="/images/layouts/searchicon.png" /></button>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb mb-4" id="breadcrumb">
+                @foreach($list_tags as $list_tag)
+                    <li class="breadcrumb-item"><a href="{{route('search_tag',['slug' => $list_tag->slug])}}">{{$list_tag->name}}</a></li>
+                @endforeach
+                </ol>
             </div>
         </div>
     </div>

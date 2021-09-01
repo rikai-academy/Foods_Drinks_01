@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\CategoryType;
 use App\Models\Product;
 use App\Enums\Status;
+use App\Models\Tag;
 
 class SearchController extends Controller
 {
@@ -108,6 +109,34 @@ class SearchController extends Controller
         {
             $products = Categories::slug($slug)->first();
         }
+        return $products;
+    }
+
+    public function searchProductByTag($slug)
+    {
+        $products = $this->getTagBySlug($slug);
+        if ($products)
+        {
+            $param = ['sortCategory' => 0, 'sortPrice' => 0,
+            'minPrice' => 0, 'maxPrice' => 0, 'rating' => 0];
+
+            $products = Product::JoinTagSearchProduct()
+            ->conditionProduct()
+            ->WhereTagImage($slug)
+            ->SelectSearchProductByTag()
+            ->orderBy('products.updated_at', 'DESC')
+            ->paginate(21);
+
+            return view('web.search-products.search-product-tag')->with([
+                'products' => $products, 'param' => $param, 'keyword' => '',
+            ]);
+        }
+        return abort(404);
+    }
+
+    private function getTagBySlug($slug)
+    {
+        $products = Tag::slug($slug)->first();
         return $products;
     }
 }

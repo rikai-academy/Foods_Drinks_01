@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Categories;
 use App\Enums\CategoryTypes AS Category;
+use App\Models\Tag;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         \View::share([
             'category_foods' => Categories::categoryType(Category::FOOD)->get(),
             'category_drinks' => Categories::categoryType(Category::DRINK)->get(),
+            'list_tags' => Tag::StatusTag()->get(),
         ]);
 
     }

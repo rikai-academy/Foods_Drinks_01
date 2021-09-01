@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\CategoryType;
 use App\Models\Categories;
 use App\Models\Image;
+use App\Models\Tag;
+use App\Models\Product_Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -148,5 +150,37 @@ class ManagerProductController extends Controller
             toast(__('custom.Import excel failed'),'error');
         }
         return redirect()->back();
+    }
+
+    public function chooseTag($id_product)
+    {
+        $data['OBJ_tags'] = Tag::orderBy('id','desc')->get();
+        $data['OBJ_Products'] = Product::find($id_product);
+        $data['OBJ_Product_Tags'] = Product_Tag::JoinTag()->WhereProductTag($id_product)->SelectTag()->get();
+        return view('admin.product.choose-tag',$data);
+    }
+
+    public function deleteTagByIDProduct($id_product)
+    {
+        $count_product_tag = Product_Tag::WhereProductTag($id_product)->count();
+        if($count_product_tag > 0){
+            Product_Tag::WhereProductTag($id_product)->delete();
+        }
+        return json_encode($id_product);
+    }
+
+    public function saveTag(Request $request)
+    {
+        try{
+            $product_tag = new Product_Tag();
+            $product_tag->product_id = $request->product_id;
+            $product_tag->tag_id = $request->tag_id;
+            $product_tag->save();
+            $mess = __('custom.save_tag_success');
+        }
+        catch(Exception $ex){
+            $mess = __('custom.save_tag_failed');
+        }
+        return json_encode($mess);
     }
 }

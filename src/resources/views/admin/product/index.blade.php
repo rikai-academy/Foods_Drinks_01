@@ -84,6 +84,9 @@
                         </td>
                         <td>
                             {!!checkStatusProduct($OBJ_Product->status_product,$OBJ_Product->id_product)!!}
+                            <a href="{{route('choose_tag',['id' => $OBJ_Product->id_product])}}" class="btn btn-info">
+                                <i class="fa fa-tags"></i>
+                            </a>
                             <a href="{{route('product.edit',$OBJ_Product->id_product)}}" class="btn btn-primary">
                                 <i class="fa fa-edit "></i>
                             </a>

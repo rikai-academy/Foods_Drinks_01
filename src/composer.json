@@ -57,7 +57,8 @@
             "app/Helpers/CheckStatusUser.php",
             "app/Helpers/CheckGenderUserEdit.php",
             "app/Helpers/CheckImageUserEdit.php",
-            "app/Helpers/CheckStatusOrder.php"
+            "app/Helpers/CheckStatusOrder.php",
+            "app/Helpers/ManagerTagHelper.php"
         ]
     },
     "autoload-dev": {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Status;
 use App\Models\Categories;
 use App\Services\SearchProductService;
 use Illuminate\Http\Request;
@@ -37,8 +38,9 @@ class SearchController extends Controller
                 'minPrice', 'maxPrice', 'rating', 'slug', 'keyword');
             return $this->searchProduct->search($param, $numberPaginate);
         }
-        # Search Product
-        $products = Product::searchName($keyword)->paginate($numberPaginate);
+        # Search Product 
+        # Note: where('status', Status::ACTIVE) is function constraint of Scout
+        $products = Product::search($keyword)->where('status', Status::ACTIVE)->paginate($numberPaginate);
 
         return view('web.search-products.search-products', compact(['products', 'param']));
     }

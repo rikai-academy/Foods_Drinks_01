@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('includes.web.head')
+    @livewireStyles
 </head>
 <body>
     <header id="header">
@@ -31,4 +32,12 @@
     </div>
 
     @include('includes.web.lib-js')
+    @livewireScripts
+    @push('scripts')
+      <script>
+          window.livewire.on('change-focus-other-field', function () {
+              $("#keywordSearch").focus();
+          });
+      </script>
+    @endpush
 </body>

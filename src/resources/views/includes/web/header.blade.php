@@ -146,12 +146,7 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="search_box pull-right">
-                    <form action="{{ route('search_products') }}" method="get">
-                        <input type="text" name="keyword" required placeholder="{{ __('custom.search') }}" value="{{ app('request')->input('keyword') }}"/>
-                        <button type="submit" class="search_box_button"><img src="/images/layouts/searchicon.png"/></button>
-                    </form>
-                </div>
+                @livewire('search')
             </div>
         </div>
     </div>

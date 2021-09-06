@@ -279,6 +279,28 @@ return [
     "December" => "Tháng 12",
     'No orders yet so chart can not be shown' => '(Chưa có đơn đặt hàng nào nên không thể hiển thị biểu đồ)',
 
+    /* manager tags */
+    'Manager_tag' => 'Quản Lí Nhãn',
+    'List_tag' => 'Danh Sách Nhãn',
+    'Add_tag' => 'Thêm Mới Nhãn',
+    'ID_tag' => 'ID Nhãn',
+    'Name_tag' => 'Tên Nhãn',
+    'Slug_tag' => 'Slug',
+    'Number_of_search' => 'Số Lượng Tìm Kiếm',
+    'Are you sure you want to remove the tag' => 'Bạn có chắc chắn muốn xóa nhãn không?',
+    'Are you sure you want to show this tag' => 'Bạn có chắc chắn muốn hiển thị nhãn này không?',
+    'Are you sure you want to hidden this tag' => 'Bạn có chắc chắn muốn ẩn nhãn này không?',
+    'Add tag successful' => 'Thêm nhãn thành công!',
+    'Add tag failed' => 'Thêm nhãn thất bại',
+    'Update_tag' => 'Cập Nhật Nhãn',
+    'Update tag successful' => 'Cập nhật nhãn thành công!',
+    'Update tag failed' => 'Cập nhật nhãn thất bại!',
+    'Show successful tag' => 'Hiển thị nhãn thành công!',
+    'Hidden successful tag' => 'Ẩn nhãn thành công!',
+    'Update status tag failed' => 'Cập nhật nhãn thất bại!',
+    'Delete tag successful' => 'Xóa nhãn thành công!',
+    'Delete tag failed' => 'Xóa nhãn thất bại!',
+
 
     /* Button, other... */
     'btn_post' => 'Đăng',
@@ -320,6 +342,12 @@ return [
     'Update status product failure' => 'Cập nhật trạng thái thất bại!',
     'Agree' => 'Đồng ý',
     'Exit' => 'Thoát',
+    'title_choose_tag' => 'Chọn Nhãn Cho Sản Phẩm:',
+    'error_choose_tag' => 'Nhãn này đã được thêm,vui lòng chọn nhãn khác!',
+    'error_count_tag' => 'Vui lòng chọn một nhãn!',
+    'save_tag_success' => 'Thêm nhãn cho sản phẩm thành công!',
+    'save_tag_failed' => 'Thêm nhãn cho sản phẩm thất bại!',
+    'You clicked the button' => 'Bạn hãy nhấn vào nút!',
 
     /* Message */
     'no_data' => "Không có dữ liệu.",

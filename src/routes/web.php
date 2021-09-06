@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\ManagerUserController;
 use App\Http\Controllers\admin\ManagerOrderController;
 use App\Http\Controllers\admin\ManagerProductController;
 use App\Http\Controllers\admin\ManagerStatisticController;
+use App\Http\Controllers\admin\ManagerTagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,6 +82,9 @@ Route::group(['middleware' => 'locale'], function() {
         Route::post('/category/import', [ManagerCategoryController::class,'import'])->name('import_category');
 
         # Product
+        Route::get('/product/choose-tag/{id}', [ManagerProductController::class,'chooseTag'])->where('id','[0-9]+')->name('choose_tag');
+        Route::get('/product/delete-tag/{id}', [ManagerProductController::class,'deleteTagByIDProduct']);
+        Route::get('/product/save-tag', [ManagerProductController::class,'saveTag']);
         Route::get('/product/export', [ManagerProductController::class, 'export'])->name('export_product');
         Route::resource('/product', ManagerProductController::class);
         Route::get('/product/getproduct-by-id/{id}', [ManagerProductController::class,'getProductByID']);
@@ -112,6 +116,12 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/statistic/product/last-week', [ManagerStatisticController::class, 'statisticProductLastWeek']);
         Route::get('/statistic/product/export', [ManagerStatisticController::class, 'export'])->name('export_statistic_product');
 
+        # manager tags
+        Route::get('/tag/export', [ManagerTagController::class,'export'])->name('export_tag_excel');
+        Route::resource('/tag',ManagerTagController::class);
+        Route::post('/tag/show-hidden/{id}', [ManagerTagController::class,'showOrHidden']);
+        Route::post('/tag/import', [ManagerTagController::class,'import'])->name('import_tag_excel');
+
     });
     
     # Search Products
@@ -136,6 +146,10 @@ Route::group(['middleware' => 'locale'], function() {
 
     # menu multi level
     Route::get('/get-category/{id}', [HomeController::class, 'getCategory']);
+
+    # menu tag
+    Route::get('/{slug}/tag', [SearchController::class, 'searchProductByTag'])->name('search_tag');
+
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

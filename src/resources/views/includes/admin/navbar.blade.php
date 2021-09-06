@@ -42,6 +42,18 @@
                 <a class="nav-link" href="{{route('product.create')}}">{{ __('custom.add_product') }}</a>
             </nav>
         </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTags"
+            aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon"><i class="fa fa-tags"></i></div>
+            {{ __('custom.Manager_tag') }}
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('tag.index')}}">{{ __('custom.List_tag') }}</a>
+                <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.Add_tag') }}</a>
+            </nav>
+        </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
             aria-expanded="false" aria-controls="collapseLayouts">
             <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>

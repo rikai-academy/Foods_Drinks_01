@@ -57,6 +57,11 @@ class Product extends Model
         $array = $this->toArray();
         return $array;
     }
+    
+    public function product_tag()
+    {
+        return $this->hasMany(Product_Tag::class,'product_id');
+    }
 
     public function scopeStatus($query, $status)
     {
@@ -90,6 +95,24 @@ class Product extends Model
             ->whereHas('categories', function ($query_categories) {
                 $query_categories->where('categories.status', '=', Status::ACTIVE);
             });
+    }
+
+    public function scopeJoinTagSearchProduct($query)
+    {
+        return $query->join('product_tag','products.id','=','product_tag.product_id')
+        ->join('tags','product_tag.tag_id','=','tags.id')
+        ->join('images','images.product_id','=','products.id');
+    }
+
+    public function scopeWhereTagImage($query,$slug)
+    {
+        return $query->where('images.STT', 1)->where('tags.slug', $slug);
+    }
+
+    public function scopeSelectSearchProductByTag($query)
+    {
+        return $query->select('products.id as id_product','products.name as name_product','images.image','products.price',
+        'products.created_at','products.slug as slug_product');
     }
 
     public function scopeProductJoin($query)

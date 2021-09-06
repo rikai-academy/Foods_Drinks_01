@@ -11312,3 +11312,8 @@ strong {
 #col_left {
   border-right: 1px solid #ccc;
 }
+
+/* manager tag */
+#import_tag_excel {
+  display: inline-block;
+}

@@ -222,6 +222,12 @@ return [
     'Update status product failure' => 'Update status product failure!',
     'Agree' => 'Agree',
     'Exit' => 'Exit',
+    'title_choose_tag' => 'Choose Tag For Product:',
+    'error_choose_tag' => 'This tag has been added, please choose another tag!',
+    'error_count_tag' => 'Please select a tag!',
+    'save_tag_success' => 'Add tag for successful products!',
+    'save_tag_failed' => 'Add tag for failed products!',
+    'You clicked the button' => 'You clicked the button!',
 
     /* manager user */
     'ID User' => 'ID User',
@@ -317,6 +323,31 @@ return [
     "November" => "November",
     "December" => "December",
     'No orders yet so chart can not be shown' => '(No orders yet so chart can not be shown)',
+
+
+    /* manager tags */
+    'Manager_tag' => 'Manager Tag',
+    'List_tag' => 'List Tag',
+    'Add_tag' => 'Add New Tag',
+    'ID_tag' => 'ID Tag',
+    'Name_tag' => 'Tag Name',
+    'Slug_tag' => 'Slug',
+    'Number_of_search' => 'Number Search',
+    'Are you sure you want to remove the tag' => 'Are you sure you want to remove the tag?',
+    'Are you sure you want to show this tag' => 'Are you sure you want to show this tag?',
+    'Are you sure you want to hidden this tag' => 'Are you sure you want to hidden this tag?',
+    'Add tag successful' => 'Add tag successful!',
+    'Add tag failed' => 'Add tag failed',
+    'Update_tag' => 'Update Tag',
+    'Update tag successful' => 'Update tag successful!',
+    'Update tag failed' => 'Update tag failed!',
+    'Show successful tag' => 'Show successful tag!',
+    'Hidden successful tag' => 'Hidden successful tag!',
+    'Update status tag failed' => 'Update status tag failed!',
+    'Delete tag successful' => 'Delete tag successful!',
+    'Delete tag failed' => 'Delete tag failed!',
+    
+
 
     /* Message */
     'no_data' => "No data.",

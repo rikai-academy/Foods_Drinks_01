@@ -388,4 +388,5 @@ return [
     'message_order_cancel_condition' => 'Orders can only be canceled within 24 hours and the order must be in process.',
     'message_order_success_db' => 'Send mail report to Admin successfully.',
     'message_rating_no_data' => 'No reviews.',
+    'message_notification' => 'just placed an order.The total amount of the cart is',
 ];

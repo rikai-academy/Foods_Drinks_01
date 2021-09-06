@@ -21,6 +21,7 @@
         "laravel/ui": "^3.3",
         "maatwebsite/excel": "^3.1",
         "meilisearch/meilisearch-php": "^0.19.0",
+        "pusher/pusher-php-server": "^7.0",
         "realrashid/sweet-alert": "^4.0",
         "unisharp/laravel-filemanager": "^2.2",
         "uxweb/sweet-alert": "^2.0",

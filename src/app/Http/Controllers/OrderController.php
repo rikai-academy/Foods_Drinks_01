@@ -12,6 +12,7 @@ use App\Services\OrderService;
 use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\OrderNotify;
 
 class OrderController extends Controller
 {
@@ -70,6 +71,10 @@ class OrderController extends Controller
             }
             # Sent message to Chatwork
             $this->sendMessageToChatwork($message);
+
+            #send notification to admin
+            $this->orderService->notification($user->id,$user->name,$user->image,$total,$order->created_at);
+
             # Destroy Carts
             Cart::destroy();
 

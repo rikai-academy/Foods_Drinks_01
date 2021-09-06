@@ -386,4 +386,5 @@ return [
     'message_order_cancel_condition' => 'Đơn hàng chỉ được hủy trong 24 tiếng và đơn hàng phải đang được xử lý.',
     'message_order_success_db' => 'Gửi báo cáo thư cho Admin thành công.',
     'message_rating_no_data' => 'Chưa có đánh giá.',
+    'message_notification' => 'vừa mới đặt hàng.Tổng số tiền giỏ hàng là',
 ];

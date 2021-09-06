@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\CategoryType;
 use App\Models\Categories;
 use App\Models\Image;
+use App\Models\Tag;
 use App\Services\ManagerProductService;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddProductRequest;
@@ -79,7 +80,8 @@ class ManagerProductController extends Controller
     {
         $data['OBJ_Products'] = Product::find($id_product);
         $data['OBJ_Images'] = Image::where('product_id',$id_product)->get();
-        return view('admin.product.edit-product',$data);
+        $data['tags'] = Tag::all();
+        return view('admin.product.edit-product', $data);
     }
 
     public function getProductByID($id_product)

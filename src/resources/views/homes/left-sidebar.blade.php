@@ -41,3 +41,5 @@
 <div class="shipping text-center">
   <img src="/storage/home/banner-shop-page.png" alt="banner-shop-page" />
 </div>
+{{-- Hash tags --}}
+{!! displayTagsSidebar() !!}

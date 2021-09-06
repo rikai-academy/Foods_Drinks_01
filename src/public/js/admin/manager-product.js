@@ -14,3 +14,7 @@ function getProductById(id_product){
         }
     });
 }
+
+$(document).ready(function () {
+  $(".select-tags").select2();
+});

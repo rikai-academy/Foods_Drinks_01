@@ -7,7 +7,10 @@ use App\Models\Categories;
 use App\Models\CategoryType;
 use App\Models\Evaluates;
 use App\Models\Product;
+use App\Models\Tag;
+use App\Models\TagView;
 use Cart;
+use Illuminate\Support\Facades\Session;
 
 class SearchProductService {
 
@@ -70,6 +73,39 @@ class SearchProductService {
         }
 
         return view('web.search-products.search-products', compact(['products', 'param']));
+    }
+
+    /**
+     * Check tag inout.
+     *
+     * @param $firstKeyword
+     * @param $keyword
+     * @return boolean
+     */
+    public function getProductByTag($firstKeyword, $keyword)
+    {
+        if (strpos($firstKeyword, "#") !== false) {
+            $keywordTag = substr($keyword, 1);
+            $tag = Tag::findBySlug($keywordTag)->first();
+            
+            # Check tag
+            if (empty($tag)) return false;
+      
+            # Increment view in Tag
+            $tagId = $tag->id;
+            $sessionKey = 'tag_view';
+            $sessionView = session($sessionKey);
+
+            # Check session
+            if (!$sessionView || $sessionView !== $tagId) {
+                session([$sessionKey => $tagId]);
+                TagView::create(['tag_id' => $tagId]);
+            }
+      
+            return $tag->products()->paginate(21);
+        }
+        
+        return false;
     }
 
     /**

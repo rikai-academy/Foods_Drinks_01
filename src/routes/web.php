@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\ManagerUserController;
 use App\Http\Controllers\admin\ManagerOrderController;
 use App\Http\Controllers\admin\ManagerProductController;
 use App\Http\Controllers\admin\StatisticController;
+use App\Http\Controllers\admin\ManagerTagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,6 +114,11 @@ Route::group(['middleware' => 'locale'], function() {
         Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
           ->name('statistic.filter_products');
         Route::get('/export/{type}', [StatisticController::class, 'exportExcel'])->name('statistic.export_excel');
+
+        # Manager Tags
+        Route::resource('/tag', ManagerTagController::class)->except('show');
+        Route::post('/tag/filter-date', [ManagerTagController::class, 'filterDate'])->name('tag.filter_date');
+        Route::get('/export-tags/{type}', [ManagerTagController::class, 'exportExcel'])->name('tag.export_excel');
     });
 
     # Search Products

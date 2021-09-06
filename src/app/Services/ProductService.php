@@ -6,6 +6,7 @@ use App\imports\ProductImport;
 use App\imports\Image1ProductImport;
 use App\imports\Image2ProductImport;
 use App\imports\Image3ProductImport;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Str;
 use DB;
@@ -68,6 +69,23 @@ class ProductService
                     }
                 }
             }
+
+            # Get timestamps now
+            $timestamps = Carbon::now();
+            $tags = $request->tags;
+            if ($tags) {
+                DB::table('product_tag')->where('product_id', $id_product)->delete();
+                foreach ($tags as $tagId) {
+                    # Insert Product to Order Product
+                    DB::table('product_tag')->insert([
+                        'product_id'  => $id_product,
+                        'tag_id'      => $tagId,
+                        "created_at"  => $timestamps,
+                        "updated_at"  => $timestamps,
+                    ]);
+                }
+            }
+
             DB::commit();
             return true;
                 

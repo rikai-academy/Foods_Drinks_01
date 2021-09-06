@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Enums\Status;
 use App\Models\Categories;
+use App\Models\Tag;
+use App\Models\TagView;
 use App\Services\SearchProductService;
 use Illuminate\Http\Request;
 use App\Models\CategoryType;
 use App\Models\Product;
+use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
 {
@@ -41,6 +44,13 @@ class SearchController extends Controller
         # Search Product 
         # Note: where('status', Status::ACTIVE) is function constraint of Scout
         $products = Product::search($keyword)->where('status', Status::ACTIVE)->paginate($numberPaginate);
+
+        # Search by Tag
+        $firstKeyword = substr($keyword, 0, 1);
+        $products = $this->searchProduct->getProductByTag($firstKeyword, $keyword);
+
+        # Search Product
+        if (!$products) $products = Product::searchName($keyword)->paginate($numberPaginate);
 
         return view('web.search-products.search-products', compact(['products', 'param']));
     }

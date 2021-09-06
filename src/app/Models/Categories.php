@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Categories extends Model
 {
@@ -70,6 +71,13 @@ class Categories extends Model
     }
 
     public function scopeGetActive($query) {
-        return $query->where('status', '=', Status::ACTIVE);
+        return $query->where('categories.status', '=', Status::ACTIVE);
     }
+    
+    public function scopeGetCountGroupBy($query)
+    {
+        return $query->select('categories.id', DB::raw("count(categories.id) as total"), 'categories.status')
+            ->join('products', 'products.category_id', '=', 'categories.id')
+            ->groupBy('categories.id');
+    } 
 }

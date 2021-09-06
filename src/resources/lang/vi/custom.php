@@ -143,6 +143,8 @@ return [
     'tag_update_success' => 'Bạn đã cập nhật nhãn thành công!',
     'tag_delete_success' => 'Bạn đã xóa nhãn thành công!',
     'tag_filter_error' => 'Ngày thứ nhất phải bé hơn ngày thứ 2!',
+    'sort_category_count_desc' => 'Có nhiều sản phẩm',
+    'sort_category_count_asc' => 'Có ít sản phẩm',
 
   /* Login... */
     'email' => 'Địa chỉ email',

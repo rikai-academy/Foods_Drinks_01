@@ -23,7 +23,7 @@
                   <div class="product-image-wrapper">
                     <div class="single-products">
                       <div class="product-info text-center">
-                        <img src="/storage/products/{{$row->images->first()->image}}" alt="" />
+                        <img src="/storage/products/{{ $row->image ?: $row->images->first()->image }}" alt="{{ $row->name }}" />
                         <h2>{{ formatPrice($row->price) }}</h2>
                         <p>{{ $row->name }}</p>
                         <p>{!! getRatingProduct($row->id)  !!}</p>

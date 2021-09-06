@@ -69,6 +69,15 @@
                 <label for="inputContent">{{__('custom.Content')}}</label>
                 <textarea name="content" id="content" class="form-control" rows="3"></textarea>
             </div>
+            <div class="form-group">
+                <label for="inputContent">{{ __('custom.tags') }}</label>
+                {!! displayBeforeTags($OBJ_Products->id) !!}
+                <select class="form-control js-example-basic-multiple select-tags" name="tags[]" id="tags" multiple>
+                    @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">&nbsp;#{{checkLanguage($tag->en_name, $tag->vi_name)}}&nbsp;</option>
+                    @endforeach
+                </select>
+            </div>
             <a href="{{ route('product.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> {{__('custom.Exit')}}</a>
             <button type="submit" class="btn btn-primary">{{__('custom.Save')}} <i class="fa fa-save"></i></button>
         </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Status;
+use App\Enums\CategoryTypes;
 use App\Models\Categories;
 use App\Models\Tag;
 use App\Models\TagView;
@@ -137,7 +138,9 @@ class SearchController extends Controller
     private function getProductBySubCategory($slug)
     {
         $categoryId = CategoryType::slug($slug)->first()->id;
-        $products = Product::bySubCategory($categoryId);
-        return $products;
+        if ($categoryId == CategoryTypes::FOOD || $categoryId == CategoryTypes::DRINK)
+            return Product::bySubCategory($categoryId)->orderBy('products.id','desc');
+        return CategoryType::CategoryTypeJoin()->SelectProductByCategoryType()->whereCategoryType($categoryId)
+          ->orderBy('products.id','desc');
     }
 }

@@ -144,6 +144,8 @@ return [
     'tag_delete_success' => 'You have successfully removed the tag!',
     'reload' => 'Reload page',
     'tag_filter_error' => 'The first day must be smaller than the second day!',
+    'sort_category_count_desc' => 'Many products',
+    'sort_category_count_asc' => 'Few products',
 
     /* Login... */
     'email' => 'Email',

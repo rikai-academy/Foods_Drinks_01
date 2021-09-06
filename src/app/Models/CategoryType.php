@@ -60,7 +60,8 @@ class CategoryType extends Model
     public function scopeSelectProductByCategoryType($query)
     {
         return $query->select('products.id as id_product','products.name as name_product','categories.name as name_category',
-        'images.image','products.amount_of','products.price','products.status as status_product');
+        'images.image','products.amount_of','products.price','products.status as status_product', 'products.slug as slug',
+          'products.created_at as created_at');
     }
 
     public function scopewhereCategoryType($query,$id_categoryType)

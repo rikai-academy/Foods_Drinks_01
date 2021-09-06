@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use DB;
@@ -105,6 +106,7 @@ class Order extends Model
     public function scopeGetCountMonth($query) {
         return $query->selectRaw('MONTH(created_at) as month')
           ->whereRaw('YEAR(created_at) = ' . date('Y'))
+          ->byStatus(Status::ACTIVE)
           ->groupByRaw('MONTH(created_at)');
     }
 

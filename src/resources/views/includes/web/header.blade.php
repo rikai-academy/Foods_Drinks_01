@@ -122,7 +122,7 @@
                                     @foreach(getChildrenCategories(\App\Enums\CategoryTypes::FOOD) as $row)
                                       <li>
                                         <a href="{{route('search_category_type', ['slug' => $row->slug])}}">
-                                          {{ $row->name }}
+                                          {{ checkLanguage($row->name, $row->name_vietnamese) }}
                                         </a>
                                       </li>
                                     @endforeach
@@ -134,7 +134,7 @@
                                     @foreach(getChildrenCategories(\App\Enums\CategoryTypes::DRINK) as $row)
                                       <li>
                                         <a href="{{ route('search_category_type', ['slug' => $row->slug]) }}">
-                                          {{ $row->name }}
+                                          {{ checkLanguage($row->name, $row->name_vietnamese) }}
                                         </a>
                                       </li>
                                     @endforeach

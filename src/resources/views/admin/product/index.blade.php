@@ -19,14 +19,14 @@
                                   <li {!! !getChildrenCategories($OBJ_CategoryType->id) ?: "class='dropdown-submenu'"  !!}>
                                     <a class="dropdown-item" href="{{route('show_product_by_CategoryType',['id' =>$OBJ_CategoryType->id ])}}"
                                        tabindex="-1">
-                                      {{$OBJ_CategoryType->name}}
+                                      {{ checkLanguage($OBJ_CategoryType->name, $OBJ_CategoryType->name_vietnamese) }}
                                     </a>
                                     <ul class="dropdown-menu">
                                       @foreach(getChildrenCategories($OBJ_CategoryType->id) as $row)
                                         <li class="dropdown-item">
                                           <a tabindex="-1" class="text-dark text-decoration-none"
                                              href="{{route('show_product_by_CategoryType',['id' =>$row->id ])}}">
-                                            {{ $row->name }}
+                                            {{ checkLanguage($row->name, $row->name_vietnamese) }}
                                           </a>
                                         </li>
                                       @endforeach

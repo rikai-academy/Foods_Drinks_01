@@ -16,6 +16,7 @@ class CreateCategoryTypeTable extends Migration
         Schema::create('category_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',100)->unique();
+            $table->string('name_vietnamese',100)->unique();
             $table->string('slug',100)->unique();
             $table->integer('sub_id');
             $table->timestamps();

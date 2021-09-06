@@ -45,7 +45,7 @@
                 @endforeach
                 <div class="form-group">
                     <label for="inputContent">{{__('custom.Content')}}</label>
-                    <textarea name="content" id="content" value="{{$OBJ_Products->content}}" class="form-control" rows="3"></textarea>
+                    <textarea name="content" id="content" value="{!! $OBJ_Products->content !!}" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="inputContent">{{ __('custom.tags') }}</label>

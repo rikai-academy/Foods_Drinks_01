@@ -25,6 +25,18 @@
           <div class="form-group">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="typeSort"
+                     id="typeSort_count_desc" value="5" checked>
+              <label class="form-check-label" for="typeSort_count_desc">{{__('custom.sort_category_count_desc')}}</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="typeSort"
+                     id="typeSort_count_asc" value="6">
+              <label class="form-check-label" for="typeSort_count_asc">{{__('custom.sort_category_count_asc')}}</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="typeSort"
                      id="typeSort_date_desc" value="3" checked>
               <label class="form-check-label" for="typeSort_date_desc">{{__('custom.sort_date_desc')}}</label>
             </div>

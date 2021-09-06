@@ -16,6 +16,8 @@ class ManagerCategoryService
         if ($typeSort == 2) $categories->sortCategories('name', 'DESC');
         if ($typeSort == 3) $categories->sortCategories('created_at', 'DESC');
         if ($typeSort == 4) $categories->sortCategories('created_at', 'ASC');
+        if ($typeSort == 5) $categories = Categories::getCountGroupBy()->getActive()->sortCategories('total', 'DESC');
+        if ($typeSort == 6) $categories = Categories::getCountGroupBy()->getActive()->sortCategories('total', 'ASC');
         
         $categories = $categories->get();
 

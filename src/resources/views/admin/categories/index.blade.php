@@ -16,13 +16,13 @@
                         @foreach($OBJ_Category_Types as $OBJ_Category_Type)
                           <li {!! !getChildrenCategories($OBJ_Category_Type->id) ?: "class='dropdown-submenu'" !!}>
                             <a class="dropdown-item" href="{{route('showCategoryTy',['id' =>$OBJ_Category_Type->id ])}}" tabindex="-1">
-                              {{$OBJ_Category_Type->name}}
+                              {{ checkLanguage($OBJ_Category_Type->name, $OBJ_Category_Type->name_vietnamese) }}
                             </a>
                             <ul class="dropdown-menu">
                               @foreach(getChildrenCategories($OBJ_Category_Type->id) as $row)
                                 <li class="dropdown-item">
                                   <a tabindex="-1" class="text-dark text-decoration-none" href="{{route('showCategoryTy',['id' =>$row->id ])}}">
-                                    {{ $row->name }}
+                                    {{ checkLanguage($row->name, $row->name_vietnamese) }}
                                   </a>
                                 </li>
                               @endforeach
@@ -65,7 +65,9 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$OBJ_Categorie->name}}</td>
-                            <td>{{$OBJ_Categorie->category_type->name}}</td>
+                            <td>{{ checkLanguage($OBJ_Categorie->category_type->name, 
+                              $OBJ_Categorie->category_type->name_vietnamese) }}
+                            </td>
                             <td>{{$OBJ_Categorie->cardinal_numbers}}</td>
                             <td>
                                 @if($OBJ_Categorie->status == 1)

@@ -18,3 +18,15 @@
 
 /*upload image*/
 $("#lfm").filemanager("image");
+
+/* statistic */
+let url = window.location.href;
+let strStatisticWeek = url.indexOf('filter-week');
+let strStatisticMonth = url.indexOf('filter-month');
+
+if (strStatisticWeek != -1) {
+  $("#statistic-filter select").val(1);
+}
+if (strStatisticMonth != -1) {
+  $("#statistic-filter select").val(2);
+}

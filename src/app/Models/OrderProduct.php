@@ -53,4 +53,14 @@ class OrderProduct extends Model
     {
         return $query->whereMonth('created_at', date("m"));
     }
+
+    public function scopeFeaturedInWeek($query, $dayOne, $dayTwo)
+    {
+        return $query->whereBetween('created_at', [$dayOne, $dayTwo]);
+    }
+
+    public function scopeFeaturedInMonth($query, $dayOne, $dayTwo)
+    {
+        return $query->whereBetween('created_at', [$dayOne, $dayTwo]);
+    }
 }

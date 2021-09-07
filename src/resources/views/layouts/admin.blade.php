@@ -27,3 +27,4 @@
     </div>
     @include('includes.admin.lib-js')
 </body>
+@include('includes.admin.notification.notification-order-js')

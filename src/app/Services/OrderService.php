@@ -7,6 +7,8 @@ use App\Models\Order;
 use DB;
 use Cart;
 use App\Models\Product;
+use App\Events\OrderNotificationEvent;
+use App\Models\Notification;
 
 class OrderService {
 
@@ -97,5 +99,18 @@ class OrderService {
                 'message' => __('custom.message_order_error_db'),
             );
         }
+    }
+
+    public function notification($userID,$userName,$image,$totalMoney,$created_at)
+    {
+        $date = checkLanguageWithDay($created_at);
+        $mess_language = __('custom.message_notification');
+        $mess = "$userName $mess_language $totalMoney.";
+        
+        $notification = new Notification();
+        $notification->user_id = $userID;
+        $notification->content = $mess;
+        $notification->save();
+        event(new OrderNotificationEvent($image,$mess,$date));
     }
 }

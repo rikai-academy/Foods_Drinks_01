@@ -29,3 +29,4 @@
     @include('includes.admin.lib-js')
 </body>
 @include('includes.admin.order.manager-order-js')
+@include('includes.admin.notification.notification-order-js')

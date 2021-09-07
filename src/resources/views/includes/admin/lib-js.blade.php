@@ -11,4 +11,5 @@
 <script src="{{asset('js/admin/manager-statistic-product.js')}}"></script>
 <script src="{{asset('js/admin/manager-tag.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/admin/pusher.min.js')}}"></script>
 

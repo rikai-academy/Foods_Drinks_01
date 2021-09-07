@@ -127,6 +127,9 @@ class SearchController extends Controller
             ->orderBy('products.updated_at', 'DESC')
             ->paginate(21);
 
+            # Increase the number of tag searches
+            $this->searchProduct->numberOfSearchTag($slug);
+
             return view('web.search-products.search-product-tag')->with([
                 'products' => $products, 'param' => $param, 'keyword' => '',
             ]);

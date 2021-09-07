@@ -13,7 +13,6 @@ class TagImport implements ToModel, WithHeadingRow
         return new Tag([
             'name' => $row['name'],
             'slug' => $row['slug'],
-            'number_of_search' => $row['number_of_search'], 
             'status' => $row['status'], 
         ]);
     }

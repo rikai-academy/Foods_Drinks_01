@@ -32,7 +32,6 @@ class TagExport implements FromCollection,WithHeadings,WithEvents, ShouldAutoSiz
             __('custom.ID_tag'),
             __('custom.Name_tag'),
             __('custom.Slug_tag'),
-            __('custom.Number_of_search'),
             __('custom.Status'), 
             __('custom.Created at'),
             __('custom.Update at'),

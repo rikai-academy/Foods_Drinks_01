@@ -76,6 +76,11 @@
                 <a class="nav-link" href="{{route('statistic_product')}}">{{ __('custom.Statistic Product') }}</a>
             </nav>
         </div>
+        <div class="collapse" id="collapseStatistic" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('statistic_tag')}}">{{ __('custom.Statistic Tag') }}</a>
+            </nav>
+        </div>
     </div>
 </div>
 <div class="sb-sidenav-footer">

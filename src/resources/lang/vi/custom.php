@@ -278,6 +278,8 @@ return [
     "November" => "Tháng 11",
     "December" => "Tháng 12",
     'No orders yet so chart can not be shown' => '(Chưa có đơn đặt hàng nào nên không thể hiển thị biểu đồ)',
+    'Statistic Tag' => 'Thống Kê Nhãn',
+    'Statistics of the most searched tags' => 'Thống kê các nhãn được tìm kiếm nhiều nhất',
 
     /* manager tags */
     'Manager_tag' => 'Quản Lí Nhãn',

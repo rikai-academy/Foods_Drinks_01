@@ -15,10 +15,10 @@ class AdminController extends Controller
         $arr_Orders = Order::GetArrOrderMonth()->pluck('count_orders');
         # get an array of months from 1 -> 12(lấy ra một mảng tháng từ 1 -> 12).
         $arr_Months = Order::GetArrMonth()->pluck('month');
-        $number_of_orders = [];
+        $number_of_orders = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         
-        for ($i = 0; $i<count($arr_Months);$i++) {
-            $number_of_orders[$i] = $arr_Orders[$i];
+        foreach ($arr_Months as $index => $month) {
+            $number_of_orders[$month - 1] = $arr_Orders[$index];
         }
 
         # get top 5 most ordered products this month(lấy ra top 5 sản phẩm được đặt hàng nhiều nhất trong tháng này).

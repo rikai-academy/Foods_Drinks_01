@@ -7,6 +7,8 @@ use App\Models\Categories;
 use App\Models\CategoryType;
 use App\Models\Evaluates;
 use App\Models\Product;
+use App\Models\Tag;
+use App\Models\Number_Of_Search;
 use Cart;
 
 class SearchProductService {
@@ -165,5 +167,24 @@ class SearchProductService {
             return CategoryTypes::DRINK;
         }
         return Categories::slug($slug)->first()->category_types_id;
+    }
+
+    public function numberOfSearchTag($slug)
+    {
+        $today = date("Y-m-d");
+        $tag = Tag::Slug($slug)->first();
+        $count = Number_Of_Search::where('tag_id',$tag->id)->where('created_at','like','%'.$today.'%')->count();
+
+        $number_of_search = Number_Of_Search::where('tag_id',$tag->id)->where('created_at','like','%'.$today.'%')->first();
+        if($count == 0){
+            $number_of_search = new Number_Of_Search();
+            $number_of_search->tag_id = $tag->id;
+            $number_of_search->number_of_search = 1;
+            $number_of_search->save();
+        }
+        else{
+            $number_of_search->number_of_search = ($number_of_search->number_of_search) + 1;
+            $number_of_search->save();
+        }
     }
 }

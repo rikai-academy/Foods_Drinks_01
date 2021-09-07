@@ -37,7 +37,6 @@
                     <tr>
                         <th>{{__('custom.Number In Order')}}</th>
                         <th>{{__('custom.Name_tag')}}</th>
-                        <th>{{__('custom.Number_of_search')}}</th>
                         <th>{{__('custom.Created at')}}</th>
                         <th>{{__('custom.Status')}}</th>
                         <th>{{__('custom.Action')}}</th>
@@ -48,7 +47,6 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$OBJ_Tag->name}}</td>
-                            <td>{{$OBJ_Tag->number_of_search}}</td>
                             <td>{{$OBJ_Tag->created_at}}</td>
                             <td>
                                 {!!checkStatusTag($OBJ_Tag->status)!!}

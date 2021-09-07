@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 @section('content')
 @include('sweetalert::alert')
-<h1 class="mt-4">{{__('custom.statistic_order_products')}}</h1>
+<h1 class="mt-4">{{__('custom.statistic_order_tags')}}</h1>
 <div class="card mb-4">
     <div class="card-header">
         <div class="row">
             <div class="col-10">
                 <div class="row">
                     <div class="col-2" id="statistic-filter">
-                        <select class="form-control" id="statisticOrderProducs">
+                        <select class="form-control" id="statisticTags">
                             <option value="0">{{ __('custom.statistic_show_all') }}</option>
                             <option value="2">{{ __('custom.statistic_month') }}</option>
                             <option value="1">{{ __('custom.statistic_week') }}</option>
                         </select>
                     </div>
-                    <form action="{{ route('statistic.filter_products') }}" method="post">
+                    <form action="{{ route('statistic.filter_tags') }}" method="post">
                         @csrf
                         <label>{{ __('custom.Created at') }}:</label>
                         <input type="date" name="findDayOne" value="<?php echo date('Y-m-d'); ?>">
@@ -23,10 +23,10 @@
                         <button type="submit" class="btn btn-primary" title="{{ __('custom.filter') }}">
                             {{ __('custom.filter') }}
                         </button>
-                        <a href="{{ route('statistic.index') }}" class="btn btn-warning" title="{{ __('custom.reload') }}">
+                        <a href="{{ route('statistic.tags') }}" class="btn btn-warning" title="{{ __('custom.reload') }}">
                             <i class="fas fa-sync-alt"></i>
                         </a>
-                    </form>
+                      </form>
                 </div>
             </div>
             <div class="col-2 text-right">
@@ -38,13 +38,13 @@
                         <span class="sr-only"></span>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'all']) }}">
+                        <a class="dropdown-item" href="{{ route('statistic.export_excel_tags', ['type' => 'all']) }}">
                             {{ __('custom.all') }}
                         </a>
-                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'year']) }}">
+                        <a class="dropdown-item" href="{{ route('statistic.export_excel_tags', ['type' => 'year']) }}">
                             {{ __('custom.this_year') }}
                         </a>
-                        <a class="dropdown-item" href="{{ route('statistic.export_excel', ['type' => 'month']) }}">
+                        <a class="dropdown-item" href="{{ route('statistic.export_excel_tags', ['type' => 'month']) }}">
                             {{ __('custom.This month') }}
                         </a>
                     </div>
@@ -58,32 +58,23 @@
                 <thead>
                     <tr>
                         <th>{{__('custom.column_stt')}}</th>
-                        <th>{{__('custom.Product Name')}}</th>
-                        <th>{{__('custom.Image')}}</th>
-                        <th>{{__('custom.Category')}}</th>
-                        <th>{{__('custom.Price')}}</th>
-                        <th>{{__('custom.total_quantity')}}</th>
-                        <th>{{__('custom.Order Date')}}</th>
-                        <th>{{__('custom.Status')}}</th>
+                        <th>{{__('custom.tag_en_name')}}</th>
+                        <th>{{__('custom.tag_vi_name')}}</th>
+                        <th>{{__('custom.number_of_views')}}</th>
+                        <th>{{__('custom.Created at')}}</th>
+                        <th>{{__('custom.Update at')}}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($order_products as $row)
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$row->products()->first()->name}}</td>
-                        <td>
-                            <img src="/storage/products/{{ $row->products()->first()->images()->first()->image }}"
-                                id="img_product" alt="{{ $row->products()->first()->images()->first()->name }}">
-                        </td>
-                        <td>{{ $row->products()->first()->categories()->first()->name }}</td>
-                        <td>{{ formatPrice($row->products()->first()->price) }}</td>
-                        <td>{{ $row->count_products }}</td>
-                        <td>{{ checkLanguageWithDay($row->created_at) }}</td>
-                        <td>
-                            {!! statusProduct($row->products()->first()->status) !!}
-                        </td>
-                    </tr>
+                    @foreach($tag_views as $row)
+                        <tr>
+                          <td>{{ $loop->iteration }}</td>
+                          <td>#{{ $row->tags()->first()->en_name }}</td>
+                          <td>#{{ $row->tags()->first()->vi_name }}</td>
+                          <td>{{ $row->count_views }}</td>
+                          <td>{{ checkLanguageWithDay($row->created_at) }}</td>
+                          <td>{{ checkLanguageWithDay($row->updated_at) }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

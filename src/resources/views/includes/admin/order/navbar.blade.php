@@ -11,7 +11,7 @@
                 <a class="nav-link" href="{{route('user.index')}}">{{ __('custom.list_users') }}</a>
             </nav>
         </div>
-        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="false" aria-controls="collapseLayouts">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="false" aria-controls="collapseLayouts">
             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
             {{ __('custom.Category') }}
             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -27,14 +27,44 @@
             {{ __('custom.product') }}
             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
-        <a class="nav-link collapsed" href="{{route('statistic.index')}}">
-            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
-            {{ __('custom.statistic_products') }}
-        </a>
         <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav">
                 <a class="nav-link" href="{{route('product.index')}}">{{ __('custom.list_products') }}</a>
                 <a class="nav-link" href="{{route('product.create')}}">{{ __('custom.add_product') }}</a>
+            </nav>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTags" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon"><i class="fas fa-tag"></i></div>
+            {{ __('custom.tags') }}
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('tag.index')}}">{{ __('custom.list_tags') }}</a>
+                <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.add_tag') }}</a>
+            </nav>
+        </div>
+        <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('tag.index')}}">{{ __('custom.list_tags') }}</a>
+                <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.add_tag') }}</a>
+            </nav>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStatistic" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+            {{ __('custom.statistic') }}
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseStatistic" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('statistic.tags')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                    {{ __('custom.statistic_tags') }}
+                </a>
+                <a class="nav-link collapsed" href="{{route('statistic.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                    {{ __('custom.statistic_products') }}
+                </a>
             </nav>
         </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseLayouts">
@@ -120,5 +150,5 @@
 </div>
 <div class="sb-sidenav-footer">
     <div class="small">{{ __('custom.logged_in_as') }}:</div>
-    <span>{{Auth::user()->name}}</span> {{-- DATA DEMO --}}
+    <span>{{Auth::user()->name}}</span>
 </div>

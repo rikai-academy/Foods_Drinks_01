@@ -10,3 +10,4 @@
 <script src="{{asset('js/admin/charts/Chart.bundle.min.js')}}"></script>
 <script src="{{asset('js/admin/select2.min.js')}}"></script>
 
+@include('admin.statistic.statistic-inc-js')

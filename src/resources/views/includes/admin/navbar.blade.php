@@ -44,10 +44,29 @@
                 <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.add_tag') }}</a>
             </nav>
         </div>
-        <a class="nav-link collapsed" href="{{route('statistic.index')}}">
-          <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
-          {{ __('custom.statistic_products') }}
+        <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('tag.index')}}">{{ __('custom.list_tags') }}</a>
+                <a class="nav-link" href="{{route('tag.create')}}">{{ __('custom.add_tag') }}</a>
+            </nav>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStatistic" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+            {{ __('custom.statistic') }}
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
+        <div class="collapse" id="collapseStatistic" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('statistic.tags')}}">
+                  <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                  {{ __('custom.statistic_tags') }}
+                </a>
+                <a class="nav-link collapsed" href="{{route('statistic.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                    {{ __('custom.statistic_products') }}
+                </a>
+            </nav>
+        </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseLayouts">
             <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
             {{ __('custom.List Order') }}
@@ -62,5 +81,5 @@
 </div>
 <div class="sb-sidenav-footer">
     <div class="small">{{ __('custom.logged_in_as') }}:</div>
-    <span>{{Auth::user()->name}}</span> {{-- DATA DEMO --}}
+    <span>{{Auth::user()->name}}</span>
 </div>

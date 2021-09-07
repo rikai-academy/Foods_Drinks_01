@@ -114,11 +114,29 @@ Route::group(['middleware' => 'locale'], function() {
         Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
           ->name('statistic.filter_products');
         Route::get('/export/{type}', [StatisticController::class, 'exportExcel'])->name('statistic.export_excel');
+        Route::get('/export', [StatisticController::class, 'exportExcel'])->name('statistic.export_excel');
+        Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
+            ->name('statistic.filter_products');
+        Route::get('/statistic/filter-week-products', [StatisticController::class, 'filterTheWeekOrderProducts'])
+            ->name('statistic.filter_week_products');
+        Route::get('/statistic/filter-month-products', [StatisticController::class, 'filterTheMonthOrderProducts'])
+            ->name('statistic.filter_month_products');
 
         # Manager Tags
         Route::resource('/tag', ManagerTagController::class)->except('show');
         Route::post('/tag/filter-date', [ManagerTagController::class, 'filterDate'])->name('tag.filter_date');
         Route::get('/export-tags/{type}', [ManagerTagController::class, 'exportExcel'])->name('tag.export_excel');
+
+        # Statistic most Tags
+        Route::get('/statistic-tags', [StatisticController::class, 'statisticTags'])->name('statistic.tags');
+        Route::get('/export-tags/{type}', [StatisticController::class, 'exportExcelTags'])
+          ->name('statistic.export_excel_tags');
+        Route::post('/statistic/filter-tags', [StatisticController::class, 'filterTags'])
+          ->name('statistic.filter_tags');
+        Route::get('/statistic/filter-week-tags', [StatisticController::class, 'filterTheWeekTags'])
+          ->name('statistic.filter_week_tags');
+        Route::get('/statistic/filter-month-tags', [StatisticController::class, 'filterTheMonthTags'])
+          ->name('statistic.filter_month_tags');
     });
 
     # Search Products

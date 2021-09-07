@@ -72,6 +72,8 @@ Route::group(['middleware' => 'locale'], function() {
     # Admin page
     Route::prefix('admin')->middleware('auth','check_role_admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
+        Route::get('/notify', [AdminController::class, 'notify'])->name('admin.notify');
+        Route::POST('/notify-mask', [AdminController::class, 'maskNotify'])->name('admin.mask_notify');
 
         # category
         Route::get('/category/export', [ManagerCategoryController::class,'export'])->name('export_category');
@@ -114,7 +116,6 @@ Route::group(['middleware' => 'locale'], function() {
         Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
           ->name('statistic.filter_products');
         Route::get('/export/{type}', [StatisticController::class, 'exportExcel'])->name('statistic.export_excel');
-        Route::get('/export', [StatisticController::class, 'exportExcel'])->name('statistic.export_excel');
         Route::post('/statistic/filter-products', [StatisticController::class, 'filterProducts'])
             ->name('statistic.filter_products');
         Route::get('/statistic/filter-week-products', [StatisticController::class, 'filterTheWeekOrderProducts'])

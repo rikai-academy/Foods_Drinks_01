@@ -7,8 +7,10 @@ use App\Enums\UserRole;
 use App\Jobs\AdminMailJob;
 use App\Models\Order;
 use App\Models\User;
+use App\Notifications\OrderNotify;
 use DB;
 use Cart;
+use Notification;
 use App\Models\Product;
 use wataridori\ChatworkSDK\ChatworkRoom;
 use wataridori\ChatworkSDK\ChatworkSDK;
@@ -85,6 +87,10 @@ class OrderService {
 
         # Sent message to Chatwork
         $this->sendMessageToChatwork($message);
+
+        # Create Notification to admin
+        $userAdmin = User::byRole(UserRole::getKey(0))->first();
+        $userAdmin->notify(new OrderNotify($order));
 
         # Destroy Carts
         Cart::destroy();

@@ -323,6 +323,8 @@ return [
     "November" => "November",
     "December" => "December",
     'No orders yet so chart can not be shown' => '(No orders yet so chart can not be shown)',
+    'Statistic Tag' => 'Statistic Tag',
+    'Statistics of the most searched tags' => 'Statistics of the most searched tags',
 
 
     /* manager tags */

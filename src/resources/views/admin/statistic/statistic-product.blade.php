@@ -57,4 +57,5 @@
         </div>
     </div>
 </div>
+@include('includes.admin.statistic.statistic-product-js');
 @endsection

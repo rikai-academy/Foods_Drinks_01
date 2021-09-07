@@ -115,6 +115,9 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/statistic/product/search/{time}', [ManagerStatisticController::class, 'statisticProductSearchTime']);
         Route::get('/statistic/product/last-week', [ManagerStatisticController::class, 'statisticProductLastWeek']);
         Route::get('/statistic/product/export', [ManagerStatisticController::class, 'export'])->name('export_statistic_product');
+        Route::get('/statistic/tag', [ManagerStatisticController::class, 'statisticTag'])->name('statistic_tag');
+        Route::get('/statistic/tag/search/{time}', [ManagerStatisticController::class, 'statisticTagSearchTime']);
+        Route::get('/statistic/tag/last-week', [ManagerStatisticController::class, 'statisticTagLastWeek']);
 
         # manager tags
         Route::get('/tag/export', [ManagerTagController::class,'export'])->name('export_tag_excel');

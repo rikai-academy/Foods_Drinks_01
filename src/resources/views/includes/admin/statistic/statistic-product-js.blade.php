@@ -1,4 +1,5 @@
-function searchStatisticProductByTime(time,text)
+<script>
+    function searchStatisticProductByTime(time,text)
 {
     $.ajax({
         method: 'get',
@@ -49,3 +50,4 @@ function list_product_statistic(data,text)
         }
     $('#statistic_product').html(content);
 }
+</script>
